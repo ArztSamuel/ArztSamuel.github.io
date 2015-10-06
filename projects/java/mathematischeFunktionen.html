@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+    <link type="text/css" rel="stylesheet" href="../projects.css"/>
+
+    <!-- Image Slider Script -->
+    <script type="text/javascript" src="../imageSlider.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script> <!-- jQuery -->
+    <script>
+        $(document).ready(function(){
+            setImageSources(["img/matheFunktionen/matheFunktionen1.png",
+                        "img/matheFunktionen/matheFunktionen2.png",
+                        "img/matheFunktionen/matheFunktionen3.png",
+                        "img/matheFunktionen/matheFunktionen4.png"]
+            );
+            run();
+        });
+    </script>
+
+    <title>Projektseite - Samuel Arzt</title>
+</head>
+<body>
+<!--  HEADER  -->
+<div class="header">
+    <div class="header-inner">
+        <h1>Samuel Arzt</h1>
+        <div id="curPage">
+            <h2>Projekte</h2>
+        </div>
+        <ul id="navigation">
+            <li class="button"><a href="../../index.html">Home</a></li>
+            <li class="button pressed"><a href="../../projekte.html">Projekte</a></li>
+            <li class="button"><a href="../../about.html">About</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--  CONTENT  -->
+<div class="content">
+    <div class="sidebar left">
+        <div class="sidebar_inner">
+        </div>
+    </div>
+    <div class="content_inner">
+        <h3>Mathematische Funktionen zeichnen</h3>
+        <p class="introduction">
+            Eines meiner ältesten Projekte. Ich habe es während meiner Maturazeit programmiert,
+            um es später für meine mündliche Mathematik- und Informatikmatura zu verwenden.
+        </p>
+        <div id="imgContainer">
+            <a href="img/matheFunktionen/matheFunktionen1.png" id="imgLink">
+                <img id="projectImg1" src="img/matheFunktionen/matheFunktionen1.png" alt="Mathematische Funktionen zeichnen">
+                <img id="projectImg2" src="img/matheFunktionen/matheFunktionen2.png" alt="Mathematische Funktionen zeichnen">
+            </a>
+
+
+            <div id="imgSlctors">
+                <!-- Container for imageSelectors (added through Javascript, since they would be useless without javascript -->
+            </div>
+        </div>
+        <h5>Beschreibung:</h5>
+        <p>
+            Es handelt sich um eine Software die Mathematische Funktionen per Benutzereingabe erwartet, um
+            den Graphen dieser Funktion dann zu zeichnen.
+            Der vom Benutzer eingegebene String wird also von einem von mir entwickelten Algorithmus analysiert
+            und dann vom Programm als Funktion interpertiert. Vereinfacht gesagt werden dann Punkte in regelmäßigen Abständen berechnet, um
+            dann als Kurve dargestellt zu werden.
+        </p>
+        <p>Der Graph kann mit der Maus selektiert, per drag und drop transformiert und mit dem Scroll-Rad skaliert werden.</p>
+        <p>
+            Da ich dieses Programm neben meiner Matura geschrieben habe, habe ich die zwei Funktionen "Newton" und "Secant" hinzugefügt,
+            welche das Newton- und das Sekanten-Verfahren zur Nullstellenermittlung visuell darstellen. Diese Funktionen habe ich
+            bei meiner Fächerübergreifenden mündlichen Matura Mathematik-Informatik demonstriert.
+        </p>
+        <p>
+            Wie in den Screenshots zu sehen, kann man durch Benutzereingabe sowohl einfache Funktionen wie "f(x) = x^2",
+            aber auch Funktionen wie "f(x) = sin(x)" oder "f(x) = e^x" darstellen.
+        </p>
+        <p>
+            Für das Newton'sche Verfahren zur Nullstellensuche habe ich auch einen Ableitungsalgorithmus entwickelt, der "einfache" Funktionen ableiten kann.
+            (Dieser Algorithmus beherrscht auch die Produkt- und Quotientenregel)
+        </p>
+        <h5>Entwicklungszeit:</h5>
+        <p>Ende 2013 - Anfang 2014</p>
+
+    </div>
+    <div class="sidebar right">
+        <div class="sidebar_inner"></div>
+    </div>
+</div>
+
+<!--  FOOTER  -->
+<div class="footer">
+    <div class="footer_inner">
+        <div id="footer_left">
+            <p>Eine Webseite erstellt von Samuel Arzt.</p>
+        </div>
+        <div id="footer_right">
+            <p><strong>Kontakt:</strong> arzt.samuel@live.de</p>
+            <p>sarzt.mmt-b2015@fh-salzburg.ac.at</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+    <link type="text/css" rel="stylesheet" href="../projects.css"/>
+
+    <!-- Image Slider Script -->
+    <script type="text/javascript" src="../imageSlider.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script> <!-- jQuery -->
+    <script>
+        $(document).ready(function(){
+            setImageSources(["img/blocked/blocked1.png",
+                        "img/blocked/blocked2.png",
+                        "img/blocked/blocked3.png",
+                        "img/blocked/blocked4.png"]
+            );
+            run();
+        });
+    </script>
+
+    <title>Projektseite - Samuel Arzt</title>
+</head>
+<body>
+    <!--  HEADER  -->
+    <div class="header">
+        <div class="header-inner">
+            <h1>Samuel Arzt</h1>
+            <div id="curPage">
+                <h2>Projekte</h2>
+            </div>
+            <ul id="navigation">
+                <li class="button"><a href="../../index.html">Home</a></li>
+                <li class="button pressed"><a href="../../projekte.html">Projekte</a></li>
+                <li class="button"><a href="../../about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--  CONTENT  -->
+    <div class="content">
+        <div class="sidebar left">
+            <div class="sidebar_inner">
+            </div>
+        </div>
+        <div class="content_inner">
+            <h3>Blocked</h3>
+            <div id="imgContainer">
+                <a href="img/blocked1.png" id="imgLink">
+                    <img id="projectImg1" src="img/blocked/blocked1.png" alt="Blocked">
+                    <img id="projectImg2" src="img/blocked/blocked2.png" alt="Blocked">
+                </a>
+
+
+                <div id="imgSlctors">
+                    <!-- Container for imageSelectors (added through Javascript, since they would be useless without javascript -->
+                </div>
+            </div>
+            <h5>Beschreibung:</h5>
+            <p class="bottomDist">Hierbei handelt es sich um eines meiner Java-Spiele. Es ist noch lange nicht vollendet, doch ein erster Prototyp steht bereits.
+                Es ist ein 2D Top-Down Zombie-Shooter.
+            </p>
+            <p class="bottomDist">
+                Gesteuert wird mit A W S und D, und der Maus.
+            </p>
+            <p class="bottomDist">
+                Auch bei diesem Projekt habe ich keine vorgefertigte Engine verwendet,sondern das gesamte Spiel wurde von mir programmiert (bis hin zum "Game-Loop").
+                Selbst die Grafiken wurden von mir selbst gezeichnet.
+                Des Weiteren habe ich für dieses Spiel, da es auf Tile-Maps basiert, einen Map-Creator programmiert.
+            </p>
+            <h5>Entwicklungszeit:</h5>
+            <p>Ende 2014 - heute (liegt jedoch schon länger auf Eis)</p>
+        </div>
+        <div class="sidebar right">
+            <div class="sidebar_inner"></div>
+        </div>
+    </div>
+
+    <!--  FOOTER  -->
+    <div class="footer">
+        <div class="footer_inner">
+            <div id="footer_left">
+                <p>Eine Webseite erstellt von Samuel Arzt.</p>
+            </div>
+            <div id="footer_right">
+                <p><strong>Kontakt:</strong> arzt.samuel@live.de</p>
+                <p>sarzt.mmt-b2015@fh-salzburg.ac.at</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

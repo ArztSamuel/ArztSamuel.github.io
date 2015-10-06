@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+    <link type="text/css" rel="stylesheet" href="../projects.css"/>
+
+    <!-- Image Slider Script -->
+    <script type="text/javascript" src="../imageSlider.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script> <!-- jQuery -->
+    <script>
+        $(document).ready(function(){
+            setImageSources(["img/pathfinding/pathfinding1.png",
+                    "img/pathfinding/pathfinding2.png",
+                    "img/pathfinding/pathfinding3.png",
+                    "img/pathfinding/pathfinding4.png",
+                    "img/pathfinding/pathfinding5.png"]
+            );
+            run();
+        });
+    </script>
+
+    <title>Projektseite - Samuel Arzt</title>
+</head>
+<body>
+    <!--  HEADER  -->
+    <div class="header">
+        <div class="header-inner">
+            <h1>Samuel Arzt</h1>
+            <div id="curPage">
+                <h2>Projekte</h2>
+            </div>
+            <ul id="navigation">
+                <li class="button"><a href="../../index.html">Home</a></li>
+                <li class="button pressed"><a href="../../projekte.html">Projekte</a></li>
+                <li class="button"><a href="../../about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--  CONTENT  -->
+    <div class="content">
+        <div class="sidebar left">
+            <div class="sidebar_inner">
+            </div>
+        </div>
+        <div class="content_inner">
+            <h3>Pathfinding mithilfe des A*-Algorithmus'</h3>
+            <div id="imgContainer">
+                <a href="img/pathfinding/pathfinding1.png" id="imgLink">
+                    <img id="projectImg1" src="img/pathfinding/pathfinding1.png" alt="Pathfinding mithilfe des A* Algorithmus'">
+                    <img id="projectImg2" src="img/pathfinding/pathfinding2.png" alt="Pathfinding mithilfe des A+ Algorithmus'">
+                </a>
+
+
+                <div id="imgSlctors">
+                    <!-- Container for imageSelectors (added through Javascript, since they would be useless without javascript -->
+                </div>
+            </div>
+            <h5>Beschreibung:</h5>
+            <p>Dieses Programm habe ich für mein Maturaspezialgebiet in Informatik geschrieben.</p>
+            <p>
+                Es visualisiert die Vorgehensweise des <a href="https://de.wikipedia.org/wiki/A*-Algorithmus" target="_blank">A*-Algorithmus'</a>
+                mit dessen Hilfe man den kürzesten Weg von A nach B in einer Tile-Map finden kann.
+            </p>
+            <h5>Bedienung:</h5>
+            <p>
+                In der linken oberen Ecke kann man durch klicken des Buttons "Start/Ziel neu setzen" zwischen zwei Modi wechseln.
+                Je nach Modus setzt man mit der linken Maustaste Hindernisse in das Feld oder setzt den Startpunkt neu und mit der
+                rechten Maustaste löscht man Hindernisse oder setzt das Ziel neu.
+            </p>
+            <p>
+                Durch wiederholtes betätigen der Leertaste kann man sich Schritt für Schritt durch den Algorithmus führen lassen,
+                durch betätigen der Enter-Taste wird der kürzeste Weg sofort gefunden.
+            </p>
+            <h5>Entwicklungszeit:</h5>
+            <p>Anfang 2014</p>
+        </div>
+        <div class="sidebar right">
+            <div class="sidebar_inner"></div>
+        </div>
+    </div>
+
+    <!--  FOOTER  -->
+    <div class="footer">
+        <div class="footer_inner">
+            <div id="footer_left">
+                <p>Eine Webseite erstellt von Samuel Arzt.</p>
+            </div>
+            <div id="footer_right">
+                <p><strong>Kontakt:</strong> arzt.samuel@live.de</p>
+                <p>sarzt.mmt-b2015@fh-salzburg.ac.at</p>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

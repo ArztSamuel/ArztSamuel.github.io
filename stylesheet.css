@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+}
+/* GENERAL */
+p{
+    line-height: 1.3em;
+}
+
+.header{
+    position: relative;
+    background-color: #8BBCCC;
+    width: 100%;
+    height: 150px;
+    min-width: 560px;
+}
+
+.content{
+    position: relative;
+    background-color: #EDEDED;
+    width: 100%;
+    min-height: 500px;
+    min-width: 560px;
+}
+.content_inner{
+    position: relative;
+    left: 20%;
+    top: 50px;
+    display: inline-block;
+    font-size: 1.3em;
+    width: 60%;
+    padding-bottom: 150px;
+}
+
+@media screen and (max-width: 800px){
+    .content_inner{
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+        padding-right: 2em;
+        padding-left: 2em;
+    }
+
+    .sidebar{
+        display: none;
+    }
+}
+
+/* SIDEBARS */
+.sidebar{
+    position: absolute;
+    background-color: #84A877;
+    width: 15%;
+    height: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    top: 0;
+}
+.sidebar.left{
+    overflow: hidden;
+    left: 0;
+}
+.sidebar.right{
+    overflow: hidden;
+    right: 0;
+}
+.footer{
+    position: relative;
+    background-color: #6492A1;
+    width: 100%;
+    height: 130px;
+    min-width: 560px;
+}
+.sidebar_inner{
+    margin-top: 20px;
+}
+
+
+
+/*HEADER CONTENT*/
+h1{
+    font-size: 4em;
+    font-family: sans-serif;
+    margin-left: 10px;
+}
+#curPage{
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 0;
+    float: left;
+    margin-left: 3%;
+    margin-top: 10px;
+    width: 8em;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #56A0B8;
+}
+#navigation{
+    margin-top: 38px;
+    margin-left: 5%;
+    display: inline-block;
+    padding-left: 0;
+}
+#navigation li{
+    display: inline-block;
+}
+.button{
+    display: inline-block;
+    font-size: 1.5em;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-decoration: none;
+    text-shadow: 0 1px 1px black;
+    border-radius: 8px;
+    background-color: #A17364;
+    border: maroon 1px solid;
+    box-shadow: inset 0 1px 3px pink, inset 0 -5px 15px maroon, 0 2px 1px black;
+}
+.button a{
+    color: white;
+}
+.button:hover{
+    background-color: #D65C5C;
+    border-width: 2px;
+    margin-top: -2px;
+    margin-right: 0;
+}
+.button:hover a{
+    text-decoration: none;
+}
+/*Class for inactive links*/
+.inactive{
+    pointer-events: none;
+    cursor: default;
+}
+/*Class to simulate a button being constantly pressed*/
+.pressed{
+    background-color: maroon;
+    border-width: 2px;
+    margin-top: -2px;
+    margin-right: 0;
+}
+
+
+/*CONTENT CONTENT*/
+h3 {
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    padding-top: 0.5em;
+}
+h4 {
+    font-size: 1.5em;
+    padding-bottom: 0.7em;
+    padding-top: 2em;
+}
+h5 {
+    font-size: 1.3em;
+    display: inline-block;
+    padding: 0;
+    padding-bottom: 0.5em;
+    margin: 0;
+}
+li{
+    line-height: 1.3em;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+
+/*FOOTER CONTENT*/
+.footer_inner{
+    display: inline-block;
+    margin-left: 20%;
+    margin-top: 10px;
+    width: 60%;
+}
+#footer_left{
+    float: left;
+}
+#footer_right{
+    float: right;
+}
+
+
+
+
+
+
+
+
+

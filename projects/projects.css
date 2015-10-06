@@ -1,0 +1,79 @@
+
+p {
+    padding-bottom: 1em;
+}
+
+.introduction{
+    padding-bottom: 2.5em;
+}
+
+#imgContainer {
+    position: relative;
+    float: right;
+    width: 30em;
+    height: 22em;
+    z-index: 0;
+    padding-left: 1em;
+}
+#projectImg1, #projectImg2{
+    position: absolute;
+    float: right;
+    width: 30em;
+    height: 20em;
+    border: 1px solid darkgray;
+}
+
+@media screen and (max-width: 1000px) {
+    #imgContainer{
+        width: 24em;
+        height: 17.4em;
+    }
+    #projectImg1, #projectImg2{
+        width: 24em;
+        height: 16em;
+    }
+}
+
+
+#projectImg1{
+    z-index: 0;
+    opacity: 1;
+}
+#projectImg2{
+    z-index: 1;
+    opacity: 0;
+}
+
+#imgSlctors {
+    position: relative;
+    top: 92%;
+    text-align: center;
+}
+
+.imgSlctor {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+.off {
+    background-color: darkgray;
+    border: 1px gray solid;
+}
+
+.on {
+    background-color: dodgerblue;
+    border-left: none;
+    border-top: none;
+    border-right: solid black 1px;
+    border-bottom: solid black 1px;
+    padding-top: 1px;
+    padding-left: 1px;
+}
+
+.hover {
+    background-color: #8BBCCC;
+    border: 1px dodgerblue solid;
+}

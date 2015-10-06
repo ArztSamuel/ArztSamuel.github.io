@@ -130,8 +130,11 @@ function slctorClicked(){
         curImgContainer = document.getElementById("projectImg2");
     }
 
-    //Edit image source to be the selected image
+    //Edit image source and image link to be the selected image
     curImgContainer.setAttribute("src", imgSource[childIndex]);
+    document.getElementById("imgLink").setAttribute("href", imgSource[childIndex]);
+
+
     nextImg = childIndex;
 
     //Reset automatic image slider interval

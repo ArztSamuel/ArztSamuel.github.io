@@ -15,6 +15,7 @@ p {
     z-index: 0;
     padding-left: 1em;
 }
+
 #projectImg1, #projectImg2{
     position: absolute;
     float: right;

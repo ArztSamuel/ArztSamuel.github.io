@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+    <title>Blocked - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projekte</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../en/projects/java/blocked/blocked.html">Switch to English Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#java">Java</a></div>
+	
+		<h1>Blocked</h1>
+		
+		<div id="imgContainer">
+			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
+			<img src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
+			<img src="../../../../shared/projects/java/blocked/img/blocked2.png" alt="Blocked <Image>"></img>
+			<div class="slctor off" style="left: 50%;"></div>
+			<img src="../../../../shared/projects/java/blocked/img/blocked3.png" alt="Blocked <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
+			<img src="../../../../shared/projects/java/blocked/img/blocked4.png" alt="Blocked <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+		</div>
+		
+		<div class="projectContent">
+			<h2>Beschreibung:</h2>
+			<p>Eines meiner Java-basierten Spiele. Es ist noch lange nicht fertig, allerdings steht ein erster Prototyp. Es ist ein 2D Top-Down Zombie-Shooter.</p>
+			<p>Der Charakter wird mit AWSD und der Maus gesteuert.</p>
+			<p>Wie für die meisten meiner Projekte habe ich auch für dieses Spiel keine externen Bibliotheken oder Game-Engines verwendet. Das gesamte Spiel bis hin zum "Game-Loop" 
+				wurde von mir geschrieben. Sogar die Grafiken wurden von mir selbst gezeichnet (...gekrakelt). Des Weiteren habe ich einen kleinen Map-Creator programmiert mit dem 
+				man ganz einfach Maps für das Spiel erstellen kann.</p>
+		</div>
+		<h2>Entwicklungszeit:</h2>
+		<p>Anfang 2014 - Mitte 2015 (Fortsetzung folgt... hoffentlich)</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+#imgContainer{
+	position: relative;
+	padding-bottom: 2em;
+	margin-bottom: 1.5em;
+	margin-top: 2em;
+}
+
+#imgContainer img{
+	position: absolute;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+	opacity: 0;
+	
+	border: lightGray solid 1px;
+	transition: opacity 2s;
+}
+
+#imgContainer #placeholder{
+	position: relative;
+	z-index: 0;
+	opacity: 0;
+}
+
+.slctor{
+	position: absolute;
+	bottom: 0.5em;
+	
+	border-width: 1px;
+	border-radius: 50%;
+	z-index: 3;
+	cursor: pointer;
+	
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1em;   
+}
+
+.on, .slctor:hover{
+	width: 1.2em;
+	height: 1.2em;
+	border-style: none solid solid none;
+	border-color: black;
+	background-color: steelBlue;
+	line-height: 1.2em;
+}
+
+.slctor.off:hover{
+	background-color: lightSkyBlue;
+	border-color: gray;
+}
+
+.off{
+	width: 1.15em;
+	height: 1.1em;
+	
+	border-color: gray;
+	border-style: solid;
+	background-color: lightGray;
+}
+
+#imgContainer .slctor:hover + img{
+	opacity: 1;
+}
+
+#imgContainer .slctor.on + img{
+	opacity: 1;
+	z-index: 1;
+}

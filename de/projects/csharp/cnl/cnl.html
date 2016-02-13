@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/csharp/cnl/cnl.css" rel="stylesheet" type="text/css">
+    <title>CNL - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projekte</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../en/projects/csharp/cnl/cnl.html">Switch to English version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a></div>
+		
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip">Download</a>
+		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.0)</h1>
+		
+		<p>Dieses kleine Programm kann dich automatisch in das Campus Internet in Puch Urstein einloggen.</p>
+		
+		<img id="projectImg" src="../../../../shared/projects/csharp/cnl/img/cnl1.png" alt="CNL in action <Image>"></img>
+		
+		<div class="projectContent">
+			<h2 id="setup">Installation in 3 Schritten:</h2>
+			<div id="setup">
+				<div id="imgContainer">
+					<div class="slctor on" style="left: Calc(50% - 2*1.6em);">1</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep1.png" alt="CNL Setup Step 1 <Image>"></img>
+					<div class="slctor off" style="left: Calc(50% - 1.6em);">2</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep2.png" alt="CNL Setup Step 2 <Image>"></img>
+					<div class="slctor off" style="left: 50%;">3</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep3.png" alt="CNL Setup Step 3 <Image>"></img>
+					<img id="placeholder" src="../../../../shared/projects/csharp/cnl/img/cnlstep1.png" alt="CNL Setup Step 1 <Image>"></img>
+				</div>
+				<div class="bottomDist"></div>
+				<ol>
+					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip">Lade</a> die Software gratis herunter und entpacke die Datei.</li>
+					<li>Führe die Datei "CNLOptions.exe" aus und konfiguriere deinen Login.</li>
+					<li>Lege "CNL.exe" (oder eine Verknüpfung dazu) in deinen <a href="help.html#startFolder">Autostart-Ordner</a>, oder führe das Programm manuell aus wann immer du einen Login benötigst.</li>
+				</ol>
+				<p>Brauchst du <a href="help.html">Hilfe</a>?</p>
+			</div>
+		</div>
+		
+		<h2>Wie funktionert es?</h2>
+		<p>CNL speichert alle notwendigen Daten aus "CNLOptions" verschlüsselt auf deiner eigenen Festplatte. CNL entschlüsselt diese Daten dann sobald du es 
+			ausführst, um dich in deinen Account einzuloggen. Solltest du, aus welchem Grund auch immer, besagte Daten von deinem Rechner löschen wollen, kannst du 
+			einfach den Knopf "Delete savedata" im oberen rechten Eck von "CNLOptions" drücken.</p>
+		<h2>Empfohlene Einstellungen ("Advanced Settings")</h2>
+		<p>Die <strong>standard Einstellungen</strong> sind bereits die empfohlenen Einstellungen. Die folgenden Zeilen werden dir jedoch noch einmal den 
+			Nutzen der einzelnen Optionen, sowie deren Vor- und Nachteile näher bringen.</p>
+		<p><strong>"Retry":</strong><br>
+			Diese Option legt fest wie oft das Programm versuchen wird dich einzuloggen, sollte es beim ersten Mal nicht klappen.<br>
+			Ich empfehle diese Einstellung auf <strong>"5"</strong> oder <strong>"infinitely"</strong> zu stellen. Jedoch sollte man im Hinterkopf behalten, dass im 
+			Falle einer nicht vorhandenen Internet Verbindung die Einstellung "infinitely" das Programm im Hintergrund unendlich laufen lassen wird.</p>
+		<p><strong>"Check connection":</strong><br>
+			Diese Option legt fest, ob und in welchen Zeitabständen die Verbindung getestet werden soll nachdem man eingeloggt wurde.
+			<br>Ich empfehle diese Einstellung <strong>komplett auszuschalten</strong> und statt dessem das Programm manuell zu starten, sollte man ausgeloggt werden. Der Grund ist etwas 
+			komplizierter zu erklären aber lasst es mich versuchen...<br>
+			Da das überprüfen der Verbindung im Sekundentakt deine Bandbreite belasten würde musste ich die Überprüfungsrate auf Minuten beschränken. Deshalb hat die Einstellung 
+			"1" zu Folge, dass deine Verbindung jede Minute geprüft wird, was bedeutet im "Worst Case" loggt dich das Programm wieder ein nachdem du 1 Minute ausgeloggt warst. 
+			Jedoch ist es nicht sehr Wahrscheinlich ausgeloggt zu werden, wenn deine Verbindung jede Minute aktiv ist. Solltest du also wirklich diese Funktion verwenden wollen, würde ich 
+			versuchen ein goldenes Mittel zwischen Überprüfungsabstand und "Worst Case" Zeit zu finden... Das ist der Grund warum der standard Wert bei <strong>"15"</strong> liegt: Worst Case... 
+			15 Minuten. Durchschnittlicher Fall... 7.5 Minuten.</p>
+		<p><strong>"Open Debug Window":</strong><br>
+			Wenn du diese Option einschaltest öffnet sich mit CNL ein Kommando-Fenster.<br>
+			Dieses Fenster dient nur zur Fehlererkennung/-behebung, deshalb ist es standardmäßig auch <strong>ausgeschaltet</strong>. Schließt man dieses Fenster dann wird auch das Programm beendet. 
+			Hast du also zum Beispiel die Option "Check connection" eingeschaltet musst du das Fenster zumindest minimiert lassen, damit diese Funktion nich abgebrochen wird. Solltest du jedoch genau 
+			wissen wollen was gerade passiert, wenn das Programm läuft kannst du diese Option gerne einschalten.</p>
+		<h2>Feedback</h2>
+		<p>Bitte sagt mir was ihr denkt! Einen <a href="help.html#bug">Fehler</a> gefunden? Kontaktiert mich unter sarzt.mmt-b2015@fh-salzburg.ac.at</p>
+		<h2>Entwicklungszeit:</h2>
+		<p>Ende 2015 - Anfang 2016</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

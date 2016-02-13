@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+    <title>Wegfindung - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projekte</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../en/projects/java/pathfinding/pathfinding.html">Switch to Englisch version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#java">Java</a></div>
+	
+		<h1>Wegfindung mittels A*-Algorithmus</h1>
+		<div id="imgContainer">
+			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
+			<img src="../../../../shared/projects/java/pathfinding/img/pathfinding1.png" alt="Pathfinding using A* <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
+			<img src="../../../../shared/projects/java/pathfinding/img/pathfinding2.png" alt="Pathfinding using A* <Image>"></img>
+			<div class="slctor off" style="left: 50%;"></div>
+			<img src="../../../../shared/projects/java/pathfinding/img/pathfinding3.png" alt="Pathfinding using A* <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
+			<img src="../../../../shared/projects/java/pathfinding/img/pathfinding4.png" alt="Pathfinding using A* <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% + 2*1.6em);"></div>
+			<img src="../../../../shared/projects/java/pathfinding/img/pathfinding5.png" alt="Pathfinding using A* <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/java/pathfinding/img/pathfinding1.png" alt="Pathfinding using A* <Image>"></img>
+		</div>
+		
+		<div class="projectContent">
+			<h2>Beschreibung:</h2>
+			<p>Dieses Programm habe ich für meine mündliche Matura in Informatik entwickelt.</p>
+			<p>Es soll den Arbeitsprozess des A*-Algorithmus Schritt für Schritt visualisieren. Das Ziel des Algorithmus' ist es den kürzesten Weg 
+			von A nach B auf einer Tile-Map zu finden.</p>
+			<div class="divLine"></div>
+			<h2>Steuerung</h2>
+			<p>Durch den Knopf im oberen rechten Eck lässt sich durch 2 Modi wechseln. Je nach derzeitigem Modus wird durch einen Linksklick 
+				entweder ein neues Hindernis gesetzt oder der Start neu gesetzt, während ein Rechtsklick entweder ein Hindernis entfernt oder 
+				das Ziel neu setzt.</p>
+			<p>Durch wiederholtes drücken der Leertaste kann der A*-Algorithmus Schritt-für-Schritt visualisiert werden. Mit der Enter-Taste kann man direkt 
+				zum Endpunkt des Algorithmus' springen.</p>
+		</div>
+		<h2>Enwticklungszeit:</h2>
+		<p>Anfang 2014</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

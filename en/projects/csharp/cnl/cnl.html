@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/csharp/cnl/cnl.css" rel="stylesheet" type="text/css">
+    <title>CNL - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projects</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../de/projects/csharp/cnl/cnl.html">Zur deutschen Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
+		
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip">Download</a>
+		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.0)</h1>
+		
+		<p>This small programm will automatically log into your account at the Campus internet at Puch Urstein.</p>
+		
+		<img id="projectImg" src="../../../../shared/projects/csharp/cnl/img/cnl1.png" alt="CNL in action <Image>"></img>
+		
+		<div class="projectContent">
+			<h2 id="setup">Three step setup:</h2>
+			<div id="setup">
+				<div id="imgContainer">
+					<div class="slctor on" style="left: Calc(50% - 2*1.6em);">1</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep1.png" alt="CNL Setup Step 1 <Image>"></img>
+					<div class="slctor off" style="left: Calc(50% - 1.6em);">2</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep2.png" alt="CNL Setup Step 2 <Image>"></img>
+					<div class="slctor off" style="left: 50%;">3</div>
+					<img src="../../../../shared/projects/csharp/cnl/img/cnlstep3.png" alt="CNL Setup Step 3 <Image>"></img>
+					<img id="placeholder" src="../../../../shared/projects/csharp/cnl/img/cnlstep1.png" alt="CNL Setup Step 1 <Image>"></img>
+				</div>
+				<div class="bottomDist"></div>
+				<ol>
+					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip">Download</a> the software for free and unzip the file.</li>
+					<li>Run "CNLOptions.exe" and setup your login options.</li>
+					<li>Put "CNL.exe" (or a shortcut) to it into your <a href="help.html#startFolder">autostart-folder</a>, or manually run it whenever you need a login.</li>
+				</ol>
+				<p>Need <a href="help.html">help</a>?</p>
+			</div>
+		</div>
+		
+		<h2>How does it work?</h2>
+		<p>CNL will save all required data from "CNLOptions" encrypted on your local hard drive. CNL will then decrypt this data whenever 
+			you run it, in order to log you into your account. If you want to delete said save-data for whatever reason, you can push 
+			the button "Delete savedata" at the top right corner of CNLOptions.</p>
+		<h2>Recommended "Advanced" Settings</h2>
+		<p>The <strong>default settings</strong> are already the recommended settings. The next lines will explain options 
+			and different advantages of different settings.</p>
+		<p><strong>Retry:</strong><br>This option determines how often the program will retry to connect to the login page, 
+			if it fails the first time.<br>I would recommend setting this to either <strong>"5"</strong> or <strong>infinitely</strong>. However keep 
+			in mind that if you are not connected to the internet this will keep the program constantly running in 
+			the background, if set to "infinitely".</p>
+		<p><strong>Check connection:</strong><br>This option determines whether or not the program should check if you are still logged in every x-seconds.
+			<br>I recommend turning this <strong>completely off</strong>. This is a comlicated one to explain but let me have a try...<br>I had to limit the cyclic repeat to 
+			minutes because checking your connection every second would sacrifice your bandwidth. Therefore setting this to "1" will check your connection every 
+			minute, which would mean in the worst case the program would automatically log you back in after 1 minute of being logged out. However you will most 
+			likely not be logged out if your connection is active every minute. So if you really want to turn this option on, I would recommend finding a happy 
+			medium between check time and worst case time... That is why the default value is <strong>"15"</strong>: Worst case... 15 minutes. Most probable case... 7.5 minutes.</p>
+		<p><strong>Open Debug Window:</strong><br>Once you turn this option on a command prompt will always open when you run CNL.<br>This window solely serves 
+			debug purposes, therefore it is turned <strong>off</strong> by default. If you close the debug window you will also terminate the program. So if you turned "Check connection" on 
+			you will have to keep it at least minimized for it to work. If you want to see what exactly is happening while the program is running feel free to turn 
+			the debug window on. Or turn it on for... well... debug-reasons...</p>
+		<h2>Feedback</h2>
+		<p>Please let me know what you think! Found a <a href="help.html#bug">bug</a>? Contact me under sarzt.mmt-b2015@fh-salzburg.ac.at</p>
+		<h2>Time of Development:</h2>
+		<p>Late 2015 - Early 2016</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>A website made by Samuel Arzt<br>
+			Like my work? Feel free to:</p>
+		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

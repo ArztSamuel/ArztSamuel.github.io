@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../shared/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/csharp/cnl/cnl.css" rel="stylesheet" type="text/css">
+    <title>CNL Hilfe - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projekte</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../en/projects/csharp/cnl/help.html">Switch to English version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a> > <a href="cnl.html">CNL</a></div>
+		
+		<h1>CNL - Hilfe</h1>
+		<p id="introduction">Du benötigst Hilfe mit CampusNetLogin? Fällt dein Problem in einer dieser Kategorien?</p>
+		<ul>
+			<li><a href="#guide">Installations-Guide</a></li>
+			<li><a href="#startFolder">Windows Autostart-Ordner</a></li>
+			<li><a href="#noBoot">Das Programm startet nicht</a></li>
+			<li><a href="#noLogin">Ich werde nicht eingeloggt</a></li>
+			<li><a href="#mac">Mac support</a></li>
+			<li><a href="#bug">Ich habe einen Fehler gefunden!</a></li>
+		</ul>
+		
+		<p>Keine dieser Kategorien passt auf dein Problem? Du kannst mich gerne kontaktieren unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
+		<div class="bottomBigDist"></div>
+		
+		<div class="jumpAnchor" id="guide"></div>
+		<h2>Installations-Guide</h2>
+		<p><a href="cnl.html#setup">Hier</a> kannst du eine 3-Schritte schnell-Installations Anleitung finden. Solltest du noch immer Probleme haben 
+			CNL auf deinem PC zum Laufen zu bringen gibt es hier noch einen detailierteren Guide:</p>
+		<div class="bottomDist"></div>
+		<ol>
+			<li>Lade <a href="../../../../shared/projects/csharp/cnl/CNL.zip">CNL.zip</a> herunter. (Speichere die Datei "CNL.zip" auf deinem Rechner)</li>
+			<li>Entzippe die Zip-Datei an einem beliebigen Ort auf deinem Rechner. (Rechtsklick -> Alle extrahieren...)</li>
+			<li>Starte "CNLOptions.exe" mit einem Doppelklick. (Du musst wahrscheinlich beiden .exe Dateien den Zugriff erlauben)</li>
+			<li>Konfiguriere deine Login Daten. (Setze deinen Benutzernamen und dein Passwort für den Internet-Zugang ein, die restlichen Optionen sind optional und 
+				können erstmal auf dem standard bleiben)</li>
+			<li>Klicke auf Apply oder schließe das Fenster einfach (speichert automatisch).</li>
+			<li>Lege nun entweder eine Verknüpfung zu "CNL.exe" (Rechtsklick > Senden an > Desktop-Verknüpfung) in deinen Windows <a href="#startFolder">Autostart-Ordner</a> 
+				oder führe die Datei manuell aus wann immer du eingeloggt werden willst.</li>
+		</ol>
+		<p>Um die Software ausführen zu können musst du Microsofts .Net-Framework auf deinem Rechner installiert haben (dies ist allerdings auf den meisten Rechnern bereits der Fall).</p>
+		<div class="bottomBigDist"></div>
+
+		
+		<div class="jumpAnchor" id="startFolder"></div>
+		<h2>Wo befindet sich der Windows Autostart-Ordner?</h2>
+		<p>Der Autostart-Ordner ist abhängig von der Windows-Version:</p>
+		<p><strong>Windows 7:</strong><br>
+			Gehe zu "Start" > "Programme" und suche nach dem Ordner "Autostart". Lege nun in diesen Ordner eine Verknüpfung zu "CNL.exe".<br>
+			<strong>Windows 8/10:</strong><br>
+			Entweder du drückst "Windows + R" und gibst in das sich öffnende Fenster "shell:startup" ein, um deinen Autostart-Ordner zu öffnen 
+			oder du gehst einfach zum Verzeichnis "C:\Users\<strong>-Dein Benutzer-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"</p>
+		<div class="bottomBigDist"></div>
+		
+		<div class="jumpAnchor" id="noBoot"></div>
+		<h2>Das Programm startet nicht</h2>
+		<p>Wenn das Programm nicht startet, stelle bitte sicher, dass Microsoft's .Net Framework auf deinem Rechner installiert ist.<br>
+			Sollte das Programm trotzdem nicht starten versuche bitte den Speicher-Ordner "CNL" manuell zu löschen. Gib einfach "%appdata%" in das Verzeichnisfeld deines Explorers ein  
+			und lösche den Ordner "CNL". (Speicher Verzeichnis: "C:\Users\<strong>-Dein Benutzer-</strong>\AppData\Roaming")</p>
+		<p>Sollte der Speicher-Ordner nicht vorhanden sein und das Programm startet nicht bitte zögere nicht mit mir Kontakt aufzunehmen und ich werde mich bemühen den Fehler zu beheben.</p>
+		<div class="bottomBigDist"></div>
+
+		<div class="jumpAnchor" id="noLogin"></div>
+		<h2>Ich werde nicht eingeloggt.</h2>
+		<p>Bitte stelle sicher, dass der Benutzername und das Passwort, welche du bei CNLOptions eingetragen hast korrekt sind.<br>
+			Solltest du noch immer nicht eingeloggt werden versuche den Wert von "Retry" in CNLOptions zu erhöhen. Sollte das Problem weiterhin bestehen kannst du mich 
+			gerne unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> kontaktieren.</p>
+		<div class="bottomBigDist"></div>
+		
+		<div class="jumpAnchor" id="mac"></div>
+		<h2>Mac Support</h2>
+		<p>Ich hatte bis jetzt leider noch nicht die Möglichkeit das Programm unter OSX zu testen. Allerdings solltest du wenn du Microsoft's .Net Framework auf deinem Mac installiert hast das Programm ganz normal 
+			ausführen können.<br>
+			Solltest du ein Mac-User sein und kannst dieses Programm testen sag mir bitte Bescheid, ob es bei dir läuft oder nicht unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span></p>
+		<div class="bottomBigDist"></div>
+		
+		<div class="jumpAnchor" id="bug"></div>	
+		<h2>Ich habe einen Fehler gefunden!</h2>
+		<p>Wenn du einen Fehler gefunden hast oder einfach ein neues Feature vorschlagen willst kontaktiere mich einfach mit einer detailreichen Beschreibung unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> .</p>
+		<div class="bottomBigDist"></div>
+		
+		<div class="bottomDist"></div>
+		<div class="navHistory bottom">> <a href="cnl.html">Zurück zu CNL</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+</body>
+</html>

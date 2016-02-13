@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+    <title>Website - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projekte</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../en/projects/htmlcss/website/website.html">Switch to English version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#htmlcss">html/css</a></div>
+		
+		<h1>Website</h1>
+		<p id="introduction">Jetzt kommt die Pointe: Du stöberst bereits durch dieses Projekt... Tja! Da hab ich dich wohl erwischt!</p>
+		<p>Du kannst zwar jederzeit selbst den Quellcode in deinem Browser betrachten, dennoch findest du hier ein paar Screenshots...</p>
+		
+		<div id="imgContainer">
+			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
+			<img src="../../../../shared/projects/htmlcss/website/img/website1.png" alt="Website <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
+			<img src="../../../../shared/projects/htmlcss/website/img/website2.png" alt="Website <Image>"></img>
+			<div class="slctor off" style="left: 50%;"></div>
+			<img src="../../../../shared/projects/htmlcss/website/img/website3.png" alt="Website <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
+			<img src="../../../../shared/projects/htmlcss/website/img/website4.png" alt="Website <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/htmlcss/website/img/website1.png" alt="Website <Image>"></img>
+		</div>
+		
+		<h2>Entwicklungszeit:</h2>
+		<p>Ende 2015, Erneuert Anfang 2016</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="AT">
+			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+.category{
+	margin-top: 3em;
+	margin-bottom: 4em;
+	background-color: ghostwhite;
+	border-radius: 20px;
+	border: lightGray solid 1px;
+	padding: 2.5em;
+	overflow: hidden;
+	
+	margin-right: -1.5em;
+	margin-left: -1.5em;
+	position: relative;
+}
+
+.projectList{
+	display: inline-block;
+}
+
+.clist{
+	display: inline-block;
+	font-size: 15pt;
+	margin-bottom: 0.6em;
+	position: relative;
+	z-index: 2;
+	margin-left: 3%;
+	cursor: pointer;
+}
+
+.bulletPoint{
+	display: inline-block;
+	background-color: steelBlue;
+	margin-right: 0.4em;
+	width: 0.57em;
+	height: 0.57em;
+	border-radius: 50%;
+	border: black solid 1px;
+	border-style: none solid solid none;
+}
+
+/* Project Image Preview */
+
+.category img{
+	display: inline-block;
+	position: absolute;
+	right: 2.5em;
+	bottom: 2.5em;
+	
+}
+
+img.a, img.b, img.c, img.d, img.e{
+	opacity: 0;
+	z-index: 1;
+	border: lightGray solid 1px;
+	box-shadow: 0.5px 1px 2px gray;
+
+	transition: opacity 1s;
+}
+
+.imgPlaceholder{
+	opacity: 1;
+	z-index: 0;
+	
+	transition: opacity 0.5s ease-in;
+}
+
+.placeholder{
+	width: 384px;
+	height: 216px;
+	display: inline-block;
+	float: right;
+}
+
+.clist:hover + img{
+	opacity: 1;
+}
+
+.clist:hover .bulletPoint{
+	background-color: lightSkyBlue;
+	border-color: lightSkyBlue;
+}
+
+.clist:hover > a{
+	color: lightSkyBlue;
+	text-decoration: underline;
+}
+
+.clist:hover ~ .imgPlaceholder{
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+
+
+
+/* Media Queries */
+
+@media screen and (max-width:1350px){
+	.category img, .placeholder{
+		width: 320px;
+		height: 180px;
+	}
+}
+
+@media screen and (max-width: 800px){
+	.category img, .placeholder{
+		width: 240px;
+		height: 127.5px;
+	}
+}
+
+@media screen and (max-width: 750px){
+	.category img, .placeholder{
+		width: 384px;
+		height: 216px;
+	}
+
+@media screen and (max-width: 550px){
+	.category img, .placeholder{
+		width: 240px;
+		height: 127.5px;
+	}
+}
+
+
+

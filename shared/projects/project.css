@@ -1,0 +1,43 @@
+
+#content p{
+	padding-bottom: 1.2em;
+}
+
+p#introduction{
+	padding-bottom: 0;
+}
+
+.navHistory, .navHistory a{
+	font-size: 11pt;
+}
+
+.navHistory.top{
+	margin-top: -1.5em;
+	padding-bottom: 2em;
+}
+
+.navHistory.bottom{
+	margin-bottom: -2.5em;
+	padding-top: 3em;
+}
+
+.projectContent{
+	margin-top: 3em;
+	margin-bottom: 2em;
+	background-color: ghostwhite;
+	border-radius: 20px;
+	border: lightGray solid 1px;
+	padding: 2.5em;
+	overflow: hidden;
+	
+	margin-right: -1.5em;
+	margin-left: -1.5em;
+	position: relative;
+}
+
+.divLine{
+	margin-left: -2.5em;
+	margin-right: -2.5em;
+	margin-bottom: 1.5em;
+	border: lightGray solid 1px;
+}

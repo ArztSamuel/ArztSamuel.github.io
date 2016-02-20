@@ -50,8 +50,13 @@ function Mouse(gameCore, gameCanvas){
 	
 	function toCanvCoords(x, y){
 		var rect = canvas.getBoundingClientRect();
-		var realX = x - (Math.floor(rect.left) + document.documentElement.scrollLeft);
-		var realY = y - (Math.floor(rect.top) + document.documentElement.scrollTop);
+		var scrollX = window.scrollX, scrollY = window.scrollY;
+		if(window.scrollX === undefined){
+			scrollX = document.documentElement.scrollLeft;
+			scrollY = document.documentElement.scrollTop;
+		}
+		var realX = x - (Math.floor(rect.left) + scrollX);
+		var realY = y - (Math.floor(rect.top) + scrollY);
 		return [realX, realY];
 	}
 	

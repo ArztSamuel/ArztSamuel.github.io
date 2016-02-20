@@ -1,6 +1,7 @@
 *{
     /*border: dashed 2px red;*/
     margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body{
@@ -114,10 +115,10 @@ nav{
 	line-height: 1.3em;
 }
 
-#content p::selection, #content a::selection{
+#content p::selection, #content a::selection, #content strong::selection{
 	background: lightSkyBlue;
 }
-#content p::-moz-selection, #content a::-moz-selection{
+#content p::-moz-selection, #content a::-moz-selection, #content strong::-moz-selection{
 	background: lightSkyBlue;
 }
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/htmlcss/raceForMatter/raceForMatter.css" rel="stylesheet" type="text/css">
+    <title>Matter of Matter - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projects</a><a href="about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../de/projects/htmlcss/raceForMatter/raceForMatter.html">Zur deutschen Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#htmlcss">html/css/js</a></div>
+		
+		<h1>A Matter of Matter</h1>
+		<p id="introduction">This is my first real JavaScript project. A small simulation of matter and gravity.</p>
+		
+		<div id="canvCont">
+			<div id="ratio"></div>
+			<canvas id="drawCanvas"></canvas>
+		</div>
+		
+		<div class="projectContent">
+			<h2>Desription</h2>
+			<p>This program simulates how bodies of specific mass influence each other through gravity. It uses real physics formula and I've tried to keep it as close to reality as possible.<br>
+				I am right in the midst of this project so it is quite unfinished, I got a lot of ideas for this concept but only so much time... Maybe I will make a 
+				game out of it one day...<br>
+				At the moment you can choose between two "modes": Solar System or Random.<br>
+				If you press Solar System the program will simulate our solar system, including all 8 planets and our sun. The camera will start with the earth in the middle of the view.<br>
+				If you press Random 20 random bodies are generated (with random mass, velocity and position)<br>
+				You can exit a mode by pressing the red "X" in the upper left corner.<br>
+				Beneath each body you can see a yellow number indicating the mass of the object. "e" stands for 10 to the power of the number next to "e" in this case.
+				So 5e10 would be 5*10^6 which would be 5 million kilograms.<br>
+				At a zoom-level of x1 one pixel on your screen should be 1000 km. If the mode is set to random all object sizes are calculated as if they had the same density as earth.
+			</p>
+			<div class="divLine"></div>
+			<h2>Instructions</h2>
+			<p>You can move the camera view with AWSD.<br>
+				The Buttons "<<" and ">>" in the top right corner control the speed of time (you can see the elapsed time at the upper left corner).<br>
+				The Buttons "+" and "-" in the bottom right corner control your zoom level.
+			</p>
+		</div>
+		
+		<h2>Time of Development:</h2>
+		<p>Early 2016</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>A website made by Samuel Arzt<br>
+			Like my work? Feel free to:</p>
+		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- RFM Script -->
+    <script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Core.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Vector.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Math_PH.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Node.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/UI.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Button.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/TextBox.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Keyboard.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Map.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Mouse.js"></script>
+	
+	<script>var core = new Core(); core.run();</script>
+</body>
+</html>

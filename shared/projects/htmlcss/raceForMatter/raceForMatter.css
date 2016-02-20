@@ -1,0 +1,18 @@
+#canvCont {
+  position: relative;
+  width: 100%;
+  
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+#ratio {
+  padding-top: 66%;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+}

@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
 	
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
-	<link href="../../../shared/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/csharp/cnl/cnl.css" rel="stylesheet" type="text/css">
     <title>CNL Help - Arzt Samuel</title>
 </head>
@@ -29,6 +30,7 @@
 		<p id="introduction">Need help with CampusNetLogin? Does your problem fit in any of these categories?</p>
 		<ul>
 			<li><a href="#guide">Setup guide</a></li>
+			<li><a href="#access">Windows prevents the execution</a></li>
 			<li><a href="#startFolder">Windows autostart-folder</a></li>
 			<li><a href="#noBoot">Program does not start</a></li>
 			<li><a href="#noLogin">I am not getting logged in</a></li>
@@ -36,24 +38,42 @@
 			<li><a href="#bug">I found a bug!</a></li>
 		</ul>
 		
-		<p>Your problem does not fit in these categories? Please feel free to contact me under <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> for further help.</p>
+		<p>Your problem does not fit in these categories? Please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> for further help.</p>
 		<div class="bottomBigDist"></div>
+		<div class="bottomDist"></div>
 		
 		<div class="jumpAnchor" id="guide"></div>
 		<h2>Setup Guide</h2>
-		<p>You can find a three step quick-setup guide <a href="cnl.html#setup">here</a>. If you still got troubles setting up 
-			CNL on your PC here is a more detailed step-by-step setup-guide:</p>
+		<p>You can find a three step quick-setup guide <a href="cnl.html#setup">here</a>. If you want to setup CNL on <strong>OSX</strong> you can find a guide <a href="#mac">here</a>.<br>
+			If you still got troubles setting up CNL on your PC, here is a more detailed step-by-step setup-guide for Windows:</p>
 		<div class="bottomDist"></div>
 		<ol>
-			<li>Download CNL.zip from <a href="../../../../shared/projects/csharp/cnl/CNL.zip">here</a>. (Save the "CNL.zip" on your computer)</li>
+			<li>Download CNL.zip from <a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">here</a>. (Save the "CNL.zip" on your computer)</li>
 			<li>Unpack the zip file anywhere you like. (Right click -> Unpack)</li>
-			<li>Run "CNLOptions.exe". (You might need to allow access to both .exe files)</li>
+			<li>Run "CNLOptions.exe". (You probably need to <a href="#access">allow execution</a> of both .exe files)</li>
 			<li>Configure your login. (Enter your username and password for the internet access, the rest is optional and can stay default)</li>
 			<li>Apply the settings or simply close (automatically applies) the window.</li>
-			<li>Now either put a shortcut (right click send to > desktop-shortcut) to "CNL.exe" into your windows <a href="#startFolder">autostart-folder</a> or manually run it every time you want to be logged in.</li>
+			<li>Now either put a shortcut (right click send to &gt desktop-shortcut) to "CNL.exe" into your windows <a href="#startFolder">autostart-folder</a> or manually run it every time you want to be logged in.</li>
 		</ol>
 		<p>In order to run the software you will only have to have Microsofts .Net-Framework installed on your computer (already installed on most machines).</p>
 		<div class="bottomBigDist"></div>
+		
+		<div class="jumpAnchor" id="access"></div>
+		<h2>Windows prevents the execution</h2>
+		<div class="imgSliderContainer">
+			<div id="imgContainer" class="maxWidth">
+				<div class="slctor on" style="left: Calc(50% - 2*1.6em);">1</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp1.png" alt="CNL Setup Step 1 <Image>"></img>
+				<div class="slctor off" style="left: Calc(50% - 1.6em);">2</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp2.png" alt="CNL Setup Step 2 <Image>"></img>
+				<div class="slctor off" style="left: 50%;">3</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp3.png" alt="CNL Setup Step 3 <Image>"></img>
+				<img id="placeholder" src="../../../../shared/projects/csharp/cnl/img/cnlHelp1.png" alt="CNL Setup Step 1 <Image>"></img>
+			</div>
+			<p>Windows will most probably block the apps execution since your computer does not know the app's publisher.<br>In order to still allow the app to execute simply click on "Run" and tick off 
+				"Always ask before opening this file" on <strong>Windows 7</strong> or on <strong>Windows 8/10</strong> simply click on "More Info" and then click "Run anyway". Both processes are shown in the 
+				screenshots below (1 &gt Windows 7; 2, 3 &gt Windows 8/10).</p>
+		</div>
 
 		
 		<div class="jumpAnchor" id="startFolder"></div>
@@ -62,12 +82,12 @@
 		<p><strong>Windows 7:</strong><br>
 			Go to "Start" > "Programmes" and search for the folder "autostart" and put a shortcut to "CNL.exe" in that folder.<br>
 			<strong>Windows 8/10:</strong><br>Either press "windows + R" and type in "shell:startup" to open your startup-folder 
-			or simply go to the directory "C:\Users\<strong>-Your User-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"</p>
+			or simply go to the directory "C:\Users\<strong>-Your User-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup".</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="noBoot"></div>
 		<h2>The Program does not start</h2>
-		<p>If the program will not start when you try to run it, please verify that Microsoft's .Net Framework is installed on your machine.<br>
+		<p>If the program does not start when you try to run it, please verify that Microsoft's .Net Framework is installed on your machine.<br>
 			If the program still won't startup please try deleting the save-folder "CNL". Simply type "%appdata%" into your directory field in 
 			explorer and delete the folder. (Directory: "C:\Users\<strong>-Your User-</strong>\AppData\Roaming")</p>
 		<p>If the save-folder does not exist and the program still won't start, please don't hesitate to contact me and I will do my best to resolve the issue.</p>
@@ -75,19 +95,31 @@
 
 		<div class="jumpAnchor" id="noLogin"></div>
 		<h2>I am not getting logged in</h2>
-		<p>Please verify that the username and password you have entered in CNLOptions are correct.<br>If you are still not getting logged in 
-			try increasing the retry value in CNLOptions. If the problem persists please feel free to contact me under <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span></p>
+		<p>If you the problem only occurs on Autostart, please try to increase the value of "Retry" in CNLOptions (to 15 for example).<br>
+			If you are also not getting logged in when manually executing CNL, please verify that the username and password you have entered in CNLOptions are correct.<br>
+			If you are still not getting logged in after increasing the retry value and verifying your Logindata, please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="mac"></div>
 		<h2>Mac Support</h2>
-		<p>I have not personally tested this software under OSX. However if you got Microsoft's .Net Framework installed on your Mac you should be able
-			to run it.<br>If you yourself are a Mac-User and are able to test this program please let me know whether it worked or not under <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span></p>
+		<p>Since this software was originally designed for Windows, setting it up on Mac requires a bit more effort. First of all you will need to install <a href="http://www.mono-project.com/" target="_blank">Mono</a> 
+			(an independent version of Microsoft's .NET) on your machine. After installing Mono you are already able to run the .exe files by typing "<strong>&ltyour path to Mono&gt</strong>/mono <strong>&ltyour path to CNL&gt</strong>/CNLOptions.exe" into your terminal, 
+			where you insert your local path to where you installed Mono for &ltyour path to Mono&gt and your local path to where you saved CNL for &ltyour path to CNL&gt. So for example this would mean typing "/usr/bin/mono ~/downloads/CNL/CNLOptions.exe" into your terminal.<br>
+			But this is very unwieldy. In order to launch the different .exe files by simply double clicking a file, you can also insert said paths into <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh">this script</a> that you can download. Finally after that you will probably have to allow the script to be executed by typing 
+			"chmod +x <strong>&ltyour path to runCNL script&gt</strong>/runCNL.sh". So in the end the content of the script could look like this:<br><br>
+			"#!/bin/sh<br>
+			exec /usr/bin/mono ~/downloads/CNL/CNLOptions.exe "$@""<br><br>
+			This script will run CNLOptions. If you want to run CNL itself you can copy the script and simply change "CNLOptions.exe" to "CNL.exe". If you now put the script for running CNL.exe into your autostart-folder, CNL will be run when you startup your system.<br>
+			If you changed the path of Shell on your mac you will also have to enter that path for "#!<strong>&ltyour Shell path&gt</strong>/sh"<br>
+			<strong>Please notice</strong> that when running CNLOptions for the first time on Mac it may take up to a minute for the window to appear. This is totally normal.
+		</p>
+			<p>As I am not able to access a Mac for testing at the moment I can not assure any functionality, however all basic functions should work. If you yourself are a Mac-User and are able to test this program, please let me know if you encounter 
+			any problems at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="bug"></div>	
 		<h2>I found a bug!</h2>
-		<p>If you have found a bug or want to suggest a new feature please contact me with a detailed description under <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span></p>
+		<p>If you have found a bug or want to suggest a new feature please contact me with a detailed description at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="bottomDist"></div>
@@ -113,6 +145,10 @@
 		</form>
 
 	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
 	
 </body>
 </html>

@@ -65,7 +65,7 @@ function UI(gameCore, canvWidth, canvHeight){
 	
 	//Zoom control buttons
 	//Current zoom
-	var zoom = new TextBox("x" + Map.getZoom(), function(canvWidth, canvHeight){
+	var zoom = new TextBox("x" + Map.getTargetZoom(), function(canvWidth, canvHeight){
 		return [canvWidth - 25 - 50, canvHeight - 25, 50, 25];
 	}, canvWidth, canvHeight);
 	//Zoom in
@@ -74,7 +74,7 @@ function UI(gameCore, canvWidth, canvHeight){
 	}, canvWidth, canvHeight);
 	zoomIn.clicked = function(mouseX, mouseY){
 		Map.zoomIn();
-		zoom.setText("x" + Map.getZoom());
+		zoom.setText("x" + Map.getTargetZoom());
 		return true;
 	};
 	//Zoom out
@@ -83,7 +83,7 @@ function UI(gameCore, canvWidth, canvHeight){
 	}, canvWidth, canvHeight);
 	zoomOut.clicked = function(mouseX, mouseY){
 		Map.zoomOut();
-		zoom.setText("x" + Map.getZoom());
+		zoom.setText("x" + Map.getTargetZoom());
 		return true;
 	};
 	

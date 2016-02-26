@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
 	
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
-	<link href="../../../shared/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/csharp/cnl/cnl.css" rel="stylesheet" type="text/css">
     <title>CNL Hilfe - Arzt Samuel</title>
 </head>
@@ -26,9 +27,10 @@
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a> > <a href="cnl.html">CNL</a></div>
 		
 		<h1>CNL - Hilfe</h1>
-		<p id="introduction">Du benötigst Hilfe mit CampusNetLogin? Fällt dein Problem in einer dieser Kategorien?</p>
+		<p id="introduction">Du benötigst Hilfe mit CampusNetLogin? Fällt dein Problem in eine dieser Kategorien?</p>
 		<ul>
 			<li><a href="#guide">Installations-Guide</a></li>
+			<li><a href="#access">Windows verhindert die Ausführung</a></li>
 			<li><a href="#startFolder">Windows Autostart-Ordner</a></li>
 			<li><a href="#noBoot">Das Programm startet nicht</a></li>
 			<li><a href="#noLogin">Ich werde nicht eingeloggt</a></li>
@@ -38,25 +40,42 @@
 		
 		<p>Keine dieser Kategorien passt auf dein Problem? Du kannst mich gerne kontaktieren unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
+		<div class="bottomDist"></div>
 		
 		<div class="jumpAnchor" id="guide"></div>
 		<h2>Installations-Guide</h2>
-		<p><a href="cnl.html#setup">Hier</a> kannst du eine 3-Schritte schnell-Installations Anleitung finden. Solltest du noch immer Probleme haben 
-			CNL auf deinem PC zum Laufen zu bringen gibt es hier noch einen detailierteren Guide:</p>
+		<p><a href="cnl.html#setup">Hier</a> kannst du eine 3-Schritte schnell-Installations Anleitung finden. Solltest du CNL auf <strong>OSX</strong> installieren wollen kannst du <a href="#mac">hier</a> einen detailierten Guide finden.<br>
+			Solltest du noch immer Probleme haben CNL auf deinem PC zum Laufen zu bringen, gibt es hier noch einen detailierteren Guide für Windows:</p>
 		<div class="bottomDist"></div>
 		<ol>
-			<li>Lade <a href="../../../../shared/projects/csharp/cnl/CNL.zip">CNL.zip</a> herunter. (Speichere die Datei "CNL.zip" auf deinem Rechner)</li>
+			<li>Lade <a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">CNL.zip</a> herunter. (Speichere die Datei "CNL.zip" auf deinem Rechner)</li>
 			<li>Entzippe die Zip-Datei an einem beliebigen Ort auf deinem Rechner. (Rechtsklick -> Alle extrahieren...)</li>
 			<li>Starte "CNLOptions.exe" mit einem Doppelklick. (Du musst wahrscheinlich beiden .exe Dateien den Zugriff erlauben)</li>
 			<li>Konfiguriere deine Login Daten. (Setze deinen Benutzernamen und dein Passwort für den Internet-Zugang ein, die restlichen Optionen sind optional und 
 				können erstmal auf dem standard bleiben)</li>
 			<li>Klicke auf Apply oder schließe das Fenster einfach (speichert automatisch).</li>
-			<li>Lege nun entweder eine Verknüpfung zu "CNL.exe" (Rechtsklick > Senden an > Desktop-Verknüpfung) in deinen Windows <a href="#startFolder">Autostart-Ordner</a> 
+			<li>Lege nun entweder eine Verknüpfung zu "CNL.exe" (Rechtsklick &gt Senden an &gt Desktop-Verknüpfung) in deinen Windows <a href="#startFolder">Autostart-Ordner</a> 
 				oder führe die Datei manuell aus wann immer du eingeloggt werden willst.</li>
 		</ol>
 		<p>Um die Software ausführen zu können musst du Microsofts .Net-Framework auf deinem Rechner installiert haben (dies ist allerdings auf den meisten Rechnern bereits der Fall).</p>
 		<div class="bottomBigDist"></div>
-
+		
+		<div class="jumpAnchor" id="access"></div>
+		<h2>Windows verhindert die Ausführung</h2>
+		<div class="imgSliderContainer">
+			<div id="imgContainer" class="maxWidth">
+				<div class="slctor on" style="left: Calc(50% - 2*1.6em);">1</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp1.png" alt="CNL Setup Step 1 <Image>"></img>
+				<div class="slctor off" style="left: Calc(50% - 1.6em);">2</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp2.png" alt="CNL Setup Step 2 <Image>"></img>
+				<div class="slctor off" style="left: 50%;">3</div>
+				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp3.png" alt="CNL Setup Step 3 <Image>"></img>
+				<img id="placeholder" src="../../../../shared/projects/csharp/cnl/img/cnlHelp1.png" alt="CNL Setup Step 1 <Image>"></img>
+			</div>
+			<p>Mit großer Wahrscheinlichkeit wird Windows das Programm von der Ausführung abhalten, da Windows den Herausgeber des Programms noch nicht kennt.<br>Um dem Programm trotzdem die Ausführung zu erlauben musst du 
+				unter <strong>Windows 7</strong> einfach auf "Ausführen" klicken und das Feld "Vor dem Öffnen dieser Datei immer bestätigen" abhaken.<br>Unter <strong>Windows 8/10</strong> musst du einfach auf "Weitere Informationen" und dann auf "Trotzdem ausführen" klicken. 
+				Beide Wege werden in den Screenshots nebenbei gezeigt. (1 &gt Windows 7; 2, 3 &gt Windows 8/10)</p>
+		</div>
 		
 		<div class="jumpAnchor" id="startFolder"></div>
 		<h2>Wo befindet sich der Windows Autostart-Ordner?</h2>
@@ -65,7 +84,7 @@
 			Gehe zu "Start" > "Programme" und suche nach dem Ordner "Autostart". Lege nun in diesen Ordner eine Verknüpfung zu "CNL.exe".<br>
 			<strong>Windows 8/10:</strong><br>
 			Entweder du drückst "Windows + R" und gibst in das sich öffnende Fenster "shell:startup" ein, um deinen Autostart-Ordner zu öffnen 
-			oder du gehst einfach zum Verzeichnis "C:\Users\<strong>-Dein Benutzer-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"</p>
+			oder du gehst einfach zum Verzeichnis "C:\Users\<strong>-Dein Benutzer-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup".</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="noBoot"></div>
@@ -78,21 +97,33 @@
 
 		<div class="jumpAnchor" id="noLogin"></div>
 		<h2>Ich werde nicht eingeloggt.</h2>
-		<p>Bitte stelle sicher, dass der Benutzername und das Passwort, welche du bei CNLOptions eingetragen hast korrekt sind.<br>
-			Solltest du noch immer nicht eingeloggt werden versuche den Wert von "Retry" in CNLOptions zu erhöhen. Sollte das Problem weiterhin bestehen kannst du mich 
-			gerne unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> kontaktieren.</p>
+		<p>Solltest du nur beim Autostart nicht eingeloggt werden, versuche bitte einmal den Wert für "Retry" in CNLOptions zu erhöhen (zum Beispiel auf 15).<br>
+			Wenn du auch beim manuellen Starten nie eingeloggt wirst, stelle bitte sicher, dass der Benutzername und das Passwort, welche du bei CNLOptions eingetragen hast korrekt sind.<br>
+			Sollte das Problem auch nach dem Erhöhen des "Retry" Wertes und Überprüfen der Nutzerdaten weiterhin bestehen, kannst du mich gerne unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> kontaktieren.</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="mac"></div>
 		<h2>Mac Support</h2>
-		<p>Ich hatte bis jetzt leider noch nicht die Möglichkeit das Programm unter OSX zu testen. Allerdings solltest du wenn du Microsoft's .Net Framework auf deinem Mac installiert hast das Programm ganz normal 
-			ausführen können.<br>
-			Solltest du ein Mac-User sein und kannst dieses Programm testen sag mir bitte Bescheid, ob es bei dir läuft oder nicht unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span></p>
+		<p>Da diese Programm ursprünglich für Windows entwickelt wurde, benötigt das Aufsetzen der Software unter OSX etwas mehr Aufwand. Zu aller erst musst du <a href="http://www.mono-project.com/" target="_blank">Mono</a> 
+			(eine Systemunabhängige Version von Microsoft's .NET) auf deinem Mac installieren. Sobald du Mono installiert hast, solltest du in der Lage sein die .exe Dateien auszuführen, indem du "<strong>&ltdein Pfad zu Mono&gt</strong>/mono 
+			<strong>&ltdein Pfad zu CNL&gt</strong>/CNLOptions.exe" in dein Terminal eingibst. Wobei du für &ltdein Pfad zu Mono&gt den Pfad einsetzt in dem du Mono installiert hast und für &ltdein Pfad zu CNL&gt den Pfad in dem du CNL gespeichert hast einfügst. 
+			Zum Beispiel würde der einzugebende Befehl am Ende so aussehen: "/usr/bin/mono ~/downloads/CNL/CNLOptions.exe"<br>
+			Dies ist allerdings sehr mühsam und unhandlich. Um die verschiedenen .exe Dateien mit einem einfachen Doppelklick auszuführen, kannst du auch die oben genannten Pfade in <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh">dieses Script</a> einfügen, das du herunterladen kannst. 
+			Zu guter Letzt musst du nun wahrscheinlich noch dem Script die ausführung erlauben indem du "chmod +x <strong>&ltdein Pfad zum Script&gt</strong>/runCNL.sh" ins Terminal eingibst. Am Ende sollte also der Inhalt deines Scriptes zum Beispiel so aussehen:<br><br>
+			"#!/bin/sh<br>
+			exec /usr/bin/mono ~/downloads/CNL/CNLOptions.exe "$@""<br><br>
+			So würde dieses Script CNLOptions ausführen. Wenn du CNL ausführen willst, kannst du das Script kopieren und einfach "CNLOptions.exe" durch "CNL.exe" ersetzen. Um CNL beim Systemstart auszuführen, kannst du nun einfach dieses Script in deinen 
+			Autostart-Ordner legen.<br>
+			Wenn du den Pfad zu Shell auf deinem Mac geändert hast, musst du diesen Pfad auch im Script für "!#<strong>&ltdein Pfad zu Shell&gt</strong>/sh" eintragen.<br>
+			<strong>Bitte beachte</strong>, dass es beim ersten Ausführen von CNLOptions auf Mac durchaus eine Minute dauern kann, bis das Programmfenster tatsächlich erscheint. Dies ist völlig normal.
+		</p>
+			<p>Da ich zur Zeit keinen Zugang zu einem Mac zu Testzwecken habe, kann ich keine Funktionalität versprechen, allerdings sollten die Grundfunktionen funktionieren. Solltest du ein Mac-User sein und kannst dieses Programm testen, dann sag mir doch bitte Bescheid, falls du auf irgendwelche Probleme stößt unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.
+		</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="jumpAnchor" id="bug"></div>	
 		<h2>Ich habe einen Fehler gefunden!</h2>
-		<p>Wenn du einen Fehler gefunden hast oder einfach ein neues Feature vorschlagen willst kontaktiere mich einfach mit einer detailreichen Beschreibung unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> .</p>
+		<p>Wenn du einen Fehler gefunden hast oder einfach ein neues Feature vorschlagen willst kontaktiere mich einfach mit einer detailreichen Beschreibung unter <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
 		
 		<div class="bottomDist"></div>
@@ -116,8 +147,11 @@
 			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
 			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
-
 	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
 	
 </body>
 </html>

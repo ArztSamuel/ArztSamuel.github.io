@@ -112,7 +112,7 @@ nav{
 
 #content p{
 	font-size: 14pt;
-	line-height: 1.3em;
+	line-height: 1.4em;
 }
 
 #content p::selection, #content a::selection, #content strong::selection{

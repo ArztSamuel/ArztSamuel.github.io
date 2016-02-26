@@ -20,10 +20,12 @@
 	display: inline-block;
 	font-size: 15pt;
 	margin-bottom: 0.6em;
+	margin-right: 0.7em;
 	position: relative;
 	z-index: 2;
 	margin-left: 3%;
 	cursor: pointer;
+	white-space: nowrap;
 }
 
 .bulletPoint{
@@ -94,7 +96,7 @@ img.a, img.b, img.c, img.d, img.e{
 
 /* Media Queries */
 
-@media screen and (max-width:1350px){
+@media screen and (max-width:1400px){
 	.category img, .placeholder{
 		width: 320px;
 		height: 180px;
@@ -108,7 +110,7 @@ img.a, img.b, img.c, img.d, img.e{
 	}
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 770px){
 	.category img, .placeholder{
 		width: 384px;
 		height: 216px;

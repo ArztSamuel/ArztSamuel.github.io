@@ -38,7 +38,7 @@
 			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
 
-		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_de_pageTop');}>Download</a>
+		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="trackDL('CNL_de_pageTop')">Download</a>
 		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.1)</h1>
 		
 		<p>Dieses kleine Programm kann dich automatisch in das Campus Internet in Puch Urstein einloggen.</p>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="bottomDist"></div>
 				<ol>
-					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){console.log(&quote;Clicked link&quote;); ga('send', 'event', 'Downloads', 'clicked', 'CNL_de_setup');}">Lade</a> die Software gratis herunter und entpacke die Datei.</li>
+					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="trackDL('CNL_de_setup')">Lade</a> die Software gratis herunter und entpacke die Datei.</li>
 					<li>Führe die Datei "CNLOptions.exe" aus und konfiguriere deinen Login.<br><span class="small">Du musst wahrscheinlich dem Programm die <a href="help.html#access" target="_blank">Ausführung erlauben</a>.</span></li>
 					<li>Lege "CNL.exe" (oder eine Verknüpfung dazu) in deinen <a href="help.html#startFolder">Autostart-Ordner</a>, oder führe das Programm manuell aus wann immer du einen Login benötigst.</li>
 				</ol>
@@ -139,7 +139,11 @@
 
 	  ga('create', 'UA-74405626-1', 'auto');
 	  ga('send', 'pageview');
-
+	</script>
+	<script>
+		function trackDL(dlName){
+			function(){ga('send', 'event', 'Downloads', 'clicked', dlName);
+		}
 	</script>
 </body>
 </html>

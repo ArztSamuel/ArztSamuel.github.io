@@ -108,6 +108,13 @@ img.a, img.b, img.c, img.d, img.e{
 		width: 240px;
 		height: 127.5px;
 	}
+	
+	.category{
+		padding: 0.5em;
+		
+		margin-right: 0;
+		margin-left: 0;
+	}
 }
 
 @media screen and (max-width: 770px){

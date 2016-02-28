@@ -220,11 +220,29 @@ form{
 	#content{
 		width: 100%;
 		margin-left: 0;
+		padding: 3em 0.5em 5em 0.5em;
+	}
+	#content p{
+		font-size: 12pt;
+	}
+
+	h2{
+		font-size: 17pt;
 	}
 	
 	#footer{
 		padding-right: 1.5em;
 		padding-left: 1.5em;
+	}
+	
+	.lang{
+		font-size: 10pt;
+		float: right;
+		margin-right: 0;
+	}
+	
+	.button{
+		padding: 0.8em 1em 0.5em 1em;
 	}
 }
 

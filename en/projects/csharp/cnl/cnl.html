@@ -37,7 +37,7 @@
 			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
-		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">Download</a>
+		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_en_pageTop');}">Download</a>
 		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.1)</h1>
 		
 		<p>This small programm will automatically log you into your account at the Campus internet at Puch Urstein.</p>
@@ -59,7 +59,7 @@
 				</div>
 				<div class="bottomDist"></div>
 				<ol>
-					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">Download</a> the software for free and unzip the file.</li>
+					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_en_setup');}">Download</a> the software for free and unzip the file.</li>
 					<li>Run "CNLOptions.exe" and setup your login options.<br><span class="small">You will probably need to <a href="help.html#access" target="_blank">allow the execution</a> of the app.</span></li>
 					<li>Put "CNL.exe" (or a shortcut) to it into your <a href="help.html#startFolder">autostart-folder</a>, or manually run it whenever you need a login.</li>
 				</ol>
@@ -122,5 +122,17 @@
 	<!-- Image Slider Script -->
     <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
 	<script>var core = new Core(); core.run();</script>
+	
+	<!-- Analyitics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74405626-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 </body>
 </html>

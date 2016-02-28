@@ -48,7 +48,7 @@
 			If you still got troubles setting up CNL on your PC, here is a more detailed step-by-step setup-guide for Windows:</p>
 		<div class="bottomDist"></div>
 		<ol>
-			<li>Download CNL.zip from <a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">here</a>. (Save the "CNL.zip" on your computer)</li>
+			<li>Download CNL.zip from <a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_en_help');}">here</a>. (Save the "CNL.zip" on your computer)</li>
 			<li>Unpack the zip file anywhere you like. (Right click -> Unpack)</li>
 			<li>Run "CNLOptions.exe". (You probably need to <a href="#access">allow execution</a> of both .exe files)</li>
 			<li>Configure your login. (Enter your username and password for the internet access, the rest is optional and can stay default)</li>
@@ -105,7 +105,7 @@
 		<p>Since this software was originally designed for Windows, setting it up on Mac requires a bit more effort. First of all you will need to install <a href="http://www.mono-project.com/" target="_blank">Mono</a> 
 			(an independent version of Microsoft's .NET) on your machine. After installing Mono you are already able to run the .exe files by typing "<strong>&ltyour path to Mono&gt</strong>/mono <strong>&ltyour path to CNL&gt</strong>/CNLOptions.exe" into your terminal, 
 			where you insert your local path to where you installed Mono for &ltyour path to Mono&gt and your local path to where you saved CNL for &ltyour path to CNL&gt. So for example this would mean typing "/usr/bin/mono ~/downloads/CNL/CNLOptions.exe" into your terminal.<br>
-			But this is very unwieldy. In order to launch the different .exe files by simply double clicking a file, you can also insert said paths into <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh">this script</a> that you can download. Finally after that you will probably have to allow the script to be executed by typing 
+			But this is very unwieldy. In order to launch the different .exe files by simply double clicking a file, you can also insert said paths into <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'MacScript_en');}">this script</a> that you can download. Finally after that you will probably have to allow the script to be executed by typing 
 			"chmod +x <strong>&ltyour path to runCNL script&gt</strong>/runCNL.sh". So in the end the content of the script could look like this:<br><br>
 			"#!/bin/sh<br>
 			exec /usr/bin/mono ~/downloads/CNL/CNLOptions.exe "$@""<br><br>
@@ -150,5 +150,16 @@
     <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
 	<script>var core = new Core(); core.run();</script>
 	
+	<!-- Analyitics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74405626-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 </body>
 </html>

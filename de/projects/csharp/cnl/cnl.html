@@ -38,7 +38,7 @@
 			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
 
-		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">Download</a>
+		<a id="download" href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_de_pageTop');}>Download</a>
 		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.1)</h1>
 		
 		<p>Dieses kleine Programm kann dich automatisch in das Campus Internet in Puch Urstein einloggen.</p>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="bottomDist"></div>
 				<ol>
-					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip">Lade</a> die Software gratis herunter und entpacke die Datei.</li>
+					<li><a href="../../../../shared/projects/csharp/cnl/CNL.zip" download="CNL.zip" onclick="function(){ga('send', 'event', 'Downloads', 'clicked', 'CNL_de_setup');}>Lade</a> die Software gratis herunter und entpacke die Datei.</li>
 					<li>Führe die Datei "CNLOptions.exe" aus und konfiguriere deinen Login.<br><span class="small">Du musst wahrscheinlich dem Programm die <a href="help.html#access" target="_blank">Ausführung erlauben</a>.</span></li>
 					<li>Lege "CNL.exe" (oder eine Verknüpfung dazu) in deinen <a href="help.html#startFolder">Autostart-Ordner</a>, oder führe das Programm manuell aus wann immer du einen Login benötigst.</li>
 				</ol>
@@ -128,5 +128,18 @@
 	<!-- Image Slider Script -->
     <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
 	<script>var core = new Core(); core.run();</script>
+	
+	
+	<!-- Analyitics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74405626-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 </body>
 </html>

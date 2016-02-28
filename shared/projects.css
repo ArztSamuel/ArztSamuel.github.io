@@ -115,14 +115,11 @@ img.a, img.b, img.c, img.d, img.e{
 		margin-right: 0;
 		margin-left: 0;
 	}
-}
-
-@media screen and (max-width: 770px){
-	.category img, .placeholder{
-		width: 384px;
-		height: 216px;
+	
+	.placeholder{
+		padding-bottom: 2.5em;
 	}
-
+}
 @media screen and (max-width: 550px){
 	.category img, .placeholder{
 		width: 240px;

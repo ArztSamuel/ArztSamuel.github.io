@@ -1,4 +1,0 @@
-<? 
-	echo "Hallo Welt";
-	phpinfo();
-?>

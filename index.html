@@ -3,13 +3,12 @@
 
 	<!-- Block Spam sites... those bastards -->
 	<script type='text/javascript'>
-		 var blocklink = ['http://priceg.com', 'http://darodar.com', 'http://ilovevitaly.co', 'http://economy.co'];
-
-		 for (var b = blocklink.length; b--;) {
-
-		 if (document.referrer.match(blocklink[b]))
-			window.location = "http://google.com/";
-		 }
+		var blocklink = ['http://priceg.com', 'http://darodar.com', 'http://ilovevitaly.co', 'http://economy.co'];
+		
+		for (var b = blocklink.length; b--;) {
+			if (document.referrer.match(blocklink[b]))
+				window.location = "http://google.com/";
+		}
 	</script>
 
     <meta charset="UTF-8">

@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="A 2D top-down Zombie-Shooter programmed with Java">
-	<meta name="keywords" content="Zombie,Samuel Arzt,2D,shooter,top-down,game,Java">
+	<meta name="description" content="A 3D Simulation of a Rubik's Cube.">
+	<meta name="keywords" content="3D,Samuel Arzt,OpenGL,OpenTK,C#,CSharp,GLSL">
 	<meta name="author" content="Samuel Arzt">
 	
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
@@ -21,38 +21,39 @@
     </nav>
 	<div id="fixedNav">
 		<div class="navbar">
-			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projects</a><a href="about.html" class="button">About</a>
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
 	
 	<!-- CONTENT -->
 	<div id="content">
-		<a class="lang" href="../../../../de/projects/java/blocked/blocked.html">Zur deutschen Version</a>
-		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#java">Java</a></div>
+		<a class="lang" href="../../../../de/projects/csharp/3dRubik/3dRubik.html">Zur deutschen Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
 	
-		<h1>Blocked</h1>
+		<h1>3D Rubik's Cube</h1>
+		<p>A small simulation of a functioning Rubik's Cube in 3D.</p>
 		
 		<div id="imgContainer">
 			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik1.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked2.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik2.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: 50%;"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked3.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik3.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked4.png" alt="Blocked <Image>"></img>
-			<img id="placeholder" src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik4.png" alt="3D-Rubik <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/csharp/3dRubik/img/3dRubik1.png" alt="3D-Rubik <Image>"></img>
 		</div>
 		
 		<div class="projectContent">
-			<h2>Description</h2>
-			<p>One of my Java-based games. It is not even close to being finished, but a first prototype is done. It is a 2D Top-Down Zombie-Shooter.</p>
-			<p>The character is controlled with AWSD and the mouse.</p>
-			<p>Like for most of my projects I also have not used any libraries or engines for this game. The whole game all the way down to the "Game-Loop" 
-				has been developed by me. Even the graphics were hastily drawn by myself. I have also programmed a map-creator for this game.</p>
+			<h2>Beschreibung</h2>
+			<p>I used OpenTK (a C# wrapper for OpenGL) to program this simulation of a Rubik's Cube. I implemented simple phong-lighting with
+				GLSL, as well as mouse-picking and simple shadow-mapping.
+			</p>
+			<p>The Cube can be move with the mouse. Likewise the individual sides of the Cube can be rotated.</p>			
 		</div>
 		<h2>Time of Development:</h2>
-		<p>Late 2014 - Mid 2015 (to be continued...)</p>
+		<p>Mid 2016</p>
 		
 		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
 	</div>

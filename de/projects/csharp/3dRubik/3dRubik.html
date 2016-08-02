@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Ein 2D top-down Zombie-Shooter programmiert in Java">
-	<meta name="keywords" content="Zombie,Samuel Arzt,2D,shooter,top-down,spiel,Java">
+	<meta name="description" content="Eine 3D Simulation eines Rubik's Cube.">
+	<meta name="keywords" content="3D,Samuel Arzt,OpenGL,OpenTK,C#,CSharp,GLSL">
 	<meta name="author" content="Samuel Arzt">
 	
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
-    <title>Blocked - Arzt Samuel</title>
+    <title>3D Rubik's Cube - Arzt Samuel</title>
 </head>
 <body>
 	<!-- NAVIGATION -->
@@ -27,33 +27,33 @@
 	
 	<!-- CONTENT -->
 	<div id="content">
-		<a class="lang" href="../../../../en/projects/java/blocked/blocked.html">Switch to English Version</a>
-		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#java">Java</a></div>
-	
-		<h1>Blocked</h1>
+		<a class="lang" href="../../../../en/projects/csharp/3dRubik/3dRubik.html">Switch to English Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a></div>
+		
+		<h1>3D Rubik's Cube</h1>
+		<p>Eine kleine Simulation eines funktionsfähigen Rubik's Cube in 3D.</p>
 		
 		<div id="imgContainer">
 			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik1.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked2.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik2.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: 50%;"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked3.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik3.png" alt="3D-Rubik <Image>"></img>
 			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
-			<img src="../../../../shared/projects/java/blocked/img/blocked4.png" alt="Blocked <Image>"></img>
-			<img id="placeholder" src="../../../../shared/projects/java/blocked/img/blocked1.png" alt="Blocked <Image>"></img>
+			<img src="../../../../shared/projects/csharp/3dRubik/img/3dRubik4.png" alt="3D-Rubik <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/csharp/3dRubik/img/3dRubik1.png" alt="3D-Rubik <Image>"></img>
 		</div>
 		
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Eines meiner Java-basierten Spiele. Es ist noch lange nicht fertig, allerdings steht ein erster Prototyp. Es ist ein 2D Top-Down Zombie-Shooter.</p>
-			<p>Der Charakter wird mit AWSD und der Maus gesteuert.</p>
-			<p>Wie für die meisten meiner Projekte habe ich auch für dieses Spiel keine externen Bibliotheken oder Game-Engines verwendet. Das gesamte Spiel bis hin zum "Game-Loop" 
-				wurde von mir geschrieben. Sogar die Grafiken wurden von mir selbst gezeichnet (...gekrakelt). Des Weiteren habe ich einen kleinen Map-Creator programmiert mit dem 
-				man ganz einfach Maps für das Spiel erstellen kann.</p>
+			<p>Mithilfe von OpenTK (einem C# wrapper für OpenGL) habe ich diese Simulation eines Rubik's Cube programmiert. Dabei habe ich eine einfache Phong-Lichtberechnung mit
+				GLSL implementiert, sowie Mouse-Picking und einfaches Shadow-Mapping.
+			</p>
+			<p>Der Cube lässt sich mit der Maus bewegen. Ebenso kann man die einzelnen Seiten/Schichten des Würfels rotieren.</p>			
 		</div>
 		<h2>Entwicklungszeit:</h2>
-		<p>Anfang 2014 - Mitte 2015 (Fortsetzung folgt... hoffentlich)</p>
+		<p>Mitte 2016</p>
 		
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>

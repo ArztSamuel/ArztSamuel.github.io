@@ -177,6 +177,13 @@ li{
 	color: dodgerBlue;
 }
 
+.profilePic{
+	float: right;
+	border: lightGray 1px solid;
+	margin: 2em;
+	margin-top: 0.3em;
+}
+
 
 
 

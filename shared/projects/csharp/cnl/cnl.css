@@ -48,6 +48,33 @@ ul{
 	border: lightGray solid 1px;
 }
 
+.projectContent ul{
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	background-color: none;
+	border: none;
+	list-style-type: none;
+	padding-left: 1.5em;
+}
+
+.projectContent ul ul{
+	padding-bottom: 0.5em;
+	padding-left: 2em;
+	margin-bottom: 0em;
+}
+
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -12px;
+}
+ul.dashed > li:before {
+  content: "- ";
+}
+
+
+
 ul li{
 	font-size: 15pt;
 	padding: 0.2em;

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Training self driving cars using neural networks and evolutionary algorithms.">
+	<meta name="keywords" content="2D,Samuel Arzt,unity,unity3d,neural networks,evolution,evolutionary algorithm,deep learning,genetic algorithm,C#,CSharp">
+	<meta name="author" content="Samuel Arzt">
+	
+    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
+    <title>Deep Learning Cars - Arzt Samuel</title>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+		<a class="lang" href="../../../../de/projects/unity/deepCars/deepCars.html">Zur deutschen Version</a>
+		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
+	
+		<h1>Deep Learning Cars</h1>
+		<p>A small 2D simulation in which cars learn to maneuver through a course by themselves, using a neural network and evolutionary algorithms.</p>
+		
+		<div id="videoWrapper">
+			<iframe src="https://www.youtube.com/embed/Aut32pR5PQA" frameborder="0" allowfullscreen></iframe>
+		</div>
+		
+		<div id="imgContainer">
+			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
+			<img src="../../../../shared/projects/unity/deepCars/img/deepCars1.png" alt="DeepCars <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
+			<img src="../../../../shared/projects/unity/deepCars/img/deepCars2.png" alt="DeepCars <Image>"></img>
+			<div class="slctor off" style="left: 50%;"></div>
+			<img src="../../../../shared/projects/unity/deepCars/img/deepCars3.png" alt="DeepCars <Image>"></img>
+			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
+			<img src="../../../../shared/projects/unity/deepCars/img/deepCars4.png" alt="DeepCars <Image>"></img>
+			<img id="placeholder" src="../../../../shared/projects/unity/deepCars/img/deepCars1.png" alt="3D-Rubik <Image>"></img>
+		</div>
+		
+		<div class="projectContent">
+			<h2>Description</h2>
+			<p>
+				At the start of each generation 20 cars are spawned. Each car has it’s own neural network, which makes up the "intelligence" of the car. 
+				The cars also have 5 front facing sensors, which measure the distance to obstacles and serve as the input of the neural network. If a car hits 
+				an obstacle, it dies.
+			</p>
+			<p>
+				Once all cars have died, a new generation is formed using an evolutionary algorithm. The "genes" of the two cars with the best fitness are 
+				crossed and 20 new "children" are born. Additionally these children get slightly mutated. Finally these newborn children try to maneuver through the course.
+			</p>
+			<p>
+				The fitness of a car is calculated by its progress throughout the course. A car's "genes" are the weights of its neural network. 
+				The neural networks are simple feed-forward networks and consist of 5 input nodes, 2 output nodes and 2 hidden layers with 4 and 3 nodes.
+			</p>
+			<h2>Display</h2>
+			<p>
+				The crosses in front of each car symbolize its sensors' current readings. The camera always follows the car with the best current fitness. 
+				The best car is drawn in green, the second best in beige.
+			</p>
+			<p>
+				In the top left corner the current outputs and fitness of the targeted car are displayed. In the top right corner the neural network of the target 
+				is visualized. The width of a connection between nodes symbolizes the magnitude of its weight, the color its sign (green: positive, red: negative).
+			</p>
+			<p>
+				In the bottom left corner the current generation count is displayed.
+			</p>
+		</div>
+		<h2>Time of Development:</h2>
+		<p>Late 2016</p>
+		
+		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>A website made by Samuel Arzt<br>
+			Like my work? Feel free to:</p>
+		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="arzt.samuel@live.de">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
+			<input type="hidden" name="no_note" value="0">
+			<input type="hidden" name="currency_code" value="EUR">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+	
+	<!-- Image Slider Script -->
+    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+	
+	<!-- Analyitics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74405626-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</body>
+</html>

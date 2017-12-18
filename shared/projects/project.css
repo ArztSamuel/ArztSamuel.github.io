@@ -42,6 +42,20 @@ p#introduction{
 	border: lightGray solid 1px;
 }
 
+#videoWrapper {
+    position: relative;
+	padding-bottom: 53.9%; /* 16:9 */
+	padding-top: 25px;
+	margin-bottom: 2em;
+	height: 0;
+}
+#videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 /* Media Queries */
 @media screen and (max-width: 800px){

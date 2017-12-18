@@ -114,13 +114,12 @@ nav{
 	line-height: 1.4em;
 }
 
-#content p::selection, #content a::selection, #content strong::selection{
+p::selection, a::selection, i::selection, strong::selection, img::selection{
 	background: lightSkyBlue;
 }
-#content p::-moz-selection, #content a::-moz-selection, #content strong::-moz-selection{
+p::-moz-selection, a::-moz-selection, i::-moz-selection, strong::-moz-selection, img::-moz-selection{
 	background: lightSkyBlue;
 }
-
 
 h1{
 	margin-bottom: 0.7em;
@@ -147,9 +146,11 @@ a:hover{
 
 a:hover::selection{
 	color: white;
+	background: lightSkyBlue;
 }
 a:hover::-moz-selection{
 	color: white;
+	background: lightSkyBlue;
 }
 
 .bottomDist{
@@ -197,23 +198,58 @@ li{
 	min-height: 5em;
 	box-shadow: 0px -0.5px 5px gray;
 	box-sizing: border-box;
-	padding: 0.5em Calc(17% + 0.5em);
+	padding: 1em Calc(17% + 0.5em);
 	overflow: hidden;
+	text-align: center;
 }
 
-#footer p{
+#footer div{
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	padding: 0.1em 0em 1em 0em;
+}
+
+#footer form{
+	text-align: center;
+	vertical-align: middle;
 	display: inline-block;
 }
 
-#footer p:nth-of-type(2){
-	float: right;
+#footer p{
+	text-align: center;
+	vertical-align: middle;
+	padding-bottom: 0.4em;
 }
 
-form{
-	padding-left: 3.5em;
+#footer img{
+	vertical-align: middle;
 }
 
+#footer a{
+	display: inline-block;
+}
 
+#footer .mail-icon{
+	width: 25px;
+	padding: 0em 0.25em 0.05em 0.2em;
+}
+
+#footer .twitter-icon{
+	width: 30px;
+	padding: 0em 0em 0.1em 0.5em;
+	margin-right: -0.1em;
+}
+
+#footer .youtube-icon{
+	width: 23px;
+	padding: 0em 0.3em 0.23em 0.9em;
+}
+
+#footer .github-icon{
+	width: 23px;
+	padding: 0em 0.3em 0.23em 0.9em;
+}
 
 /* Media Queries */
 @media screen and (max-width: 800px){

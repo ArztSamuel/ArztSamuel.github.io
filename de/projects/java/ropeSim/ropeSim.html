@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <head>
+	<!-- META -->
     <meta charset="UTF-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Eine Simulation von Seilen unter dem Einfluss der Schwerkraft">
 	<meta name="keywords" content="seile,Samuel Arzt,Java,simulation,schwerkraft,schnur,spiel,physik">
 	<meta name="author" content="Samuel Arzt">
+	<title>Seil Sim- Arzt Samuel</title>
 	
+    <!-- CSS -->
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
-    <link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
-	<title>Seil Sim- Arzt Samuel</title>
+	
+	<!-- IMAGE SLIDER --> 
+	<link href="../../../../shared/external/owlcarousel/assets/owl.carousel.css" rel="stylesheet" type="text/css">
+	<link href="../../../../shared/external/owlcarousel/assets/owl.theme.custom.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<!-- NAVIGATION -->
@@ -31,19 +36,15 @@
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#java">Java</a></div>
 	
 		<h1>Seil Physik Simulation</h1>
+		<p>Eine Physik-Simulation von 2D Seilen.</p>
 		
-		<div id="imgContainer">
-			<div class="slctor on" style="left: Calc(50% - 2*1.6em);"></div>
-			<img src="../../../../shared/projects/java/ropeSim/img/ropeSim1.png" alt="Rope Physics Simulation <Image>"></img>
-			<div class="slctor off" style="left: Calc(50% - 1.6em);"></div>
-			<img src="../../../../shared/projects/java/ropeSim/img/ropeSim2.png" alt="Rope Physics Simulation <Image>"></img>
-			<div class="slctor off" style="left: 50%;"></div>
-			<img src="../../../../shared/projects/java/ropeSim/img/ropeSim3.png" alt="Rope Physics Simulation <Image>"></img>
-			<div class="slctor off" style="left: Calc(50% + 1.6em);"></div>
-			<img src="../../../../shared/projects/java/ropeSim/img/ropeSim4.png" alt="Rope Physics Simulation <Image>"></img>
-			<div class="slctor off" style="left: Calc(50% + 2*1.6em);"></div>
-			<img src="../../../../shared/projects/java/ropeSim/img/ropeSim5.png" alt="Rope Physics Simulation <Image>"></img>
-			<img id="placeholder" src="../../../../shared/projects/java/ropeSim/img/ropeSim1.png" alt="Rope Physics Simulation <Image>"></img>
+		<!-- IMAGE SLIDER -->
+		<div class="owl-carousel owl-theme">
+			<img src="../../../../shared/projects/java/ropeSim/img/medium/ropeSim1.png" alt="Rope Physics Simulation <Image>"></img>
+			<img src="../../../../shared/projects/java/ropeSim/img/medium/ropeSim2.png" alt="Rope Physics Simulation <Image>"></img>
+			<img src="../../../../shared/projects/java/ropeSim/img/medium/ropeSim3.png" alt="Rope Physics Simulation <Image>"></img>
+			<img src="../../../../shared/projects/java/ropeSim/img/medium/ropeSim4.png" alt="Rope Physics Simulation <Image>"></img>
+			<img src="../../../../shared/projects/java/ropeSim/img/medium/ropeSim5.png" alt="Rope Physics Simulation <Image>"></img>
 		</div>
 		
 		<div class="projectContent">
@@ -64,30 +65,22 @@
 	
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>Eine Website von Samuel Arzt<br>
-			Dir gefällt meine Arbeit? Du kannst gerne:</p>
-		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
-
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-			<input type="hidden" name="cmd" value="_donations">
-			<input type="hidden" name="business" value="arzt.samuel@live.de">
-			<input type="hidden" name="lc" value="AT">
-			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
-			<input type="hidden" name="no_note" value="0">
-			<input type="hidden" name="currency_code" value="EUR">
-			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
-			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-		</form>
-
+		<p>Eine Webseite von Samuel Arzt</p>
+		<p>
+			<a href="mailto:arzt.samuel@live.de"><img src="../../../../shared/img/mail-icon.svg" class="mail-icon"></img>arzt.samuel@live.de</a>
+			<br>
+			<a href="https://twitter.com/SamuelArzt" target="_blank"><img src="../../../../shared/img/twitter-icon.svg" class="twitter-icon"></img>@SamuelArzt</a>
+			<a href="https://www.youtube.com/channel/UC_eerU4SleeptEbD2AA_nDw" target="_blank"><img src="../../../../shared/img/youtube-icon.png" class="youtube-icon"></img>SamuelArzt</a>
+			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
+		</p>
 	</div>
 	
-	<!-- Image Slider Script -->
-    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
-	<script>var core = new Core(); core.run();</script>
+	<!-- IMAGE SLIDER -->
+	<script src="../../../../shared/external/jquery.min.js"></script>
+	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
+	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
 	
-	
-	<!-- Analyitics -->
+	<!-- ANALYTICS -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

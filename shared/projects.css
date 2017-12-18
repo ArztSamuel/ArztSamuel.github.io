@@ -16,6 +16,11 @@
 	display: inline-block;
 }
 
+.projectList img{
+	width: 384px;
+	height: 216px;
+}
+
 .clist{
 	display: inline-block;
 	font-size: 15pt;
@@ -52,10 +57,12 @@
 img.a, img.b, img.c, img.d, img.e{
 	opacity: 0;
 	z-index: 1;
+	transition: opacity 1s;
+}
+
+img.a, img.b, img.c, img.d, img.e, .multiImageSlider img{
 	border: lightGray solid 1px;
 	box-shadow: 0.5px 1px 2px gray;
-
-	transition: opacity 1s;
 }
 
 .imgPlaceholder{

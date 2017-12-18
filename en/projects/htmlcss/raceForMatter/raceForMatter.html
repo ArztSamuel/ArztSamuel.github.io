@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <head>
+	<!-- META -->
     <meta charset="UTF-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="A small javascript simulation of matter and how they influence each other through gravity">
 	<meta name="keywords" content="Matter,Samuel Arzt,Matter of Matter,Javascript,game,gravity,physics,simulation">
 	<meta name="author" content="Samuel Arzt">
+	<title>Matter of Matter - Arzt Samuel</title>
 	
+    <!-- CSS -->
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
-	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/htmlcss/raceForMatter/raceForMatter.css" rel="stylesheet" type="text/css">
-    <title>Matter of Matter - Arzt Samuel</title>
 </head>
 <body>
 	<!-- NAVIGATION -->
 	<nav>
 		<div class="navbar">
-			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
+			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
 		</div>
     </nav>
 	<div id="fixedNav">
 		<div class="navbar">
-			<a href="index.html" class="button">Home</a><a href="projects.html" class="button pressed">Projects</a><a href="about.html" class="button">About</a>
+			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
 	
@@ -32,7 +33,9 @@
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#htmlcss">html/css/js</a></div>
 		
 		<h1>A Matter of Matter</h1>
-		<p id="introduction">This is my first real JavaScript project. A small simulation of matter and gravity.</p>
+		<p id="introduction">This was my first real JavaScript project. A small simulation of matter and gravity.<br>
+			(Press "Solar System" to start)
+		</p>
 		
 		<div id="canvCont">
 			<div id="ratio"></div>
@@ -41,21 +44,22 @@
 		
 		<div class="projectContent">
 			<h2>Description</h2>
-			<p>This program simulates how bodies of specific mass influence each other through gravity. It uses real physics formula and I've tried to keep it as close to reality as possible.<br>
-				I am right in the midst of this project so it is quite unfinished, I got a lot of ideas for this concept but so little time... Maybe I will make a 
-				game out of it one day...<br>
+			<p>This program simulates how bodies of specific mass influence each other through gravity. It uses real physics formula and I've tried 
+				to keep it as close to reality as possible.<br>
 				At the moment you can choose between two "modes": Solar System or Random.<br>
-				If you press Solar System the program will simulate our solar system, including all 8 planets and our sun. The camera will start with the earth in the middle of the view.<br>
-				If you press Random 20 random bodies are generated (with random mass, velocity and position)<br>
+				If you press "Solar System" the program will simulate our solar system, including all 8 planets and our sun. The camera will start with 
+				the earth in the middle of the view.<br>
+				If you press "Random" 20 random bodies are generated (with random mass, velocity and position).<br>
 				You can exit a mode by pressing the red "X" in the upper left corner.<br>
-				Beneath each body you can see a yellow number indicating the mass of the object. "e" stands for 10 to the power of the number next to "e" in this case.
-				So 5e10 would be 5*10^6 which would be 5 million kilograms.<br>
-				At a zoom-level of x1 one pixel on your screen should be 1000 km. If the mode is set to random all object sizes are calculated as if they had the same density as earth.
+				Beneath each body you can see a yellow number indicating the mass of the object. "e" stands for 10 to the power of the number next to 
+				"e". So 5e10 would be 5*10^6 which would be 5 million kilograms.<br>
+				At a zoom-level of x1 one pixel on your screen is equivilant to 1000 km. If the mode is set to random all object sizes are calculated as if 
+				they had the same density as earth.
 			</p>
 			<div class="divLine"></div>
 			<h2>Instructions</h2>
 			<p>You can move the camera view with AWSD.<br>
-				The Buttons "&lt;&lt;" and "&gt;&gt;" in the top right corner control the speed of time (you can see the elapsed time at the upper left corner).<br>
+				The Buttons "&lt;&lt;" and "&gt;&gt;" in the top right corner control the speed of time (you can see the elapsed time in the upper left corner).<br>
 				The Buttons "+" and "-" in the bottom right corner control your zoom level.
 			</p>
 		</div>
@@ -68,25 +72,17 @@
 	
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>A website made by Samuel Arzt<br>
-			Like my work? Feel free to:</p>
-		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
-
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-			<input type="hidden" name="cmd" value="_donations">
-			<input type="hidden" name="business" value="arzt.samuel@live.de">
-			<input type="hidden" name="lc" value="US">
-			<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
-			<input type="hidden" name="no_note" value="0">
-			<input type="hidden" name="currency_code" value="EUR">
-			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-		</form>
-
+		<p>A website made by Samuel Arzt</p>
+		<p>
+			<a href="mailto:arzt.samuel@live.de"><img src="../../../../shared/img/mail-icon.svg" class="mail-icon"></img>arzt.samuel@live.de</a>
+			<br>
+			<a href="https://twitter.com/SamuelArzt" target="_blank"><img src="../../../../shared/img/twitter-icon.svg" class="twitter-icon"></img>@SamuelArzt</a>
+			<a href="https://www.youtube.com/channel/UC_eerU4SleeptEbD2AA_nDw" target="_blank"><img src="../../../../shared/img/youtube-icon.png" class="youtube-icon"></img>SamuelArzt</a>
+			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
+		</p>
 	</div>
 	
-	<!-- RFM Script -->
+	<!-- RFM Scripts -->
     <script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Core.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Vector.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Math_PH.js"></script>
@@ -100,7 +96,7 @@
 	
 	<script>var core = new Core(); core.run();</script>
 	
-	<!-- Analyitics -->
+	<!-- ANALYTICS -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

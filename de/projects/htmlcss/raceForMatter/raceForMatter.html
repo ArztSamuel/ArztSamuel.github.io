@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <head>
+	<!-- META -->
     <meta charset="UTF-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Eine kleine Javascript Simulation von Materie und wie sie sich gegenseitig beeinflusst">
 	<meta name="keywords" content="Materie,Samuel Arzt,Matter of Matter,Javascript,spiel,gravitation,physik,simulation">
 	<meta name="author" content="Samuel Arzt">
+	<title>Matter of Matter - Arzt Samuel</title>
 	
+    <!-- CSS -->
     <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
-	<link href="../../../../shared/projects/imageSlider.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/htmlcss/raceForMatter/raceForMatter.css" rel="stylesheet" type="text/css">
-    <title>Matter of Matter - Arzt Samuel</title>
 </head>
 <body>
 	<!-- NAVIGATION -->
@@ -32,7 +33,9 @@
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#htmlcss">html/css/js</a></div>
 		
 		<h1>A Matter of Matter</h1>
-		<p id="introduction">Dies ist mein erstes richtiges JavaScript Projekt. Eine kleine Simulation von Materie und Gravitation.</p>
+		<p id="introduction">Dies war mein erstes richtiges JavaScript Projekt. Eine kleine Simulation von Materie und Gravitation.<br>
+			(Zum Starten auf "Solar System" klicken)
+		</p>
 		
 		<div id="canvCont">
 			<div id="ratio"></div>
@@ -41,22 +44,23 @@
 		
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Dieses Programm simuliert wie sich verschiedene Körper bestimmter Masse gegenseitig durch Gravitation beeinflussen. Es verwendet echte physikalische Formeln und ich habe versucht 
-				das Programm der Realität so nahe wie möglich kommen zu lassen.<br>
-				Ich stehe so ziemlich in der Mitter der Entwicklung also ist das Projekt noch relativ unfertig, ich habe eine Menge an Ideen für das Projekt, aber nur begrenzte Zeit... Vielleicht 
-				entwickle ich es einmal zu einem interaktiven Spiel weiter...<br>
+			<p>Dieses Programm simuliert wie sich verschiedene Körper bestimmter Masse gegenseitig durch Gravitation beeinflussen. Es verwendet 
+				echte physikalische Formeln und ich habe versucht das Programm der Realität so nahe wie möglich kommen zu lassen.<br>
 				Zur Zeit kann man zwischen zwei Modi wählen: "Solar System" (Sonnensystem) oder "Random" (Zufällig).<br>
-				Beim drücken auf "Solar System" simuliert das Programm unser Sonnensystem, inklusive aller 8 Planeten und unserer Sonne. Die Kamera startet mit der Erde in der Mitte des Sichtfeldes.<br>
+				Beim drücken auf "Solar System" simuliert das Programm unser Sonnensystem, inklusive aller 8 Planeten und unserer Sonne. Die 
+				Kamera startet mit der Erde in der Mitte des Sichtfeldes.<br>
 				Beim drücken auf "Random" werden 20 zufällige Körper (mit zufälliger Masse, Geschwindigkeit und Position) erzeugt.<br>
 				Der Modus kann durch das Drücken des roten "X" im linken oberen Eck wieder verlassen werden.<br>
-				Unter jedem Körper ist eine gelbe Zahl zu sehen, die die Masse des jeweiligen Körpers beschreibt. "e" steht in diesem Falle für 10 hoch der nummer neben "e".
-				So wäre also 5e10 gleich 5*10^6, was wiederum 5 million kilogramm bedeuten würde.<br>
-				Wenn das Zoom-Level auf "x1" gestellt ist, sollte 1 Pixel auf dem Bildschirm 1000 km entsprechen. Befindet man sich im "Random" Modus, so wird die größe der Objekte so berechnet als hätten alle Körper dieselbe Dichte wie die Erde.
+				Unter jedem Körper ist eine gelbe Zahl zu sehen, die die Masse des jeweiligen Körpers beschreibt. "e" steht in diesem Falle für 
+				10 hoch der nummer neben "e". So wäre also 5e10 gleich 5*10^6, was wiederum 5 million kilogramm bedeuten würde.<br>
+				Wenn das Zoom-Level auf "x1" gestellt ist, sollte 1 Pixel auf dem Bildschirm 1000 km entsprechen. Befindet man sich im "Random" 
+				Modus, so wird die größe der Objekte so berechnet als hätten alle Körper dieselbe Dichte wie die Erde.
 			</p>
 			<div class="divLine"></div>
 			<h2>Steuerung</h2>
 			<p>Die Kamera kann mit AWSD bewegt werden.<br>
-				Die Knöpfe "&lt;&lt;" und "&gt;&gt;" im oberen rechten Eck kontrollieren die Geschwindigkeit der Zeit (im oberen linken Eck sieht man die vergangene Zeit).<br>
+				Die Knöpfe "&lt;&lt;" und "&gt;&gt;" im oberen rechten Eck kontrollieren die Geschwindigkeit der Zeit (im oberen linken Eck sieht 
+				man die vergangene Zeit).<br>
 				Die Knöpfe "+" und "-" im unteren rechten Eck kontrollieren das Zoom-Level.
 			</p>
 		</div>
@@ -69,22 +73,14 @@
 	
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>Eine Website von Samuel Arzt<br>
-			Dir gefällt meine Arbeit? Du kannst gerne:</p>
-		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
-
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-			<input type="hidden" name="cmd" value="_donations">
-			<input type="hidden" name="business" value="arzt.samuel@live.de">
-			<input type="hidden" name="lc" value="AT">
-			<input type="hidden" name="item_name" value="Spende an Samuel Arzt">
-			<input type="hidden" name="no_note" value="0">
-			<input type="hidden" name="currency_code" value="EUR">
-			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-			<input type="image" src="https://www.paypalobjects.com/de_DE/AT/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen � mit PayPal.">
-			<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-		</form>
-
+		<p>Eine Webseite von Samuel Arzt</p>
+		<p>
+			<a href="mailto:arzt.samuel@live.de"><img src="../../../../shared/img/mail-icon.svg" class="mail-icon"></img>arzt.samuel@live.de</a>
+			<br>
+			<a href="https://twitter.com/SamuelArzt" target="_blank"><img src="../../../../shared/img/twitter-icon.svg" class="twitter-icon"></img>@SamuelArzt</a>
+			<a href="https://www.youtube.com/channel/UC_eerU4SleeptEbD2AA_nDw" target="_blank"><img src="../../../../shared/img/youtube-icon.png" class="youtube-icon"></img>SamuelArzt</a>
+			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
+		</p>
 	</div>
 	
 	<!-- RFM Script -->
@@ -101,7 +97,7 @@
 	
 	<script>var core = new Core(); core.run();</script>
 	
-	<!-- Analyitics -->
+	<!-- ANALYTICS -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

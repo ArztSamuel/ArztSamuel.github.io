@@ -290,6 +290,12 @@ li{
 	}
 }
 
+@media screen and (max-width: 550px){
+	.button{
+		min-width: 0em;
+	}
+}
+
 
 
 

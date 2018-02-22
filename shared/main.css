@@ -61,6 +61,8 @@ nav{
 	height: 2.8em;
 	border-right: solid darkGray 2px;
 	display: inline-block;
+	min-width: 6.5em;
+	text-align: center;
 	
 	transition: background-color 0.5s ease-in;
 }

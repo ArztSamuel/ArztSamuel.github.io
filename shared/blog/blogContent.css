@@ -1,0 +1,65 @@
+/* Date display in actual blog entry */
+.date{
+	margin: -1em 0em 2em 0.3em;
+	color: slateGray;
+	text-align: center;
+}
+
+.blogContent{
+	margin: 3em 1.5em 4em 1.5em;
+	background-color: ghostwhite;
+	border-radius: 20px;
+	border: lightGray solid 1px;
+	padding: 1em 4em 2.5em 4em;
+	overflow: hidden;
+	
+	position: relative;
+}
+
+h1{
+	color: royalBlue;
+	text-align: center;
+	padding-top: 0.5em;
+}
+
+h2{
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+p{
+	margin-left: 9em;
+	margin-right: 9em;
+}
+
+.blogContent p{
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 1em;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width:1400px){
+	p{
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+}
+
+@media screen and (max-width:1200px){
+	.blogContent{
+		padding: 2em 1em;
+		margin: 3em -1em 4em -1em;
+	}
+}
+
+@media screen and (max-width: 800px){
+	.blogContent{
+		padding: 0.5em;
+		
+		margin-right: 0;
+		margin-left: 0;
+	}
+}

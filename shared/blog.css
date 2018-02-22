@@ -1,0 +1,46 @@
+#content p{
+	font-size: 14pt;
+	line-height: 1.7em;
+}
+
+.blogPreviews a{
+	color: black;
+}
+
+.blogPreviews h1{
+	color: royalBlue;
+	margin-bottom: 0;
+}
+
+.blogPreviews a:link, .blogPreviews a:hover, .blogPreviews a:visited, .blogPreviews a:active{
+	text-decoration: none;
+}
+
+.blogPreviews a:hover h1{
+	color: lightSkyBlue;
+}
+
+.blogPreview{
+	margin-left: 2em;
+	margin-right: 15em;
+	margin-top: 1em;
+}
+
+.blogPreviews .date{
+	margin: 0em 0em 0.5em 0.3em;
+}
+
+.videoWrapper {
+    position: relative;
+	padding-bottom: 53.9%; /* 16:9 */
+	padding-top: 25px;
+	margin-bottom: 2em;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

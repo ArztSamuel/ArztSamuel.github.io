@@ -5,11 +5,11 @@
 }
 
 .blogContent{
-	margin: 3em 1.5em 4em 1.5em;
+	margin: 3em -1em 4em -1em;
 	background-color: ghostwhite;
 	border-radius: 20px;
 	border: lightGray solid 1px;
-	padding: 1em 4em 2.5em 4em;
+	padding: 1em 2.5em 2.5em 2.5em;
 	overflow: hidden;
 	
 	position: relative;
@@ -27,8 +27,16 @@ h2{
 }
 
 p{
-	margin-left: 9em;
-	margin-right: 9em;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+ul{
+	padding: 0 25pt;
+}
+
+ul li{
+	font-size: 14pt;
 }
 
 .blogContent p{
@@ -53,14 +61,74 @@ p{
 	height: 100%;
 }
 
+.prettyprint {
+	margin-bottom: 1.5em;
+}
+
+li .prettyprint {
+	margin-bottom: 0;
+}
+
+.note {
+	color: darkgray;
+	display: inline;
+	font-size: 90%;
+}
+
+.blogContent img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	min-width: 300px;
+	padding-bottom: 1.5em;
+}
+
+.prettyprint span {
+	font-family: monospace;
+}
+
+.prettyprint {
+	font-size: 12pt;
+}
+
+.related {
+	margin-bottom: 4em;
+	display: inline-block;
+}
+
+.related .indent {
+	display: inline;
+}
+
+.related img {
+	max-width: 45%;
+	min-width: 300px;
+}
+
+.related h3 {
+	color: royalBlue;	
+	margin-bottom: 0.5em;
+	display: inline-block;
+}
+
+.indent {
+	margin-left: 5%;
+	display: inline-block;
+}
+
+.related a:hover h3{
+	color: lightSkyBlue;
+}
+
+.related a:link, .related a:hover, .related a:visited, .related a:active{
+	text-decoration: none;
+}
 
 /* Media Queries */
 
 @media screen and (max-width:1400px){
-	p{
-		margin-left: 3em;
-		margin-right: 3em;
-	}
+	
 }
 
 @media screen and (max-width:1200px){

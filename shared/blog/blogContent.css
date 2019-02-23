@@ -79,6 +79,7 @@ li .prettyprint {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 0.8em;
 	width: 50%;
 	min-width: 300px;
 	padding-bottom: 1.5em;
@@ -138,10 +139,9 @@ li .prettyprint {
 	}
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
 	.blogContent{
 		padding: 0.5em;
-		
 		margin-right: 0;
 		margin-left: 0;
 	}

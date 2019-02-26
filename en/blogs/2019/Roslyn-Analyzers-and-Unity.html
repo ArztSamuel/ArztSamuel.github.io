@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<head>
+	<!-- META -->
+    <meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A basic introduction to Roslyn Analyzers for analyzing C# code, with a guide on how to integrate them into Unity.">
+	<meta name="keywords" content="Roslyn Analyzer,Unity,Unity3d,Game Development,C#,Coding Guidelines,Code Standards,guidelines,standards">
+	<meta name="author" content="Samuel Arzt">
+	<title>Code your Coding Guidelines - Samuel Arzt</title>
+	
+    <!-- CSS -->
+    <link href="../../../shared/main.css" rel="stylesheet" type="text/css">
+	<link href="../../../shared/blog.css" rel="stylesheet" type="text/css">
+	<link href="../../../shared/blog/blogContent.css" rel="stylesheet" type="text/css">
+	
+	<!-- Prettify -->
+	<link href="../../../shared/external/prettify/prettify.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../../../shared/external/prettify/prettify.js"></script>
+	
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<nav>
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
+		</div>
+    </nav>
+	<div id="fixedNav">
+		<div class="navbar">
+			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
+		</div>
+	</div>
+	
+	<!-- CONTENT -->
+	<div id="content">
+	
+		<h1>Code your Coding Guidelines<br>-<br>
+		Roslyn Analyzers and how to use them with Unity</h1>
+		<p class="date">26.02.2019 - Samuel Arzt</p>
+		<p>
+			This post serves as a basic introduction to Roslyn Analyzers for analyzing C# code and how to integrate them with the <a href="https://unity.com" target="_blank">Unity</a> game engine. In particular, one Analyzer for enforcing coding guidelines, as well as another Analyzer for spotting a common Unity pitfall, are explained.
+		</p>
+		
+		<div class="blogContent">	
+			<h2>Roslyn Analyzers</h2>
+			<p>
+				Analyzers are a great way to enforce certain standards in your codebase, or to easily and reliably spot common mistakes and pitfalls. They allow you to write extensions for Visual Studio, which analyze code at the moment you are writing it and report 
+				<img align="right" src="../../../shared/blog/2019/img/PascalCasing_Suggestion.png" alt="Demonstration of an Analyzer + Code Fix for PascalCasing type names."></img>
+				Visual Studio errors, warnings or messages based on the rules you define. Furthermore you can create custom Code-Fixes, which provide an easy way to automatically resolve spotted errors in an instant.
+			<p>
+			<p>
+				The best part of it all is that the entire code for analyzing can be written in C#, since Analyzers build on the .NET Compiler Platform <a href="https://github.com/dotnet/roslyn" target="_blank">Roslyn</a>.
+			</p>
+			
+			<h2>Setup for Analyzer Development</h2>
+			<p>
+				Visual Studio already provides a very helpful template-project in order to get started with Analyzer development, as well as some other helpful tools for visualizing how the Roslyn Compiler-API works. However, these tools have to be explicitly installed. To do so, open the Visual Studio Installer (assuming <a href="https://visualstudio.microsoft.com/vs/" target="_blank">Visual Studio 2017</a> is already installed) and modify your installation to add the <i>.NET Compiler Platform SDK</i> under <i>Visual Studio Extension Development</i>:
+			</p>
+			<img src="../../../shared/blog/2019/img/Compiler_SDK.gif" style="width: 75%;" alt="Animation of how to install the Compiler SDK package in Visual Studio 2017."></img>
+			
+			<h2>Template Project</h2>
+			<p>
+				The Analyzer template provided by Visual Studio is a great starting point for getting to know Roslyn Analyzers. In order to create a new project from the template, click <i>File</i> -> <i>New</i> -> <i>Project...</i> and choose the <i>Analyzer with Code Fix</i> template from the <i>Visual C#</i> drop down:
+			</p>
+			<img src="../../../shared/blog/2019/img/Template_Analyzer.gif" style="width: 70%;" alt="Animation of how to create a new Project from the Analyzer template."></img>
+			
+			<p>
+				This will create a solution with three sub-projects: The Analyzer itself, a project for unit-tests and a Vsix project, which is used to run / debug the Anaylzer.<br>
+				The Analyzer template is an implementation of an Analyzer and Code Fix which enforce all typenames to solely consist of all upper-case letters. While the practical value of such an Analyzer may be debatable, its code is a simple demonstration and can be used as a good starting point for your own Analyzer.
+			</p>
+			<h3>Run and Debug</h3>
+			<p>
+				In order to run / debug the Analyzer, simply run the *.Vsix project, which will start another instance of Visual Studio with your Analyzer installed. Here you can open an existing project or create a new project to test the Analyzer's functionality.
+				<img align="right" src="../../../shared/blog/2019/img/Template_Analyzer_CodeFix.png" alt="Domenstration of the template Analyzer code fix, suggesting to change the typename to all upper-case letters."></img>
+				The template Analyzer will report a warning for all typenames with lower case letters. You can also test the Code Fix by clicking on the light-bulb icon, or with the <i>'Ctrl + .'</i> shortcut, while your caret is positioned on the erroneous code-part. You can also debug and place breakpoints in your Analyzer solution (in the original instance of Visual Studio) as usual.
+			</p>
+			<h3>Analyzer Implementation</h3>
+			<p>
+				Now let's have a closer look at how the template Analyzer is implemented. The Analyzer sub-project already has two C# files. <i>&lt;SolutionName&gt;Analyzer.cs</i> implements the actual Analyzer, which reports the warning and <i>&lt;SolutionName&gt;CodeFixProvider.cs</i> implements the Code Fix for automatically fixing the reported warning. Generally it is good practice to also implement a Code Fix Provider for every Analyzer, if possible.
+			</p>
+			<p>
+				The Analyzer file first defines a lot of constants, such as the title, message and description of the Analyzer which will be displayed in Visual Studio. Here you can also define the severity, i.e. Error, Warning, Info or Hidden, of the Analyzer. However, the most interesting code-parts are the <i>Initialize</i> and <i>AnalyzeSymbol</i> methods below.
+			</p>
+			
+			<pre class="prettyprint lang-cs linenums:23">[DiagnosticAnalyzer(LanguageNames.CSharp)]
+public class TemplateAnalyzer : DiagnosticAnalyzer
+{
+
+  <span class="nocode">...</span>
+  
+  public override void <span class="nocode">Initialize</span>(AnalysisContext context)
+  {
+    context.<span class="nocode">RegisterSymbolAction</span>(<span class="nocode">AnalyzeSymbol</span>, SymbolKind.<span class="nocode">NamedType</span>);
+  }
+  
+  private static void <span class="nocode">AnalyzeSymbol</span>(SymbolAnalysisContext context)
+  {
+    var namedTypeSymbol = (INamedTypeSymbol)context.<span class="nocode">Symbol</span>;
+    
+    // Find just those named type symbols with names containing lowercase letters.
+    if (namedTypeSymbol.<span class="nocode">Name.ToCharArray</span>().<span class="nocode">Any</span>(char.<span class="nocode">IsLower</span>))
+    {
+      // For all such symbols, produce a diagnostic.
+      var diagnostic = Diagnostic.<span class="nocode">Create</span>(<span class="nocode">Rule</span>, namedTypeSymbol.<span class="nocode">Locations</span>[0], namedTypeSymbol.<span class="nocode">Name</span>);
+	  
+      context.<span class="nocode">ReportDiagnostic</span>(diagnostic);
+    }
+  }
+}</pre>
+			
+			<p>
+				The <i>Initialize</i> method is overridden from the <i>DiagnosticAnalyzer</i> base class and can be used to register a callback method to be called whenever the compiler encounters specific symbols or syntax nodes (more on that later). In this case, on line 31, the method <i>AnalyzeSymbol</i> is registered to be called whenever the compiler encounters a symbol of the <i>NamedType</i> kind, e.g. a class or struct identifier.
+			</p>
+			<p>
+				<i>AnalyzeSymbol</i> will then check if any character of the typename is lower case (line 39) and report a warning at the symbol's code-location if the condition is met (line 42 / 44).<br>
+				That's it! Essentially only 5 lines of actual code are enough for this simple Analyzer to work. More complex Analyzers will obviously require a bit more code, however you will probably still be surpised at how easy it is to create more practical Analyzers.
+			</p>
+			<h3>Syntax Trees and Semantic Model</h3>
+			<p>
+				There is <b>a lot</b> more depth to the things you can do with the Roslyn Compiler API. As a starting point it can be helpful to understand the difference between the syntactical level and the semantic model of code analysis. Actions, such as the <i>AnalyzeSymbol</i> method above, may be subscribed to events on both the syntactical level as well as the semantic model.
+			</p>
+			<p>
+				In simplified terms, the syntactical level purely deals with the syntax tree of the code you are analyzing. Callbacks registered to the syntactical level are executed when parsing of the code document was completed. At this point we can identify declarations, invocations and so on, but we are not able to track down references to these Syntax Nodes or other semantic information about them, like the base class of a type .<br>
+				The semantic model on the other hand is able to answer these questions. However, as you might have guessed, it is typically more expensive to query the semantic model, than a syntax tree. 
+			</p>
+			<p>	
+				In order to be able to better understand the syntactical level, the .NET Compiler Platform SDK provides a very helpful tool,
+				<img align="right" src="../../../shared/blog/2019/img/SyntaxVisualizer_WindowLocation.png" alt="Screenshot of how to open the Syntax Visualizer Window in Visual Studio."></img>
+				called the <i>Syntax Visualizer</i>. The Syntax Visualizer window can be used to visualize the syntax tree of the code document you are currently writing.
+				You can open it under <i>View</i> -> <i>Other Windows</i> -> <i>Syntax Visualizer</i>.<br>
+				The Window will automatically expand and select the node corresponding to the code element currently under your caret. In the screenshot below for example, you can see that single line code comments are parsed by Roslyn as a leading <i>SingleLineCommentTrivia</i> as a child of the <i>CloseBraceToken</i> (i.e. the '}' of <i>SomeMethod</i> on line 13). This kind of visualization can be very helpful, when you are trying to find a way to access specific Syntax Nodes for your Analyzer and can give you a hint on how to best navigate the syntax tree in order to reliably find the nodes you are after.
+			</p>
+			<img src="../../../shared/blog/2019/img/SyntaxVisualizer_Example.png" style="width: 70%;" alt="Screenshot showing how to open the Syntax Visualizer Window."></img>
+			<h3>Code Fix Implementation</h3>
+			<p>
+				Now that we have a basic understanding of how the Analyzer works, let's also have a look at how the Code Fix is implemented. Code Fixes allow you to define how code parts could be automatically adapted in order to resolve issues reported by an Analyzer.
+			</p>
+			<p>
+				First of all, the Code Fix Provider of our template defines which Analyzers it provides a fix for, by overriding the <i>FixableDiagnosticIds</i> property of the <i>CodeFixProvider</i> base class and simply returning the DiagnosticId of the corresponding Analyzer:
+			</p>
+			
+			<pre class="prettyprint lang-cs linenums:18">[ExportCodeFixProvider(LanguageNames.<span class="nocode">CSharp</span>), Shared]
+public class TemplateCodeFixProvider : CodeFixProvider
+{
+  ...
+  
+  public override ImmutableArray<string> <span class="nocode">FixableDiagnosticIds</span>
+  {
+    get { return ImmutableArray.<span class="nocode">Create</span>(TemplateAnalyzer.<span class="nocode">DiagnosticId</span>); }
+  }
+  
+  ...
+}</pre>
+			
+			<p>
+				Again, the more interesting code-parts are situated in the methods further down below. The method <i>RegisterCodeFixesAsync</i> will be called whenever a code fix for a DiagnosticId of this Code Fix Provider is requested and must be overriden to provide our custom Code Fix:
+			</p>
+			<pre class="prettyprint lang-cs linenums:31">...
+  
+  public override async Task <span class="nocode">RegisterCodeFixesAsync</span>(CodeFixContext context)
+  {
+    var root = await context.<span class="nocode">Document.GetSyntaxRootAsync</span>(context.<span class="nocode">CancellationToken</span>);
+    
+    var diagnostic = context.<span class="nocode">Diagnostics.First</span>();
+    var diagnosticSpan = diagnostic.<span class="nocode">Location.SourceSpan</span>;
+    
+    // Find the type declaration identified by the diagnostic.
+    var declaration = root.<span class="nocode">FindToken</span>(diagnosticSpan.<span class="nocode">Start</span>).<span class="nocode">Parent.AncestorsAndSelf</span>()
+      .<span class="nocode">OfType</span>&lt;TypeDeclarationSyntax&gt;().<span class="nocode">First</span>();
+    
+    // Register a code action that will invoke the fix.
+    context.<span class="nocode">RegisterCodeFix</span>(
+      CodeAction.<span class="nocode">Create</span>(
+        title: title,
+        createChangedSolution: c =&gt; <span class="nocode">MakeUppercaseAsync</span>(context.<span class="nocode">Document</span>, declaration, c),
+        equivalenceKey: title),
+      diagnostic);
+  }
+
+...</pre>			
+	
+			<p>
+				Since we are at the syntactical level here and only have the location of where the diagnostic was reported, a bit more work has to be done than in the Analyzer, in order to find the correct node / symbol. To do so, we navigate from the syntax tree root to the <i>TypeDeclarationSyntax</i> node located at the start of the diagnostic location (lines 35 to 42). Next, the method <i>MakeUppercaseAsync</i> is registered as a code fix action:
+			</p>
+			<pre class="prettyprint lang-cs linenums:51">...
+  
+  private async Task<Solution> <span class="nocode">MakeUppercaseAsync</span>(Document document, TypeDeclarationSyntax typeDecl, CancellationToken cancellationToken)
+  {
+    // Compute new uppercase name.
+    var identifierToken = typeDecl.<span class="nocode">Identifier</span>;
+    var newName = identifierToken.<span class="nocode">Text.ToUpperInvariant</span>();
+    
+    // Get the symbol representing the type to be renamed.
+    var semanticModel = await document.<span class="nocode">GetSemanticModelAsync</span>(cancellationToken);
+    var typeSymbol = semanticModel.<span class="nocode">GetDeclaredSymbol</span>(typeDecl, cancellationToken);
+    
+    // Produce a new solution that has all references to that type renamed, including the declaration.
+    var originalSolution = document.<span class="nocode">Project.Solution</span>;
+    var optionSet = originalSolution.<span class="nocode">Workspace.Options</span>;
+    var newSolution = await Renamer.<span class="nocode">RenameSymbolAsync</span>(document.<span class="nocode">Project.Solution</span>, typeSymbol, newName, optionSet, cancellationToken);
+    
+    // Return the new solution with the now-uppercase type name.
+    return newSolution;
+  }
+
+...</pre>
+			
+			<p>
+				This method first creates the all upper-case name string and then gets the type symbol from the semantic model, in order to be able to rename all its references in the entire solution (lines 55 to 61). Renaming a symbol can easily be done using the <i>Renamer</i> class provided by the <i>CodeAnalysis</i> namespace (lines 63 to 66). Finally the new solution with the renamed type is returned.
+			</p>
+			<p>
+				That's all there is to this simple template Analyzer / Code Fix pair. I highly encourage you to place your own breakpoints to get a feel for when specific code parts get executed and what their context variables contain. However, the best way to get used to how Analyzers work is probably to simply start writing your own.
+			</p>
+			<h2>Examples</h2>
+			<p>
+				Now that we understand how simple Analyzers and Code Fix Providers work, let's have a look at some examples that might actually be useful in practical applications.
+			</p>
+			
+			<h3>Enforcing Coding Guidelines</h3>
+			<p>
+				A very good way of practicing to write Analyzers is to automatically enforce your coding guidelines. Nonetheless you should keep in mind that writing Analyzers just to enforce simple coding guidelines might be a bit of an overkill. You could for example also use Visual Studio's built-in coding guidelines options. However, these can't easily be shared with your team. An <a href="https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2017" target="_blank">editorconfig</a> file can be shared and version controlled, in order to ensure your whole team follows the same guidelines, but can be a real pain to configure or sometimes fail to break the build when you want them to. If you simply want to practice, or for more complex guidelines, Analyzers are the way to go though.
+			</p>
+			<p>
+				One example would be to enforce the coding guideline of starting single line comments with a whitespace. So let's have a look at how an Analyzer for this cause could be implemented. Again, we are looking at the <i>Initialize</i> method and the Action that is subscribed in it:
+			</p>
+			<pre class="prettyprint lang-cs linenums:32">[DiagnosticAnalyzer(LanguageNames.<span class="nocode">CSharp</span>)]
+public class CommentAnalyzer : DiagnosticAnalyzer
+{
+...
+
+  public override void <span class="nocode">Initialize</span>(AnalysisContext context)
+  {
+    context.<span class="nocode">RegisterSyntaxTreeAction</span>(<span class="nocode">AnalyzeComment</span>);
+  }
+  
+  private void <span class="nocode">AnalyzeComment</span>(SyntaxTreeAnalysisContext context)
+  {
+    SyntaxNode root = context.<span class="nocode">Tree.GetRoot</span>(context.<span class="nocode">CancellationToken</span>);
+    IEnumerable&lt;SyntaxTrivia&gt; commentNodes = root.<span class="nocode">DescendantTrivia().Where</span>((node) =&gt; node.<span class="nocode">IsKind</span>(SyntaxKind.<span class="nocode">SingleLineCommentTrivia</span>));
+
+    if (commentNodes != null)
+    {
+      foreach (SyntaxTrivia node in commentNodes)
+      {
+        <span class="nocode">CheckWhiteSpaceRuleViolation</span>(context, node);
+      }
+    }
+  }
+
+...
+}</pre>
+
+			<p>
+				This time we will subscribe our analyzing method directly as a <i>SyntaxTreeAction</i> (line 39), i.e. at the syntactical level. Every time parsing the code document completed, <i>AnalyzeComment</i> will be called and we look through the Syntax Tree for <i>SyntaxTrivia</i> nodes of kind <i>SingeLineCommentTrivia</i> (lines 44/45) and check their properties for our rule (line 51).
+			</p>
+
+<pre class="prettyprint lang-cs linenums:54">...
+
+  private void <span class="nocode">CheckWhiteSpaceRuleViolation</span>(SyntaxTreeAnalysisContext context, SyntaxTrivia node)
+  {
+    string comment = node.<span class="nocode">ToString</span>();
+    int whiteSpaceIndex = <span class="nocode">GetDesiredWhiteSpacePosition</span>(comment);
+    if (whiteSpaceIndex &gt;= comment.<span class="nocode">Length</span>)
+      return;
+
+    if (comment[whiteSpaceIndex] != ' ' && comment[whiteSpaceIndex] != '\t')
+      context.<span class="nocode">ReportDiagnostic</span>(Diagnostic.<span class="nocode">Create</span>(whitespaceRule, node.<span class="nocode">GetLocation</span>()));
+  }
+  
+  internal static int <span class="nocode">GetDesiredWhiteSpacePosition</span>(string comment)
+  {
+    int i = 2;
+    while (i < comment.<span class="nocode">Length</span> && comment[i] == '/')
+      i++;
+
+    return i;
+  }
+
+...</pre>
+
+			<p>
+				
+				The rest of the analysis consists of basic string manipulation. Inside the method <i>CheckWhiteSpaceRuleViolation</i> 
+				<img align="right" src="../../../shared/blog/2019/img/CommentAnalyzer_Whitespace.png" alt="Demonstration of the CommentAnalyzer in action on multiple single line comments." style="width: 30%;"></img>
+				we check the string of the comment to start with a whitespace, with some special cases in mind, such as allowing for more than two slashes (see method <i>GetDesiredWhiteSpacePosition</i> starting at line 67) and also allowing for tabs instead of a whitespace (line 63).
+			</p>
+			
+			<p>
+				Now let's also have a quick look at how a Code Fix Provider for this Analyzer could be implemented. First we register our Code Fix Action by finding the correct <i>SyntaxTrivia</i> corresponding to our diagnostic again:
+			</p>
+			
+<pre class="prettyprint lang-cs linenums:29">[ExportCodeFixProvider(LanguageNames.<span class="nocode">CSharp</span>), Shared]
+public class CommentCodeFix : CodeFixProvider
+{
+  ...
+
+  public override async Task <span class="nocode">RegisterCodeFixesAsync</span>(CodeFixContext context)
+  {
+    SyntaxNode root = await context.<span class="nocode">Document.GetSyntaxRootAsync</span>(context.<span class="nocode">CancellationToken</span>);
+
+    Diagnostic diagnostic = context.<span class="nocode">Diagnostics.First</span>();
+    TextSpan diagnosticSpan = diagnostic.<span class="nocode">Location.SourceSpan</span>;
+    SyntaxTrivia comment = root.<span class="nocode">FindTrivia</span>(diagnosticSpan.<span class="nocode">Start</span>, findInsideTrivia: true);
+
+    context.<span class="nocode">RegisterCodeFix</span>(
+      CodeAction.<span class="nocode">Create</span>(
+        title: title,
+        createChangedDocument: c => <span class="nocode">InsertWhitespaceInComment</span>(context.<span class="nocode">Document</span>, root, comment, c),
+        equivalenceKey: title),
+      diagnostic);
+  }
+  
+  ...
+}</pre>
+			
+			<p>
+				After that, fixing the actual comment is quite simple:
+			</p>
+<pre class="prettyprint lang-cs linenums:48">...
+  private async Task&lt;Document&gt; <span class="nocode">InsertWhitespaceInComment</span>(Document document, SyntaxNode root, SyntaxTrivia comment, CancellationToken cancellationToken)
+  {
+    // Produce new comment
+    string oldCommentContent = comment.<span class="nocode">ToString</span>();
+    string newCommentContent = oldCommentContent.<span class="nocode">Insert</span>(
+	  CommentAnalyzer.<span class="nocode">GetDesiredWhiteSpacePosition</span>(oldCommentContent), " ");
+    SyntaxTrivia newComment = SyntaxFactory.<span class="nocode">Comment</span>(newCommentContent);
+
+    // Produce new document with new comment in it
+    SyntaxNode newRoot = root.<span class="nocode">ReplaceTrivia</span>(comment, newComment);
+    return document.<span class="nocode">WithSyntaxRoot</span>(newRoot);
+  }
+...</pre>	
+			<p>
+				We simply insert a whitespace character into the comment at the position defined by the method we already used in the Analyzer and create a new <i>SyntaxTrivia</i> node with the new comment string using the <i>SyntaxFactory</i> (lines 51-55). Finally we return a new code document with a tree where we replaced the comment trivia (lines 57-59).
+			</p>
+			
+			<h3>Analyzer for Unity Coroutines</h3>
+			<p>
+				Let's have a look at another example of a more complex Analyzer. A common Unity pitfall, especially for developers who just started looking into Coroutines, is yield returning new Wait Instructions inside a loop instead of caching the object instance outside the loop to avoid GC allocations every loop. This might not impact your FPS immediately but can cause nasty GC spikes. Anyhow, it is very simple to fix. So let's try to implement an Analyzer for automatically detecting this scenario:
+			</p>
+			
+			<pre class="prettyprint lang-cs linenums:13">[DiagnosticAnalyzer(LanguageNames.<span class="nocode">CSharp</span>)]
+public class CoroutineAnalyzer : DiagnosticAnalyzer
+{
+  ...
+
+  public override void <span class="nocode">Initialize</span>(AnalysisContext context)
+  {
+    context.<span class="nocode">RegisterSyntaxNodeAction</span>(<span class="nocode">AnalyzeYieldReturn</span>, SyntaxKind.<span class="nocode">YieldReturnStatement</span>);
+  }
+  
+  private static void <span class="nocode">AnalyzeYieldReturn</span>(SyntaxNodeAnalysisContext context)
+  {
+    var yieldNode = (YieldStatementSyntax)context.<span class="nocode">Node</span>;
+    ExpressionSyntax yieldExpression = yieldNode.<span class="nocode">Expression</span>;
+
+    // Only investigate 'yield return new'
+    if (yieldExpression.<span class="nocode">Kind</span>() != SyntaxKind.<span class="nocode">ObjectCreationExpression</span>)
+      return;
+
+    // Check if we are inside a loop
+    bool isInsideLoop = yieldNode.<span class="nocode">Ancestors().Where</span>((node) => <span class="nocode">IsLoopKind</span>(node.<span class="nocode">Kind</span>())).<span class="nocode">Any</span>();
+    if (!isInsideLoop)
+      return;
+
+    // Get created type
+    var creationExpression = (ObjectCreationExpressionSyntax)yieldExpression;
+    TypeSyntax createdType = creationExpression.<span class="nocode">Type</span>;
+
+    // Get TypeSymbol from semantic model, in order to be able to investigate inheritance tree
+    var symbol = (INamedTypeSymbol)context.<span class="nocode">SemanticModel.GetSymbolInfo</span>(createdType).<span class="nocode">Symbol</span>;
+
+    if (<span class="nocode">IsWaitInstruction</span>(symbol))
+      context.<span class="nocode">ReportDiagnostic</span>(Diagnostic.<span class="nocode">Create</span>(<span class="nocode">Rule</span>, yieldExpression.<span class="nocode">GetLocation</span>()));
+  }
+
+  private static bool <span class="nocode">IsLoopKind</span>(SyntaxKind kind)
+  {
+    return kind == SyntaxKind.<span class="nocode">WhileStatement</span> || kind == SyntaxKind.<span class="nocode">ForStatement</span> 
+      || kind == SyntaxKind.<span class="nocode">ForEachStatement</span>;
+  }
+  
+  ...
+}</pre>
+
+			<p>
+				This time we register an Action for whenever a Node of kind <i>YieldReturnStatement</i> is parsed (line 20). Inside the action, we check three conditions which have to apply in order for our diagnostic to be reported: the yield statement has to be an <i>ObjectCreationExpression</i>, i.e. a 'yield return new' (lines 25-30), the statement has to be inside any kind of loop (lines 32-35), and the type created by the expression has to be some sort of Wait instruction.<br>
+				Detecting the <i>ObjectCreationExpression</i> is rather straight-forward. We can detect whether a node is inside a loop by checking the kind of its ancestor nodes in the Syntax Tree, since nodes inside a loop will become descendant nodes of the loop node (the Syntax Visualizer is very helpful here).
+			</p>
+			
+			<p>
+				Finally, let's look at how we can detect whether the type created by the yield expression is actually a Wait instruction:
+			</p>
+			
+			<pre class="prettyprint lang-cs linenums:60">...
+
+  private static bool <span class="nocode">IsWaitInstruction</span>(INamedTypeSymbol symbol)
+  {
+    var qualifiedNameFormat = new SymbolDisplayFormat(
+    typeQualificationStyle: SymbolDisplayTypeQualificationStyle.<span class="nocode">NameAndContainingTypesAndNamespaces</span>);
+
+    while (symbol.<span class="nocode">BaseType</span> != null)
+    {
+      string baseTypeQualifiedName = symbol.<span class="nocode">BaseType.ToDisplayString</span>(qualifiedNameFormat);
+      if (baseTypeQualifiedName == "UnityEngine.YieldInstruction")
+      {
+        // We don't want to report diagnostics for returning new Coroutines
+        string symbolQualifiedName = symbol.<span class="nocode">ToDisplayString</span>(qualifiedNameFormat);
+        if (symbolQualifiedName == "UnityEngine.Coroutine")
+          return false;
+        else
+          return true;
+      }
+      else if (baseTypeQualifiedName == "UnityEngine.CustomYieldInstruction")
+      {
+        return true;
+      }
+
+      // Traverse down inheritance tree
+      symbol = symbol.<span class="nocode">BaseType</span>;
+    }
+
+    return false;
+  }
+
+...</pre>
+
+			<p>
+				Here we simply traverse the inheritance tree to check whether the created type is a descendant of the <i>YieldInstruction</i> class in any form, by
+				comparing the qualified name of the type's base types with the hard coded qualified name of <i>YieldInstruction</i> and <i>CustomYieldInstruction</i>.
+				<img align="right" src="../../../shared/blog/2019/img/CoroutineAnalyzer.png" alt="Demonstration of the CoroutineAnalyzer in action." style="width: 50%;"></img>
+				There might be more reliable ways to check this, but this will definitely do for our use case for now.
+			</p>
+
+			<h2>Building / Shipping Analyzers</h2>
+			<p>
+				There are two different ways how you can actually integrate your own Analyzers into your projects: Vsix or NuGet.
+			</p>
+			<h3>Vsix - Visual Studio Integration Extension</h3>
+			<p>
+				The Vsix sub-project of the Analyzer template solution will create a *.vsix file, which you can double-click to install the Analyzer with your Visual Studio. This will install the Analyzer extension for your entire Visual Studio, i.e. the Analyzer will be run for all your projects.
+			</p>
+			<h3>NuGet Package</h3>
+			<p>
+				The normal Analyzer sub-project of the template solution is already set up to generate a NuGet Package as a *.nupkg file. You can either publicly publish the package via NuGet or, for internal or test purposes, you can also add a local package source folder to your NuGet Manager. NuGet enables you to install Analyzers for specific projects, instead of your whole Visual Studio installation and if you are working in a team, the package will automatically be installed for other team members as well.<br>
+				One thing to look out for with NuGet packages is the version number, though. I recommend actually increasing the version number, even for internal or testing purposes, since NuGet might otherwise install a cached version instead of the newly built version. Alternatively, you can of course also simply delete your local cache folder.
+			</p>
+			<p>
+				In order to install a NuGet package or set up a local NuGet source folder, right click your solution -> <i>Manage NuGet Packages for Solution...</i> to open the NuGet Package Manager UI.
+			</p>
+			
+			<img src="../../../shared/blog/2019/img/NuGetPackage_LocalSource_Installation.gif" style="width: 70%;" alt="Animation of how to create a new Project from the Analyzer template."></img>
+			
+			<h2>Using Analyzers with Unity</h2>
+			<p>
+				Since Unity uses a custom way to create Visual Studio solution- and project-files at runtime, using Analyzers in Unity projects requires a bit of extra work. If you install the Analyzer via NuGet Unity will delete the reference to the installed Analyzer from the project files every time it regenerates them, which happens quite often. 
+			</p>
+			<p>
+				The most simple way to circumvent this is to either install the Analyzer via Vsix or to develop your C# scripts in a separate Visual Studio project as a Class Library and to only add the compiled library to the Unity Project. However, both of these methods have major drawbacks.
+			</p>
+			<p>
+				Fortunately, Unity also allows us to create scripts that are called every time the project files were regenerated. This way we can write a custom script which edits the newly generated *.csproj files to include the references to our Analyzers again. You can find a Gist of such a script on my GitHub page <a href="https://gist.github.com/ArztSamuel/cdcf4534f1534ce3823c16c6eeed75f3" target="_blank">here</a>.
+			</p>
+			<p>
+				Furthermore you can add a <i>nuget.config</i> file in your Unity project-folder, in order to define a custom installation directory like this:
+			</p>
+			<pre class="prettyprint lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+    &lt;config&gt;
+        &lt;add key="repositoryPath" value=".\Assets\Nuget" /&gt;
+    &lt;/config&gt;
+&lt;/configuration&gt;
+</pre>
+			<p>
+				If you do so, make sure to disable all platforms in the Unity Inspector for the Analyzer dlls, since we are adding them manually by script.
+			</p>
+			<p>
+				Finally, in order for your Analyzer messages to also get displayed in the Unity console, you can add a <i>csc.rsp</i> file, which adds the Analyzer to the compilation process (this requires the Scripting Runtime to be set to .NET 4.x equivalent in the ProjectSettings):
+			</p>
+			<pre class="prettyprint">-a:&lt;path/to/analyzer/&gt;.dll</pre>
+			<p>
+				<img align="right" src="../../../shared/blog/2019/img/CoroutineAnalyzer_Unity_Console.png" alt="The diagnostic of the CoroutineAnalyzer displayed in the Unity console." style="width: 50%;"></img>
+				The Gist linked above, will also automatically generate the appropriate csc file for you. At this point it might be a good idea to restart your Visual Studio and Unity instances. After all that, you should be able to test your Analyzer in Visual Studio and see the reported diagnostics in the Unity console as well.
+			</p>
+			<h2>Summary</h2>
+			<p>
+				Roslyn Analyzers are a great way to enforce your own custom code standards and to make your developer life easier. It is surprising how easy it is to create Analyzers even for complicated rules. Code Fixes can speed up your work process immensely by providing an automatic way to fix diagnostics, thus they are a must for most Analyzers.<br>
+				Visual Studio provides helpful tools such as the Syntax Visualizer and template projects for developing Analyzers.
+			</p>
+			<p>
+				It is also possible to use Analyzers for your Unity projects. However, they require some additional setup steps, if you want to install them via NuGet, in order to share them with your team and use them on a per project basis.
+			</p>
+			<p>
+				Finally, I have to thank Jeff Fritz (<a href="https://twitter.com/csharpfritz" target="_blank">@csharpfritz</a>) for his live-streams and videos as part of the .NET Community. His videos on Roslyn Analyzers (particularly <a href="https://youtu.be/N5svo6N7ir0" target="_blank">this one</a>) were a great help and starting point for writing this post. So go follow him on Twitter and Twitch / YouTube, if you haven't already.<br>
+				...and while you are there, you can follow me too: <a href="https://twitter.com/SamuelArzt" target="_blank">@SamuelArzt</a> ...if you want to...
+			</p>
+		</div>
+		
+		<div class="navHistory bottom">&gt; <a href="../../blog.html">Back to Blog</a></div>
+	</div>
+	
+	<!-- FOOTER -->
+	<div id="footer">
+		<p>A website made by Samuel Arzt</p>
+		<div>Like my work? Feel free to:
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+				<input type="hidden" name="cmd" value="_donations">
+				<input type="hidden" name="business" value="arzt.samuel@live.de">
+				<input type="hidden" name="lc" value="US">
+				<input type="hidden" name="item_name" value="Donation to Samuel Arzt">
+				<input type="hidden" name="no_note" value="1">
+				<input type="hidden" name="currency_code" value="EUR">
+				<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+		<p>
+			<a href="mailto:arzt.samuel@live.de"><img src="../../../shared/img/mail-icon.svg" class="mail-icon"></img>arzt.samuel@live.de</a>
+		</p>
+		<p>
+			<a href="https://twitter.com/SamuelArzt" target="_blank"><img src="../../../shared/img/twitter-icon.svg" class="twitter-icon"></img>@SamuelArzt</a>
+			<a href="https://www.youtube.com/channel/UC_eerU4SleeptEbD2AA_nDw" target="_blank"><img src="../../../shared/img/youtube-icon.png" class="youtube-icon"></img>SamuelArzt</a>
+			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
+		</p>
+	</div>
+	
+	<script>PR.prettyPrint();</script>
+	
+	<!-- ANALYTICS -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74405626-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</body>
+</html>

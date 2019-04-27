@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -22,29 +22,31 @@
 		<div class="navbar">
 			<a href="index.html" class="button pressed inactive">Home</a><a href="projects.html" class="button">Projekte</a><a href="../en/blog.html" class="button">Blog</a><a href="about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="index.html" class="button pressed inactive">Home</a><a href="projects.html" class="button">Projekte</a><a href="../en/blog.html" class="button">Blog</a><a href="about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../index.html">Switch to English version</a>
 		<h1>Samuel Arzt</h1>
-		<p class="bottomSmallDist">Coding, AI, Space, Gamedev. Diese Dinge mag ich irgendwie.<br>
+		<p class="bottomSmallDist">
+			Coding, AI, Space, Gamedev. Diese Dinge mag ich irgendwie.<br>
 			Willkommen auf meiner Webseite, ich bin ein Software-Entwickler mit starkem C#, Java und C++ Hintergrund.
-			Zurzeit studiere ich 
-			<a href="http://www.fh-salzburg.ac.at/disziplinen/medien-design-kunst/bachelor-multimediatechnology/beschreibung/beschreibung/" target="_blank">MMT [MultiMediaTechnology]</a> 
+			Zurzeit studiere ich
+			<a href="http://www.fh-salzburg.ac.at/disziplinen/medien-design-kunst/bachelor-multimediatechnology/beschreibung/beschreibung/" target="_blank">MMT [MultiMediaTechnology]</a>
 			an der <a href="http://www.fh-salzburg.ac.at/" target="_blank">Fachhochschule-Salzburg</a>.
 		</p>
 		<h2>Schaut bei meinen Projekten vorbei!</h2>
-		<p>Neben meinen professionellen Projekten, konnte ich in meiner Freizeit meine Leidenschaft fürs Coden 
+		<p>
+			Neben meinen professionellen Projekten, konnte ich in meiner Freizeit meine Leidenschaft fürs Coden
 			auch in einer Menge privater Projekte ausleben. Den Großteil dieser kannst du direkt <a href="projects.html" target="_bank">hier</a> finden.
 		</p>
 		<p class="bottomDist">Ein kleiner Vorgeschmack:</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<a href="projects/unity/deepCars/deepCars.html"><img src="../shared/projects/unity/deepCars/img/medium/deepCars1.png" alt="Deep Learning Cars"></img></a>
@@ -54,9 +56,9 @@
 			<a href="projects/java/ropeSim/ropeSim.html"><img src="../shared/projects/java/ropeSim/img/medium/ropeSim1.png" alt="Seil Physik Simulation"></img></a>
 			<a href="projects/java/math/math.html"><img src="../shared/projects/java/math/img/medium/math1.png" alt="Zeichnen mathematischer Funktionen"></img></a>
 		</div>
-		
+
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>Eine Webseite von Samuel Arzt</p>
@@ -68,22 +70,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../shared/external/jquery.min.js"></script>
 	<script src="../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../shared/projects/owlImageSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

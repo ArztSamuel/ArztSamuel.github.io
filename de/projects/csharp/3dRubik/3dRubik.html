@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -23,21 +23,21 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../en/projects/csharp/3dRubik/3dRubik.html">Switch to English Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a></div>
-		
+
 		<h1>3D Rubik's Cube</h1>
 		<p>Eine Simulation eines funktionsfähigen Rubik's Cube in 3D.</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<img src="../../../../shared/projects/csharp/3dRubik/img/medium/3dRubik1.png" alt="3D-Rubik <Image>"></img>
@@ -45,20 +45,21 @@
 			<img src="../../../../shared/projects/csharp/3dRubik/img/medium/3dRubik3.png" alt="3D-Rubik <Image>"></img>
 			<img src="../../../../shared/projects/csharp/3dRubik/img/medium/3dRubik4.png" alt="3D-Rubik <Image>"></img>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Mithilfe von OpenTK (einem C# wrapper für OpenGL) habe ich diese Simulation eines Rubik's Cube programmiert. Dabei 
+			<p>
+				Mithilfe von OpenTK (einem C# wrapper für OpenGL) habe ich diese Simulation eines Rubik's Cube programmiert. Dabei
 				habe ich eine einfache Phong-Lichtberechnung sowie Mouse-Picking und einfaches Shadow-Mapping mit GLSL implementiert.
 			</p>
-			<p>Der Cube lässt sich mit der Maus bewegen. Ebenso kann man die einzelnen Seiten/Schichten des Würfels rotieren.</p>			
+			<p>Der Cube lässt sich mit der Maus bewegen. Ebenso kann man die einzelnen Seiten/Schichten des Würfels rotieren.</p>
 		</div>
 		<h2>Entwicklungszeit:</h2>
 		<p>Mitte 2016</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>Eine Webseite von Samuel Arzt</p>
@@ -70,22 +71,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../../../../shared/external/jquery.min.js"></script>
 	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

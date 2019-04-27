@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -26,58 +26,58 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
-	
+
 		<h1>Deep Reinforcement Learning - OpenAI's Gym and Baselines on Windows</h1>
 		<p class="date">17.07.2018 - Samuel Arzt</p>
 		<p>
-			This post will show you how to get OpenAI's Gym and Baselines running on Windows, in order to train 
+			This post will show you how to get OpenAI's Gym and Baselines running on Windows, in order to train
 			a Reinforcement Learning agent using raw pixel inputs to play Atari 2600 games, such as Pong.
 		</p>
-		
+
 		<div class="blogContent">
 			<h2>Introduction</h2>
 			<p>
 				I've been doing quite a bit of Machine Learning experiments lately, in particular experiments using Deep Reinforcement Learning.
-				When I started getting into OpenAI's Gym and Baselines codebase, I was a bit surprised that they still did not officially support 
-				Windows. Fortunately, a lot of members of the active community, which has gathered around OpenAI, have shared their solutions for setting 
-				up Gym and Baselines on Windows through various GitHub 
-				<a href="https://github.com/openai/gym/issues/11#issuecomment-362761445" target="_blank">issues</a> and pull-requests. This post is 
+				When I started getting into OpenAI's Gym and Baselines codebase, I was a bit surprised that they still did not officially support
+				Windows. Fortunately, a lot of members of the active community, which has gathered around OpenAI, have shared their solutions for setting
+				up Gym and Baselines on Windows through various GitHub
+				<a href="https://github.com/openai/gym/issues/11#issuecomment-362761445" target="_blank">issues</a> and pull-requests. This post is
 				merely a collection of those solutions and my personal experiences with getting the two frameworks to run.
 				At the end of this post you will be able to train a Deep Reinforcement Learning agent to play Atari 2600 games, such as Pong, using the DQN
 				code provided by Baselines. The agent's only inputs will be the game's pixels and score.
 			</p>
-			
+
 			<h2>OpenAI's Gym and Baselines</h2>
 			<p>
-				Before we dive into the details, let's first talk about what OpenAI and their repositories <i>Gym</i> and <i>Baselines</i> are about. If you 
+				Before we dive into the details, let's first talk about what OpenAI and their repositories <i>Gym</i> and <i>Baselines</i> are about. If you
 				already know all that, feel free to skip this section.<br>
-				
-				<a href="https://openai.com/" target="_blank">OpenAI</a> is a non-governmental organization, which is dedicated to creating safe 
-				artificial general intelligence. Quite some time ago, they released two open-source Python projects on GitHub called 
+
+				<a href="https://openai.com/" target="_blank">OpenAI</a> is a non-governmental organization, which is dedicated to creating safe
+				artificial general intelligence. Quite some time ago, they released two open-source Python projects on GitHub called
 				<a href="https://github.com/openai/gym" target="_blank">Gym</a> and <a href="https://github.com/openai/baselines" target="_blank">Baselines</a>.
-				Gym is meant to make comparing different Reinforcement Learning algorithms easier, by clearly defining the interface of learning 
-				environments and by providing access to various standard benchmark environments such as Atari games or classic control tasks. For 
+				Gym is meant to make comparing different Reinforcement Learning algorithms easier, by clearly defining the interface of learning
+				environments and by providing access to various standard benchmark environments such as Atari games or classic control tasks. For
 				example, the interaction between a very simple agent and a Gym environment could look like this:
 			<p>
-			<pre class="prettyprint lang-py linenums">
+				<pre class="prettyprint lang-py linenums">
 done = False
 observation = env.reset()
 
 while not done:
 	action = agent.act(observation)
 	observation, reward, done, info = env.step(action)</pre>
-			<p>	
-				Baselines on the other hand is a collection of a wide range of state-of-the-art implementations of modern Reinforcement Learning algorithms. These 
-				algorithms can for instance be used to train agents on the environments provided by Gym. Here is some sample code for training an 
+			<p>
+				Baselines on the other hand is a collection of a wide range of state-of-the-art implementations of modern Reinforcement Learning algorithms. These
+				algorithms can for instance be used to train agents on the environments provided by Gym. Here is some sample code for training an
 				agent using the Deep Q-Network (DQN) implementation of Baselines to play Atari Pong:
 			</p>
 			<pre class="prettyprint lang-py linenums">
@@ -100,283 +100,293 @@ deepq.learn(
 env.close() # Close everything once learning is done
 </pre>
 			<p>
-				Here we first create the Gym environment, wrap it with some wrappers for preprocessing the input (e.g. downscale the image 
+				Here we first create the Gym environment, wrap it with some wrappers for preprocessing the input (e.g. downscale the image
 				to 84x84, grayscale, stack the last 4 frames) and then start learning using Baselines' DQN implementation.
 			</p>
-			
+
 			<h2>Setting up Gym and Baselines on Windows</h2>
 			<p>
-				Since Windows is not officially supported by OpenAI, there are a few things you have to look out for when setting up Gym and 
-				Baselines on your Windows machine. If you just want to see the necessary commands and don't care about what they do, you can 
+				Since Windows is not officially supported by OpenAI, there are a few things you have to look out for when setting up Gym and
+				Baselines on your Windows machine. If you just want to see the necessary commands and don't care about what they do, you can
 				skip straight to the summary. Otherwise here is a detailed step-by-step guide for getting the two frameworks to work:
-				
+
 				<h3>1) Anaconda and C++</h3>
-				<p>
-					First, we will have to install a conda package manager to install all the required packages, including Python. I recommend 
-					downloading the full Anaconda manager, however, you can also download a minimal installation called Miniconda. Select the 
-					Python 3.6 download and make sure you check both advanced options when installing Conda (<i>"add to path"</i> and <i>"register 
-					as system Python"</i>): <br>
-					<a href="https://www.anaconda.com/download/#windows" target="_blank">Anaconda</a> (Full Manager) &emsp; or &emsp;
-					<a href="https://conda.io/miniconda.html" target="_blank">Miniconda</a> (Minimal Version)
-				</p>
-				<p>
-					Furthermore, we will need a modern C++ compiler. For instance, if you have Visual Studio 2017 with C++ support installed, 
-					you are good to go. Otherwise you can get that <a href="https://www.visualstudio.com/de/downloads/" target="_blank">here</a>.
-				</p>
-				
-				<h3>2) Gym Dependencies</h3>
-				<p>
-					Now we can start installing some Windows specific Gym dependencies in order to get the Atari emulator working on Windows. 
-					We will be using the command prompt to do so. Apparently PowerShell has some bugs in combination with conda, so I recommend 
-					using either the <i>Anaconda Command Prompt</i> (you can simply find it with Windows search) or good ol' <i>cmd</i>.<br>
-					To begin with, we create a new conda environment. Everything we install will then be configured for this particular conda 
-					environment:					
-				</p>
-				<pre class="prettyprint prettyprinted">&gt conda create -n &ltenv-name&gt python=3.6</pre>
-				<p>
-					This will create a new conda environment called <i>&ltenv-name&gt</i> with Python 3.6 support. Next, actually activate the environment 
-					<span class="note">(you will always have to do this, whenever you want to work with a particular environment)</span>:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt conda activate &ltenv-name&gt</pre>
-				<p>
-					Then we install git:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt conda install git</pre>
-				<p>
-					and, if you want to record videos of your agents, ffmpeg:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt conda install -c conda-forge ffmpeg</pre>
-				<p>
-					If you are using a non-English version of Windows this is were it gets a bit tricky. We want to install a Windows wrapper for the 
-					Atari environment emulator, however, Pip has a bug throwing a "UnicodeDecodeError" when using non-English encoding. In order to 
-					fix that, we have to apply <a href="https://github.com/pypa/pip/issues/4251#issuecomment-279117184" target="_blank">this</a> fix:<br>
-					Open a new command prompt and enter 'chcp'. This will output the system default code (e.g. '936'). Now go to your Pip installation
-					location inside your Conda folder (e.g. <i>Lib/site-packages/pip/</i>, or <i>pkgs/pip-x.x.x.../Lib/site-packages/pip/</i>) and inside 
-					the <i>compat</i> folder edit <i>__init__.py</i>. Around line 75 there should be a line saying '<i>return s.decode('utf_8')</i>'. Replace 
-					'<i>utf_8</i>' with your chcp code, e.g. '<i>return s.decode('cp936')</i>'.
-				</p>
-				<p>
-					Once you have done all that, you can finally run the command for installing the Windows wrapper of the Atari emulator:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt pip install git+https://github.com/Kojoley/atari-py.git</pre>
-				
-				<h3>3) Installing Gym</h3>
-				<p>
-					Similar to how we installed the previous components, we could simply install Gym using Pip, however, if you want to inspect 
-					and tinker with Gym's source code, I recommend cloning the repository by hand:<br>
-					Navigate to the folder you would like to clone the repository to, and type:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/gym.git
+			<p>
+				First, we will have to install a conda package manager to install all the required packages, including Python. I recommend
+				downloading the full Anaconda manager, however, you can also download a minimal installation called Miniconda. Select the
+				Python 3.6 download and make sure you check both advanced options when installing Conda (<i>"add to path"</i> and <i>
+					"register
+					as system Python"
+				</i>): <br>
+				<a href="https://www.anaconda.com/download/#windows" target="_blank">Anaconda</a> (Full Manager) &emsp; or &emsp;
+				<a href="https://conda.io/miniconda.html" target="_blank">Miniconda</a> (Minimal Version)
+			</p>
+			<p>
+				Furthermore, we will need a modern C++ compiler. For instance, if you have Visual Studio 2017 with C++ support installed,
+				you are good to go. Otherwise you can get that <a href="https://www.visualstudio.com/de/downloads/" target="_blank">here</a>.
+			</p>
+
+			<h3>2) Gym Dependencies</h3>
+			<p>
+				Now we can start installing some Windows specific Gym dependencies in order to get the Atari emulator working on Windows.
+				We will be using the command prompt to do so. Apparently PowerShell has some bugs in combination with conda, so I recommend
+				using either the <i>Anaconda Command Prompt</i> (you can simply find it with Windows search) or good ol' <i>cmd</i>.<br>
+				To begin with, we create a new conda environment. Everything we install will then be configured for this particular conda
+				environment:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt conda create -n &ltenv-name&gt python=3.6</pre>
+			<p>
+				This will create a new conda environment called <i>&ltenv-name&gt</i> with Python 3.6 support. Next, actually activate the environment
+				<span class="note">(you will always have to do this, whenever you want to work with a particular environment)</span>:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt conda activate &ltenv-name&gt</pre>
+			<p>
+				Then we install git:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt conda install git</pre>
+			<p>
+				and, if you want to record videos of your agents, ffmpeg:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt conda install -c conda-forge ffmpeg</pre>
+			<p>
+				If you are using a non-English version of Windows this is were it gets a bit tricky. We want to install a Windows wrapper for the
+				Atari environment emulator, however, Pip has a bug throwing a "UnicodeDecodeError" when using non-English encoding. In order to
+				fix that, we have to apply <a href="https://github.com/pypa/pip/issues/4251#issuecomment-279117184" target="_blank">this</a> fix:<br>
+				Open a new command prompt and enter 'chcp'. This will output the system default code (e.g. '936'). Now go to your Pip installation
+				location inside your Conda folder (e.g. <i>Lib/site-packages/pip/</i>, or <i>pkgs/pip-x.x.x.../Lib/site-packages/pip/</i>) and inside
+				the <i>compat</i> folder edit <i>__init__.py</i>. Around line 75 there should be a line saying '<i>return s.decode('utf_8')</i>'. Replace
+				'<i>utf_8</i>' with your chcp code, e.g. '<i>return s.decode('cp936')</i>'.
+			</p>
+			<p>
+				Once you have done all that, you can finally run the command for installing the Windows wrapper of the Atari emulator:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt pip install git+https://github.com/Kojoley/atari-py.git</pre>
+
+			<h3>3) Installing Gym</h3>
+			<p>
+				Similar to how we installed the previous components, we could simply install Gym using Pip, however, if you want to inspect
+				and tinker with Gym's source code, I recommend cloning the repository by hand:<br>
+				Navigate to the folder you would like to clone the repository to, and type:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/gym.git
 &gt cd gym
 &gt pip install -e .</pre>
-				<p>
-					At this point you can verify that everything is working according to plan by running a random cartpole agent. Make sure you are 
-					at the root of your cloned Gym repository and that you still have the right Conda environment activated and type:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt python examples/agents/random_agent.py</pre>
-				
-				<p>
-					A window should open showing a random agent trying to play Cartpole for a few seconds, which then closes with an exception (you don't
-					have to worry about that for now). <span class="note">Note: running this example agent with ffmpeg installed will record a video of 
-					each episode to your disk.</span>
-				</p>
-				<img src="../../../shared/blog/2018/img/Cartpole.gif" alt="A random agent trying to play Cartpole."></img>
-				<p>
-					If you see something similar to the gif above, you have successfully installed Gym! <span class="note">Note: An episode is terminated 
-					once the pole reaches a certain angle, hence the sudden jumps in position every time the pole is leaning too far to one side.</span>
-				</p>
-				
-				<h3>4) Installing Baselines</h3>
-				<p>
-					Next we want to install Baselines. First, make sure you are in the right Conda environment. Again, we clone and install 
-					the repository by first navigating to the folder to clone to, and then typing:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/baselines.git
+			<p>
+				At this point you can verify that everything is working according to plan by running a random cartpole agent. Make sure you are
+				at the root of your cloned Gym repository and that you still have the right Conda environment activated and type:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt python examples/agents/random_agent.py</pre>
+
+			<p>
+				A window should open showing a random agent trying to play Cartpole for a few seconds, which then closes with an exception (you don't
+				have to worry about that for now). <span class="note">
+					Note: running this example agent with ffmpeg installed will record a video of
+					each episode to your disk.
+				</span>
+			</p>
+			<img src="../../../shared/blog/2018/img/Cartpole.gif" alt="A random agent trying to play Cartpole."></img>
+			<p>
+				If you see something similar to the gif above, you have successfully installed Gym! <span class="note">
+					Note: An episode is terminated
+					once the pole reaches a certain angle, hence the sudden jumps in position every time the pole is leaning too far to one side.
+				</span>
+			</p>
+
+			<h3>4) Installing Baselines</h3>
+			<p>
+				Next we want to install Baselines. First, make sure you are in the right Conda environment. Again, we clone and install
+				the repository by first navigating to the folder to clone to, and then typing:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/baselines.git
 &gt cd baselines
 &gt pip install -e .</pre>
-				<p>
-					You are very likely to receive some errors while installing Baselines, since we didn't install all Gym environments (we only 
-					installed the Atari environments for now). Most of those errors will say something about MuJoCo missing, but you can
-					ignore those errors, since we are only interested in the Atari environments for our purposes.
-				</p>
-				<p>
-					Next we have to install <a href="https://www.tensorflow.org/install/install_windows" target="_blank">Tensorflow</a>:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt pip install --upgrade tensorflow</pre>
-				<p>
-					This will install the CPU-only version of Tensorflow. We will look into how to optionally install GPU support later in this post.
-				</p>
-				<p>
-					Lastly we have to install some implementation of the MPI standard, a dependency OpenAI introduced semi-recently. I recommend getting 
-					the Microsoft implementation for Windows by downloading the .exe from 
-					<a href="https://msdn.microsoft.com/en-us/library/bb524831%28v=vs.85%29.aspx" target="_blank">MSDN</a>.
-				</p>
-				<p>
-					At this point you can again verify that your installation of Baselines was successful, by running a DQN agent on Cartpole.
-					While being located at the root of your Baselines repository, type:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/train_cartpole.py</pre>
-				<p>
-					This will train an agent using DQN on the Cartpole task for 100K steps. Once training has finished (may take three to five minutes), 
-					you can watch the trained agent by running:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/enjoy_cartpole.py</pre>
-				<img src="../../../shared/blog/2018/img/Cartpole_DQN.gif" alt="An agent trained using DQN playing Cartpole."></img>
-				<p>Note that the demonstration above is not a still image but actually a gif of a trained agent almost perfectly balancing the pole.</p>
-				<h3>5) Training on Atari Games</h3>
-				<p>
-					Now it is finally time to train an agent on Atari games. In order to do so we first have to install a final dependency, OpenCV:					
-				</p>
-				<pre class="prettyprint prettyprinted">&gt pip install opencv-python</pre>
-				<p>
-					While the readme of DQN in the Baselines repository still mentions a file called <i>train_pong.py</i>, which has been removed quite some time ago,
-					there is now a more general sample file for training on Atari environments located in <i>baselines/deepq/experiments/run_atari.py</i>.
-					If you run this file without any parameters it will train an agent on the game <i>Breakout</i> using a <i>Dueling DQN</i> with <i>Prioritized 
-					Experience Replay</i> for a total of one million steps.
-				</p>
-				<p>
-					The script for running atari agents also allows you to customize some parameters such as the environment and the amount of steps. However before
-					training an agent on Pong, I recommend adjusting the print frequency of the sample, by adding an additional argument to the call to <i>deepq.learn</i>
-					on line 32 in <i>run_atari.py</i>:
-				</p>
-				<pre class="prettyprint lang-py linenums:32 linenums">deepq.learn(
+			<p>
+				You are very likely to receive some errors while installing Baselines, since we didn't install all Gym environments (we only
+				installed the Atari environments for now). Most of those errors will say something about MuJoCo missing, but you can
+				ignore those errors, since we are only interested in the Atari environments for our purposes.
+			</p>
+			<p>
+				Next we have to install <a href="https://www.tensorflow.org/install/install_windows" target="_blank">Tensorflow</a>:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt pip install --upgrade tensorflow</pre>
+			<p>
+				This will install the CPU-only version of Tensorflow. We will look into how to optionally install GPU support later in this post.
+			</p>
+			<p>
+				Lastly we have to install some implementation of the MPI standard, a dependency OpenAI introduced semi-recently. I recommend getting
+				the Microsoft implementation for Windows by downloading the .exe from
+				<a href="https://msdn.microsoft.com/en-us/library/bb524831%28v=vs.85%29.aspx" target="_blank">MSDN</a>.
+			</p>
+			<p>
+				At this point you can again verify that your installation of Baselines was successful, by running a DQN agent on Cartpole.
+				While being located at the root of your Baselines repository, type:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/train_cartpole.py</pre>
+			<p>
+				This will train an agent using DQN on the Cartpole task for 100K steps. Once training has finished (may take three to five minutes),
+				you can watch the trained agent by running:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/enjoy_cartpole.py</pre>
+			<img src="../../../shared/blog/2018/img/Cartpole_DQN.gif" alt="An agent trained using DQN playing Cartpole."></img>
+			<p>Note that the demonstration above is not a still image but actually a gif of a trained agent almost perfectly balancing the pole.</p>
+			<h3>5) Training on Atari Games</h3>
+			<p>
+				Now it is finally time to train an agent on Atari games. In order to do so we first have to install a final dependency, OpenCV:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt pip install opencv-python</pre>
+			<p>
+				While the readme of DQN in the Baselines repository still mentions a file called <i>train_pong.py</i>, which has been removed quite some time ago,
+				there is now a more general sample file for training on Atari environments located in <i>baselines/deepq/experiments/run_atari.py</i>.
+				If you run this file without any parameters it will train an agent on the game <i>Breakout</i> using a <i>Dueling DQN</i> with <i>
+					Prioritized
+					Experience Replay
+				</i> for a total of one million steps.
+			</p>
+			<p>
+				The script for running atari agents also allows you to customize some parameters such as the environment and the amount of steps. However before
+				training an agent on Pong, I recommend adjusting the print frequency of the sample, by adding an additional argument to the call to <i>deepq.learn</i>
+				on line 32 in <i>run_atari.py</i>:
+			</p>
+			<pre class="prettyprint lang-py linenums:32 linenums">deepq.learn(
 	env,
 	print_freq=1,
 	...</pre>
-				<p>
-					This will print the current status after every episode. Since episodes of Pong last until one player has reached a score of 21, these tend to be
-					quite long. The default print frequency of 100 may only print every hour or so.
-				</p>
-				<p>
-					Similarly the <i>checkpoint_freq</i> parameter
-					will only save models after the first 100 episodes elapsed, which might take more than 50K steps for Pong. In order to change that you can either 
-					adapt line 294 of <i>simple.py</i> or add a manual call to save the Tensorflow state in <i>run_atari.py</i> by adding a new import:
-				</p>
-				<pre class="prettyprint">from baselines.common.tf_util import save_state</pre>
-				<p>
-					and calling the appropriate function after training terminates:
-				</p>
-				<pre class="prettyprint lang-py linenums:32 linenums">act = deepq.learn(...)
+			<p>
+				This will print the current status after every episode. Since episodes of Pong last until one player has reached a score of 21, these tend to be
+				quite long. The default print frequency of 100 may only print every hour or so.
+			</p>
+			<p>
+				Similarly the <i>checkpoint_freq</i> parameter
+				will only save models after the first 100 episodes elapsed, which might take more than 50K steps for Pong. In order to change that you can either
+				adapt line 294 of <i>simple.py</i> or add a manual call to save the Tensorflow state in <i>run_atari.py</i> by adding a new import:
+			</p>
+			<pre class="prettyprint">from baselines.common.tf_util import save_state</pre>
+			<p>
+				and calling the appropriate function after training terminates:
+			</p>
+			<pre class="prettyprint lang-py linenums:32 linenums">act = deepq.learn(...)
 save_state("path/to/model")</pre>
-				<p>
-					<span class="note">Note: apparently the output path mustn't be just the filename (seems to be a bug in the way the OpenAI code retrieves 
+			<p>
+				<span class="note">
+					Note: apparently the output path mustn't be just the filename (seems to be a bug in the way the OpenAI code retrieves
 					the directory part of the path-string. You can prepend ' ./ ' to save to the current execution directory).<br>
-					Also: if you want to load the save later, simply naming the file 'model' will make that a lot easier (you won't have to adjust OpenAI's code 
-					then).</span>
-				</p>
-				<p>
-					In order to train an agent on Pong for 50K timesteps you can run the following command:
-				</p>
-				<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/run_atari.py --env "PongNoFrameskip-v4" --num-timesteps 50000</pre>
-				<p>
-					Even though we reduced the amount of steps to 50K, this might still take quite a long time to train (up to an hour on a normal, mid-tier computer),
-					especially since we have not configured the GPU support for Tensorflow yet.
-				</p>
-				<p>
-					Unfortunately, spectating Atari agents has become a bit tricky since OpenAI changed the way Atari DQN models are saved / loaded without updating their 
-					code for watching trained agents. You could simply write your own separate script for spectating, however probably the easiest / quickest way is 
-					to simply adapt <i>simple.py</i> to render the environment after each step:
-				</p>
-				<pre class="prettyprint lang-py linenums:259 linenums">new_obs, rew, done, _ = env.step(env_action)
+					Also: if you want to load the save later, simply naming the file 'model' will make that a lot easier (you won't have to adjust OpenAI's code
+					then).
+				</span>
+			</p>
+			<p>
+				In order to train an agent on Pong for 50K timesteps you can run the following command:
+			</p>
+			<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/run_atari.py --env "PongNoFrameskip-v4" --num-timesteps 50000</pre>
+			<p>
+				Even though we reduced the amount of steps to 50K, this might still take quite a long time to train (up to an hour on a normal, mid-tier computer),
+				especially since we have not configured the GPU support for Tensorflow yet.
+			</p>
+			<p>
+				Unfortunately, spectating Atari agents has become a bit tricky since OpenAI changed the way Atari DQN models are saved / loaded without updating their
+				code for watching trained agents. You could simply write your own separate script for spectating, however probably the easiest / quickest way is
+				to simply adapt <i>simple.py</i> to render the environment after each step:
+			</p>
+			<pre class="prettyprint lang-py linenums:259 linenums">new_obs, rew, done, _ = env.step(env_action)
 env.render()</pre>
-				<p>
-					Additionally you can add a sleep of 15 ms to achieve roughly 60 fps, by first importing the <i>time</i> module and then adding:
-				</p>
-				<pre class="prettyprint lang-py linenums:256 linenums">env.render()
+			<p>
+				Additionally you can add a sleep of 15 ms to achieve roughly 60 fps, by first importing the <i>time</i> module and then adding:
+			</p>
+			<pre class="prettyprint lang-py linenums:256 linenums">env.render()
 time.sleep(0.015)</pre>
-				<p>
-					Of course, you should only render the environment when spectating the agent - not during training - as it slows down the process immensely.
-				</p>
-				<p>
-					In order to load an existing model, simply pass the path to the save-file as an additional argument to <i>run_atari.py</i>: <i>--checkpoint-path &ltpath&gt</i> 
-					(the file has to be named <i>'model'</i> though). After 50K steps of training your agent might look something like this (the agent is controlling the green
-					pedal):
-				</p>
-				<img src="../../../shared/blog/2018/img/Pong_50K.gif" alt="A DQN agent playing Pong after 50K steps of training"></img>
-				<p>
-					As you can see, the agent still performs pretty randomly even after 50K steps. That is because 50K steps is actually not even close to
-					how long agents are usually trained for (a number at least in the millions). So before starting to seriously train an agent, I recommend 
-					also completing the next step of enabling GPU support, even though it is only optional.
-				</p>
-				<h3>6) GPU support (optional)</h3>
-				<p>
-					If you own a NVIDIA GPU you can install Tensorflow's <a href="https://www.tensorflow.org/install/install_windows" target="_blank">CUDA support</a>
-					in order to use your GPU for training agents, and therefore significantly boosting training time. As a quick example, I have measured a training
-					time of roughly 30 steps per second using an Intel i7 (4th generation, i.e. a relatively old CPU), while achieving roughly 120 steps per second 
-					with GPU support of a NVIDIA GTX 780, which is also a relatively old GPU but a four times speedup.
-				</p>
-				<ul>
-					<li>
-						First, download the <a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank">CUDA Toolkit 9.0</a> (has to be 9.0) and 
-						install the <i>Base Installer</i> (takes quite a while).
-					</li>
-					<li>
-						Secondly, install <a href="https://developer.nvidia.com/cudnn" target="_blank">cuDNN v7.0.5</a>. This will require you to create a free NVIDIA 
-						Developer Account. Make sure to download <i>cuDNN v7.0.5 for CUDA 9.0</i> and extract the zip to a folder seperate from your CUDA Toolkit folder.
-					</li>
-					<li>
-						Now add the path to the bin folders of the CUDA Toolkit and cuDNN to your %PATH% environment variable (you might have to restart anything that 
-						needs access to these variables, in order for them to be recognized).
-					</li>
-					<li>
-						Finally, install the GPU supported version of Tensorflow:
-						<pre class="prettyprint prettyprinted">&gt pip install --upgrade tensorflow-gpu</pre>
-					</li>
-				</ul>
-				<p>
-					Once you now start training an agent, you should see a lot of information being displayed about your GPU. In addition to that, when monitoring
-					your VRam you will see that almost its entire capacity has been occupied. I will briefly explain why that happens and how to change that in the next 
-					section.
-				</p>
-				<h3>6.1) VRam Usage</h3>
-				<p>
-					As you might have already noticed, by default Tensorflow will map nearly all available VRam to the process on startup. According to their own 
-					<a href="https://www.tensorflow.org/guide/using_gpu#allowing_gpu_memory_growth" target="_blank">documentation</a> this is done in order to more 
-					efficiently use the GPU memory by reducing fragmentation.
-				</p>
-				<p>
-					However, if you want to either run multiple experiments at the same time or other programs while training in the background, it may be desirable 
-					to only allocate a certain percentage of the VRam or only the amount that is actually currently used. You can tell Tensorflow to do so by
-					adjusting the session configuration. Basically you have to adjust the baselines code and pass a Config object with the desired configuration 
-					details to Tensorflow whenever a new session is created.
-				</p>
-				<p>
-					For DQN for instance you have to adapt line 171 of <i>simple.py</i>
-				</p>
-				<pre class="prettyprint lang-py linenums:171 linenums">sess = tf.Session()</pre>
-				<p>
-					to be:
-				</p>
-				<pre class="prettyprint lang-py linenums:171 linenums">config = tf.ConfigProto()
+			<p>
+				Of course, you should only render the environment when spectating the agent - not during training - as it slows down the process immensely.
+			</p>
+			<p>
+				In order to load an existing model, simply pass the path to the save-file as an additional argument to <i>run_atari.py</i>: <i>--checkpoint-path &ltpath&gt</i>
+				(the file has to be named <i>'model'</i> though). After 50K steps of training your agent might look something like this (the agent is controlling the green
+				pedal):
+			</p>
+			<img src="../../../shared/blog/2018/img/Pong_50K.gif" alt="A DQN agent playing Pong after 50K steps of training"></img>
+			<p>
+				As you can see, the agent still performs pretty randomly even after 50K steps. That is because 50K steps is actually not even close to
+				how long agents are usually trained for (a number at least in the millions). So before starting to seriously train an agent, I recommend
+				also completing the next step of enabling GPU support, even though it is only optional.
+			</p>
+			<h3>6) GPU support (optional)</h3>
+			<p>
+				If you own a NVIDIA GPU you can install Tensorflow's <a href="https://www.tensorflow.org/install/install_windows" target="_blank">CUDA support</a>
+				in order to use your GPU for training agents, and therefore significantly boosting training time. As a quick example, I have measured a training
+				time of roughly 30 steps per second using an Intel i7 (4th generation, i.e. a relatively old CPU), while achieving roughly 120 steps per second
+				with GPU support of a NVIDIA GTX 780, which is also a relatively old GPU but a four times speedup.
+			</p>
+			<ul>
+				<li>
+					First, download the <a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank">CUDA Toolkit 9.0</a> (has to be 9.0) and
+					install the <i>Base Installer</i> (takes quite a while).
+				</li>
+				<li>
+					Secondly, install <a href="https://developer.nvidia.com/cudnn" target="_blank">cuDNN v7.0.5</a>. This will require you to create a free NVIDIA
+					Developer Account. Make sure to download <i>cuDNN v7.0.5 for CUDA 9.0</i> and extract the zip to a folder seperate from your CUDA Toolkit folder.
+				</li>
+				<li>
+					Now add the path to the bin folders of the CUDA Toolkit and cuDNN to your %PATH% environment variable (you might have to restart anything that
+					needs access to these variables, in order for them to be recognized).
+				</li>
+				<li>
+					Finally, install the GPU supported version of Tensorflow:
+					<pre class="prettyprint prettyprinted">&gt pip install --upgrade tensorflow-gpu</pre>
+				</li>
+			</ul>
+			<p>
+				Once you now start training an agent, you should see a lot of information being displayed about your GPU. In addition to that, when monitoring
+				your VRam you will see that almost its entire capacity has been occupied. I will briefly explain why that happens and how to change that in the next
+				section.
+			</p>
+			<h3>6.1) VRam Usage</h3>
+			<p>
+				As you might have already noticed, by default Tensorflow will map nearly all available VRam to the process on startup. According to their own
+				<a href="https://www.tensorflow.org/guide/using_gpu#allowing_gpu_memory_growth" target="_blank">documentation</a> this is done in order to more
+				efficiently use the GPU memory by reducing fragmentation.
+			</p>
+			<p>
+				However, if you want to either run multiple experiments at the same time or other programs while training in the background, it may be desirable
+				to only allocate a certain percentage of the VRam or only the amount that is actually currently used. You can tell Tensorflow to do so by
+				adjusting the session configuration. Basically you have to adjust the baselines code and pass a Config object with the desired configuration
+				details to Tensorflow whenever a new session is created.
+			</p>
+			<p>
+				For DQN for instance you have to adapt line 171 of <i>simple.py</i>
+			</p>
+			<pre class="prettyprint lang-py linenums:171 linenums">sess = tf.Session()</pre>
+			<p>
+				to be:
+			</p>
+			<pre class="prettyprint lang-py linenums:171 linenums">config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 sess = tf.Session(config=config)</pre>
-				<p>
-					This will allow the VRam usage to grow over time, instead of mapping almost all of it from the start. You can find other options
-					for the Tensorflow configuration in their <a href="https://www.tensorflow.org/guide/using_gpu#allowing_gpu_memory_growth" 
-					target="_blank">dedicated article</a>.
-				</p>
-				<p>
-					Another reason for enabling this option is a bug I frequently ran into when running experiments on a very dated GPU with only 2GB of 
-					VRam. Whenever I ran the same experiment a second time I was confronted with a wall of Cuda errors, which looked something like this:
-				</p>
-				<pre class="prettyprint prettyprinted">failed to create cublas handle: CUBLAS_STATUS_ALLOC_FAILED
+			<p>
+				This will allow the VRam usage to grow over time, instead of mapping almost all of it from the start. You can find other options
+				for the Tensorflow configuration in their <a href="https://www.tensorflow.org/guide/using_gpu#allowing_gpu_memory_growth"
+													 target="_blank">dedicated article</a>.
+			</p>
+			<p>
+				Another reason for enabling this option is a bug I frequently ran into when running experiments on a very dated GPU with only 2GB of
+				VRam. Whenever I ran the same experiment a second time I was confronted with a wall of Cuda errors, which looked something like this:
+			</p>
+			<pre class="prettyprint prettyprinted">failed to create cublas handle: CUBLAS_STATUS_ALLOC_FAILED
 failed to create cublas handle: CUBLAS_STATUS_ALLOC_FAILED
 failed to create cublas handle: CUBLAS_STATUS_ALLOC_FAILED
 could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
 could not destroy cudnn handle: CUDNN_STATUS_BAD_PARAM
 Check failed: stream->parent()->GetConvolveAlgorithms( conv_parameters.ShouldIncludeWinogradNonfusedAlgo<T>(), &algorithms)</pre>
-				<p>
-					This seems to happen if previously not all memory was freed correctly (probably due to an abnormal shutdown, i.e. an exception or 
-					keyboard interrupt) and Tensorflow is then not able to map the memory to the new process correctly. Thankfully, changing the config to
-					not map all of the memory fixes this issue.
-				</p>
+			<p>
+				This seems to happen if previously not all memory was freed correctly (probably due to an abnormal shutdown, i.e. an exception or
+				keyboard interrupt) and Tensorflow is then not able to map the memory to the new process correctly. Thankfully, changing the config to
+				not map all of the memory fixes this issue.
 			</p>
-			
+			</p>
+
 			<h2>Summary</h2>
 			<p class="bottomDist">
-				There are a lot of things to look out for when setting up OpenAI's Gym and Baselines on Windows. There are also quite a lot of 
+				There are a lot of things to look out for when setting up OpenAI's Gym and Baselines on Windows. There are also quite a lot of
 				problems which arise from OpenAI updating their repository with new internal code, without updating legacy parts of the code-base.
-				This article should give you a good starting point for training Deep Reinforcement Learning agents on a variety of Atari2600 games 
+				This article should give you a good starting point for training Deep Reinforcement Learning agents on a variety of Atari2600 games
 				using Gym and Baselines.
 			</p>
 			<p>
@@ -385,21 +395,26 @@ Check failed: stream->parent()->GetConvolveAlgorithms( conv_parameters.ShouldInc
 			<ul class="bottomDist">
 				<li>Download and install <a href="https://www.anaconda.com/download/#windows" target="_blank">Anaconda</a></li>
 				<li>Make sure you have a modern C++ compiler (i.e. <a href="https://www.visualstudio.com/de/downloads/" target="_blank">VS 2017</a> with C++ support)</li>
-				<li><pre class="prettyprint">&gt conda create -n <env-name> python=3.6
+				<li>
+					<pre class="prettyprint">&gt conda create -n <env-name> python=3.6
 &gt conda activate &ltenv-name&gt
 &gt conda install git
-&gt conda install -c conda-forge ffmpeg</pre></li>
+&gt conda install -c conda-forge ffmpeg</pre>
+				</li>
 				<li>If you are using a non-English Windows, apply <a href="https://github.com/pypa/pip/issues/4251#issuecomment-279117184" target="_blank">this fix</a>
 				<li><pre class="prettyprint prettyprinted">&gt pip install git+https://github.com/Kojoley/atari-py.git</pre>
-				<li>Navigate to a folder to clone Gym to and type:
-				<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/gym.git
+				<li>
+					Navigate to a folder to clone Gym to and type:
+					<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/gym.git
 &gt cd gym
 &gt pip install -e .</pre>
 				</li>
-				<li>Verify Gym works correctly by running:
+				<li>
+					Verify Gym works correctly by running:
 					<pre class="prettyprint prettyprinted">&gt python examples/agents/random_agent.py</pre>
 				</li>
-				<li>Navigate to a folder to clone Baselines to and type:
+				<li>
+					Navigate to a folder to clone Baselines to and type:
 					<pre class="prettyprint prettyprinted">&gt git clone https://github.com/openai/baselines.git
 &gt cd baselines
 &gt pip install -e .</pre>
@@ -407,7 +422,8 @@ Check failed: stream->parent()->GetConvolveAlgorithms( conv_parameters.ShouldInc
 				</li>
 				<li><pre class="prettyprint prettyprinted">&gt pip install --upgrade tensorflow</pre></li>
 				<li>Download and install <a href="https://msdn.microsoft.com/en-us/library/bb524831%28v=vs.85%29.aspx" target="_blank">MS-MPI</a></li>
-				<li>Verify Baselines works correctly by running:
+				<li>
+					Verify Baselines works correctly by running:
 					<pre class="prettyprint prettyprinted">&gt python baselines/deepq/experiments/train_cartpole.py
 &gt python baselines/deepq/experiments/enjoy_cartpole.py</pre>
 				</li>
@@ -420,26 +436,30 @@ Check failed: stream->parent()->GetConvolveAlgorithms( conv_parameters.ShouldInc
 			</p>
 			<img src="../../../shared/blog/2018/img/Pong_1M.gif"></img>
 			<p>
-				If this article was helpful to you, feel free to like or retweet my post on <a href="https://twitter.com/SamuelArzt/status/1019303776828706816" target="_blank">Twitter</a> or 
+				If this article was helpful to you, feel free to like or retweet my post on <a href="https://twitter.com/SamuelArzt/status/1019303776828706816" target="_blank">Twitter</a> or
 				join the discussion if you have got something to add. I would love to hear from your experiences with OpenAI's frameworks!
 			</p>
 		</div>
-		
+
 		<div class="related">
-			<div><h2>Related Blogposts:</h2>
-				<a href="EiaM-NeuralNetworks.html"><div class="indent">
-					<h3>Explained In A Minute - Neural Networks</h3><br>
-					<img src="../../../shared/projects/youtube/explained/medium/explainedCover.png"></img>
-				</div></a>
+			<div>
+				<h2>Related Blogposts:</h2>
+				<a href="EiaM-NeuralNetworks.html">
+					<div class="indent">
+						<h3>Explained In A Minute - Neural Networks</h3><br>
+						<img src="../../../shared/projects/youtube/explained/medium/explainedCover.png"></img>
+					</div>
+				</a>
 			</div>
 		</div>
 		<div class="navHistory bottom">> <a href="../../blog.html">Back to Blog</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>A website made by Samuel Arzt</p>
-		<div>Like my work? Feel free to:
+		<div>
+			Like my work? Feel free to:
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 				<input type="hidden" name="cmd" value="_donations">
 				<input type="hidden" name="business" value="arzt.samuel@live.de">
@@ -461,19 +481,17 @@ Check failed: stream->parent()->GetConvolveAlgorithms( conv_parameters.ShouldInc
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<script>PR.prettyPrint();</script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
 	
@@ -19,18 +19,18 @@
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../de/projects/csharp/cnl/help.html">Zur deutschen Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a> > <a href="cnl.html">CNL</a></div>
-		
+
 		<h1>CNL - Help</h1>
 		<p id="introduction">Need help with CampusNetLogin? Does your problem fit in any of these categories?</p>
 		<ul>
@@ -44,15 +44,17 @@
 			<li><a href="#mac">Mac support</a></li>
 			<li><a href="#bug">I found a bug!</a></li>
 		</ul>
-		
+
 		<p>Your problem does not fit in these categories? Please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span> for further help.</p>
 		<div class="bottomBigDist"></div>
 		<div class="bottomDist"></div>
-		
+
 		<div class="jumpAnchor" id="guide"></div>
 		<h2>Setup Guide</h2>
-		<p>You can find a three step quick-setup guide <a href="cnl.html#setup">here</a>. If you want to setup CNL on <strong>OSX</strong> you can find a guide <a href="#mac">here</a>.<br>
-			If you still got troubles setting up CNL on your PC, here is a more detailed step-by-step setup-guide for Windows:</p>
+		<p>
+			You can find a three step quick-setup guide <a href="cnl.html#setup">here</a>. If you want to setup CNL on <strong>OSX</strong> you can find a guide <a href="#mac">here</a>.<br>
+			If you still got troubles setting up CNL on your PC, here is a more detailed step-by-step setup-guide for Windows:
+		</p>
 		<div class="bottomDist"></div>
 		<ol>
 			<li>Download CNL.zip from <a href="../../../../shared/projects/csharp/cnl/versions/normal/CurCNL.zip" download="CNL.zip" onclick="trackDL('CNL_en_help')">here</a>. (Save the "CNL.zip" on your computer)</li>
@@ -64,7 +66,7 @@
 		</ol>
 		<p>In order to run the software you will only have to have Microsofts .Net-Framework installed on your computer (already installed on most machines).</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="jumpAnchor" id="access"></div>
 		<h2>Windows prevents the execution</h2>
 		<div class="imgSliderContainer">
@@ -77,36 +79,44 @@
 				<img src="../../../../shared/projects/csharp/cnl/img/cnlHelp3.png" alt="CNL Setup Step 3 <Image>"></img>
 				<img id="placeholder" src="../../../../shared/projects/csharp/cnl/img/cnlHelp1.png" alt="CNL Setup Step 1 <Image>"></img>
 			</div>
-			<p>Windows will most probably block the apps execution since your computer does not know the app's publisher.<br>In order to still allow the app to execute simply click on "Run" and tick off 
-				"Always ask before opening this file" on <strong>Windows 7</strong> or on <strong>Windows 8/10</strong> simply click on "More Info" and then click "Run anyway". Both processes are shown in the 
-				screenshots below (1 &gt Windows 7; 2, 3 &gt Windows 8/10).</p>
+			<p>
+				Windows will most probably block the apps execution since your computer does not know the app's publisher.<br>In order to still allow the app to execute simply click on "Run" and tick off
+				"Always ask before opening this file" on <strong>Windows 7</strong> or on <strong>Windows 8/10</strong> simply click on "More Info" and then click "Run anyway". Both processes are shown in the
+				screenshots below (1 &gt Windows 7; 2, 3 &gt Windows 8/10).
+			</p>
 		</div>
 
-		
+
 		<div class="jumpAnchor" id="startFolder"></div>
 		<h2>Where is the windows autostart-folder?</h2>
 		<p>The autostart folder varies from windows version:</p>
-		<p><strong>Windows 7:</strong><br>
+		<p>
+			<strong>Windows 7:</strong><br>
 			Go to "Start" > "Programmes" and search for the folder "autostart" and put a shortcut to "CNL.exe" in that folder.<br>
-			<strong>Windows 8/10:</strong><br>Either press "windows + R" and type in "shell:startup" to open your startup-folder 
-			or simply go to the directory "C:\Users\<strong>-Your User-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup".</p>
+			<strong>Windows 8/10:</strong><br>Either press "windows + R" and type in "shell:startup" to open your startup-folder
+			or simply go to the directory "C:\Users\<strong>-Your User-</strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup".
+		</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="jumpAnchor" id="noBoot"></div>
 		<h2>The Program does not start</h2>
-		<p>If the program does not start when you try to run it, please verify that Microsoft's .Net Framework is installed on your machine.<br>
-			If the program still won't startup please try deleting the save-folder "CNL". Simply type "%appdata%" into your directory field in 
-			explorer and delete the folder. (Directory: "C:\Users\<strong>-Your User-</strong>\AppData\Roaming")</p>
+		<p>
+			If the program does not start when you try to run it, please verify that Microsoft's .Net Framework is installed on your machine.<br>
+			If the program still won't startup please try deleting the save-folder "CNL". Simply type "%appdata%" into your directory field in
+			explorer and delete the folder. (Directory: "C:\Users\<strong>-Your User-</strong>\AppData\Roaming")
+		</p>
 		<p>If the save-folder does not exist and the program still won't start, please don't hesitate to contact me and I will do my best to resolve the issue.</p>
 		<div class="bottomBigDist"></div>
 
 		<div class="jumpAnchor" id="noLogin"></div>
 		<h2>I am not getting logged in</h2>
-		<p>If the problem only occurs on Autostart, please try to increase the value of "Retry" in CNLOptions (to 15 for example).<br>
+		<p>
+			If the problem only occurs on Autostart, please try to increase the value of "Retry" in CNLOptions (to 15 for example).<br>
 			If you are also not getting logged in when manually executing CNL, please verify that the username and password you have entered in CNLOptions are correct.<br>
-			If you are still not getting logged in after increasing the retry value and verifying your Logindata, please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
+			If you are still not getting logged in after increasing the retry value and verifying your Logindata, please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.
+		</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="jumpAnchor" id="versions"></div>
 		<h2>I want an older version</h2>
 		<p>It is recommended to use the newest version of CNL. However you can also download any older version from here:</p>
@@ -116,20 +126,23 @@
 		</ul>
 		<p>You can also find a detailed changelog <a href="changelog.html">here</a>.</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="jumpAnchor" id="code"></div>
 		<h2>Source Code</h2>
-		<p>I have open sourced to project on GitHub!<br>
+		<p>
+			I have open sourced to project on GitHub!<br>
 			If you would like to examine my crappy code please feel free to visit <a href="https://github.com/ArztSamuel/CNL" target="_blank">my GitHub page</a>.<br>
-			Found any errors or a way to improve the code? Please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
+			Found any errors or a way to improve the code? Please feel free to contact me at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.
+		</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="jumpAnchor" id="mac"></div>
 		<h2>Mac Support</h2>
-		<p>Since this software was originally designed for Windows, setting it up on Mac requires a bit more effort. First of all you will need to install <a href="http://www.mono-project.com/" target="_blank">Mono</a> 
-			(an independent version of Microsoft's .NET) on your machine. After installing Mono you are already able to run the .exe files by typing "<strong>&ltyour path to Mono&gt</strong>/mono <strong>&ltyour path to CNL&gt</strong>/CNLOptions.exe" into your terminal, 
+		<p>
+			Since this software was originally designed for Windows, setting it up on Mac requires a bit more effort. First of all you will need to install <a href="http://www.mono-project.com/" target="_blank">Mono</a>
+			(an independent version of Microsoft's .NET) on your machine. After installing Mono you are already able to run the .exe files by typing "<strong>&ltyour path to Mono&gt</strong>/mono <strong>&ltyour path to CNL&gt</strong>/CNLOptions.exe" into your terminal,
 			where you insert your local path to where you installed Mono for &ltyour path to Mono&gt and your local path to where you saved CNL for &ltyour path to CNL&gt. So for example this would mean typing "/usr/bin/mono ~/downloads/CNL/CNLOptions.exe" into your terminal.<br>
-			But this is very unwieldy. In order to launch the different .exe files by simply double clicking a file, you can also insert said paths into <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh" onclick="trackDL('MacScript_en')">this script</a> that you can download. Finally after that you will probably have to allow the script to be executed by typing 
+			But this is very unwieldy. In order to launch the different .exe files by simply double clicking a file, you can also insert said paths into <a href="../../../../shared/projects/csharp/cnl/runCNL.sh" download="runCNL.sh" onclick="trackDL('MacScript_en')">this script</a> that you can download. Finally after that you will probably have to allow the script to be executed by typing
 			"chmod +x <strong>&ltyour path to runCNL script&gt</strong>/runCNL.sh". So in the end the content of the script could look like this:<br><br>
 			"#!/bin/sh<br>
 			exec /usr/bin/mono ~/downloads/CNL/CNLOptions.exe "$@""<br><br>
@@ -137,23 +150,27 @@
 			If you changed the path of Shell on your mac you will also have to enter that path for "#!<strong>&ltyour Shell path&gt</strong>/sh"<br>
 			<strong>Please notice</strong> that when running CNLOptions for the first time on Mac it may take up to a minute for the window to appear. This is totally normal.
 		</p>
-			<p>As I am not able to access a Mac for testing at the moment I can not assure any functionality, however all basic functions should work. If you yourself are a Mac-User and are able to test this program, please let me know if you encounter 
-			any problems at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
+		<p>
+			As I am not able to access a Mac for testing at the moment I can not assure any functionality, however all basic functions should work. If you yourself are a Mac-User and are able to test this program, please let me know if you encounter
+			any problems at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.
+		</p>
 		<div class="bottomBigDist"></div>
-		
-		<div class="jumpAnchor" id="bug"></div>	
+
+		<div class="jumpAnchor" id="bug"></div>
 		<h2>I found a bug!</h2>
 		<p>If you have found a bug or want to suggest a new feature please contact me with a detailed description at <span class="mail">sarzt.mmt-b2015@fh-salzburg.ac.at</span>.</p>
 		<div class="bottomBigDist"></div>
-		
+
 		<div class="bottomDist"></div>
 		<div class="navHistory bottom">> <a href="cnl.html">Back to CNL</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>A website made by Samuel Arzt<br>
-			Like my work? Feel free to:</p>
+		<p>
+			A website made by Samuel Arzt<br>
+			Like my work? Feel free to:
+		</p>
 		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
 
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -169,24 +186,22 @@
 		</form>
 
 	</div>
-	
+
 	<!-- Image Slider Script -->
-    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
 	<script>var core = new Core(); core.run();</script>
-	
+
 	<!-- Analyitics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 	<script>
-		function trackDL(dlName){
+		function trackDL(dlName) {
 			ga('send', 'event', 'Downloads', 'clicked', dlName);
 		}
 	</script>

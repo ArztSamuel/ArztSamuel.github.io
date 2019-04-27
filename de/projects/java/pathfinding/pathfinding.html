@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -23,24 +23,25 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../en/projects/java/pathfinding/pathfinding.html">Switch to Englisch version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#java">Java</a></div>
-	
+
 		<h1>Wegfindung mittels A*-Algorithmus</h1>
-		<p>Diese Java-App visualisiert den A*Algorithmus. Ich habe dieses Programm unter anderem in einem meiner Videos und einem 
-			Talk an meiner Fachhochschule dazu verwendet, um den Algorithmus zu erklären. Das Programm steht in meinem 
+		<p>
+			Diese Java-App visualisiert den A*Algorithmus. Ich habe dieses Programm unter anderem in einem meiner Videos und einem
+			Talk an meiner Fachhochschule dazu verwendet, um den Algorithmus zu erklären. Das Programm steht in meinem
 			<a href="https://github.com/ArztSamuel/A-Star-Pathfinding" target="_blank">A*-Explainer Repository</a> zum download bereit.
 		</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<img src="../../../../shared/projects/java/pathfinding/img/medium/pathfinding1.png" alt="Pathfinding using A* <Image>"></img>
@@ -49,25 +50,31 @@
 			<img src="../../../../shared/projects/java/pathfinding/img/medium/pathfinding4.png" alt="Pathfinding using A* <Image>"></img>
 			<img src="../../../../shared/projects/java/pathfinding/img/medium/pathfinding5.png" alt="Pathfinding using A* <Image>"></img>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Dieses Programm soll den Arbeitsprozess des A*-Algorithmus Schritt für Schritt visualisieren. Das Ziel des Algorithmus' ist es den kürzesten Weg 
-			von A nach B auf einer Tile-Map zu finden.</p>
+			<p>
+				Dieses Programm soll den Arbeitsprozess des A*-Algorithmus Schritt für Schritt visualisieren. Das Ziel des Algorithmus' ist es den kürzesten Weg
+				von A nach B auf einer Tile-Map zu finden.
+			</p>
 			<div class="divLine"></div>
 			<h2>Steuerung</h2>
-			<p>Durch den Knopf im oberen rechten Eck lässt sich durch 2 Modi wechseln. Je nach derzeitigem Modus wird durch einen Linksklick 
-				entweder ein neues Hindernis gesetzt oder der Start neu gesetzt, während ein Rechtsklick entweder ein Hindernis entfernt oder 
-				das Ziel neu setzt.</p>
-			<p>Durch wiederholtes drücken der Leertaste kann der A*-Algorithmus Schritt-für-Schritt visualisiert werden. Mit der Enter-Taste kann man direkt 
-				zum Endpunkt des Algorithmus' springen.</p>
+			<p>
+				Durch den Knopf im oberen rechten Eck lässt sich durch 2 Modi wechseln. Je nach derzeitigem Modus wird durch einen Linksklick
+				entweder ein neues Hindernis gesetzt oder der Start neu gesetzt, während ein Rechtsklick entweder ein Hindernis entfernt oder
+				das Ziel neu setzt.
+			</p>
+			<p>
+				Durch wiederholtes drücken der Leertaste kann der A*-Algorithmus Schritt-für-Schritt visualisiert werden. Mit der Enter-Taste kann man direkt
+				zum Endpunkt des Algorithmus' springen.
+			</p>
 		</div>
 		<h2>Entwicklungszeit:</h2>
 		<p>Anfang 2014</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>Eine Webseite von Samuel Arzt</p>
@@ -79,22 +86,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../../../../shared/external/jquery.min.js"></script>
 	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

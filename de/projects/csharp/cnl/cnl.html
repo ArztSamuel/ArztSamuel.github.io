@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
 	
@@ -19,18 +19,18 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../en/projects/csharp/cnl/cnl.html">Switch to English version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a></div>
-		
+
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 			<input type="hidden" name="cmd" value="_donations">
 			<input type="hidden" name="business" value="arzt.samuel@live.de">
@@ -45,11 +45,11 @@
 
 		<a id="download" href="../../../../shared/projects/csharp/cnl/versions/normal/CurCNL.zip" download="CNL.zip" onclick="trackDL('CNL_de_pageTop')">Download</a>
 		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.2)</h1>
-		
+
 		<p>Dieses kleine Programm kann dich automatisch in das Campus Internet in Puch Urstein einloggen.</p>
-		
+
 		<img id="projectImg" src="../../../../shared/projects/csharp/cnl/img/cnl1.png" alt="CNL in action <Image>"></img>
-		
+
 		<div class="projectContent">
 			<div class="jumpAnchor" id="setup"></div>
 			<h2 id="setupContainer">Installation in 3 Schritten:</h2>
@@ -74,47 +74,59 @@
 				<p>Brauchst du <a href="help.html">Hilfe</a>?<br> Installationsinfos zu <strong>OSX</strong> findest du <a href="help.html#mac">hier</a>.</p>
 			</div>
 		</div>
-		
+
 		<h2>Funktionsweise</h2>
-		<p>Nachdem du deine Login-Daten in "CNL-Options" konfiguriert hast, überprüft CNL sobald du es ausführst zuerst deine Verbindung und sendet dann wenn nötig 
+		<p>
+			Nachdem du deine Login-Daten in "CNL-Options" konfiguriert hast, überprüft CNL sobald du es ausführst zuerst deine Verbindung und sendet dann wenn nötig
 			deine Login-Daten für dich an den Campus Router.<br>
-			CNL speichert alle notwendigen Daten aus "CNLOptions" verschlüsselt auf deiner eigenen Festplatte. CNL entschlüsselt diese Daten dann sobald du es 
-			ausführst. Solltest du, aus welchem Grund auch immer, besagte Daten von deinem Rechner löschen wollen, kannst du 
-			einfach den Knopf "Delete savedata" im oberen rechten Eck von "CNLOptions" drücken.</p>
+			CNL speichert alle notwendigen Daten aus "CNLOptions" verschlüsselt auf deiner eigenen Festplatte. CNL entschlüsselt diese Daten dann sobald du es
+			ausführst. Solltest du, aus welchem Grund auch immer, besagte Daten von deinem Rechner löschen wollen, kannst du
+			einfach den Knopf "Delete savedata" im oberen rechten Eck von "CNLOptions" drücken.
+		</p>
 		<h2>Empfohlene Einstellungen ("Advanced Settings")</h2>
-		<p>Die <strong>standard Einstellungen</strong> sind bereits die empfohlenen Einstellungen. Die folgenden Zeilen werden dir jedoch noch einmal den 
-			Nutzen der einzelnen Optionen, sowie deren Vor- und Nachteile näher bringen.</p>
-		<p><strong>"Retry":</strong><br>
+		<p>
+			Die <strong>standard Einstellungen</strong> sind bereits die empfohlenen Einstellungen. Die folgenden Zeilen werden dir jedoch noch einmal den
+			Nutzen der einzelnen Optionen, sowie deren Vor- und Nachteile näher bringen.
+		</p>
+		<p>
+			<strong>"Retry":</strong><br>
 			Diese Option legt fest wie oft das Programm versuchen wird dich einzuloggen, sollte es beim ersten Mal nicht klappen.<br>
-			Ich empfehle diese Einstellung auf <strong>"5"</strong> oder <strong>"infinitely"</strong> zu stellen. Jedoch sollte man im Hinterkopf behalten, dass im 
-			Falle einer nicht vorhandenen Internetverbindung die Einstellung "infinitely" das Programm im Hintergrund unendlich laufen lassen wird.</p>
-		<p><strong>"Check connection":</strong><br>
+			Ich empfehle diese Einstellung auf <strong>"5"</strong> oder <strong>"infinitely"</strong> zu stellen. Jedoch sollte man im Hinterkopf behalten, dass im
+			Falle einer nicht vorhandenen Internetverbindung die Einstellung "infinitely" das Programm im Hintergrund unendlich laufen lassen wird.
+		</p>
+		<p>
+			<strong>"Check connection":</strong><br>
 			Diese Option legt fest, ob und in welchen Zeitabständen die Verbindung getestet werden soll nachdem man eingeloggt wurde.
-			<br>Ich empfehle diese Einstellung <strong>komplett auszuschalten</strong> und stattdessem das Programm manuell zu starten, sollte man ausgeloggt werden. Der Grund ist etwas 
+			<br>Ich empfehle diese Einstellung <strong>komplett auszuschalten</strong> und stattdessem das Programm manuell zu starten, sollte man ausgeloggt werden. Der Grund ist etwas
 			komplizierter zu erklären aber lasst es mich versuchen...<br>
-			Da das überprüfen der Verbindung im Sekundentakt deine Bandbreite belasten würde musste ich die Überprüfungsrate auf Minuten beschränken. Deshalb hat die Einstellung 
-			"1" zu Folge, dass deine Verbindung jede Minute geprüft wird, was bedeutet im "Worst Case" loggt dich das Programm wieder ein nachdem du 1 Minute ausgeloggt warst. 
-			Jedoch ist es nicht sehr Wahrscheinlich ausgeloggt zu werden, wenn deine Verbindung jede Minute aktiv ist. Solltest du also wirklich diese Funktion verwenden wollen, würde ich 
-			versuchen ein goldenes Mittel zwischen Überprüfungsabstand und "Worst Case" Zeit zu finden... Das ist der Grund warum der standard Wert bei <strong>"15"</strong> liegt: Worst Case... 
-			15 Minuten. Durchschnittlicher Fall... 7.5 Minuten.</p>
-		<p><strong>"Open Debug Window":</strong><br>
+			Da das überprüfen der Verbindung im Sekundentakt deine Bandbreite belasten würde musste ich die Überprüfungsrate auf Minuten beschränken. Deshalb hat die Einstellung
+			"1" zu Folge, dass deine Verbindung jede Minute geprüft wird, was bedeutet im "Worst Case" loggt dich das Programm wieder ein nachdem du 1 Minute ausgeloggt warst.
+			Jedoch ist es nicht sehr Wahrscheinlich ausgeloggt zu werden, wenn deine Verbindung jede Minute aktiv ist. Solltest du also wirklich diese Funktion verwenden wollen, würde ich
+			versuchen ein goldenes Mittel zwischen Überprüfungsabstand und "Worst Case" Zeit zu finden... Das ist der Grund warum der standard Wert bei <strong>"15"</strong> liegt: Worst Case...
+			15 Minuten. Durchschnittlicher Fall... 7.5 Minuten.
+		</p>
+		<p>
+			<strong>"Open Debug Window":</strong><br>
 			Wenn du diese Option einschaltest öffnet sich mit CNL ein Kommando-Fenster.<br>
-			Dieses Fenster dient nur zur Fehlererkennung/-behebung, deshalb ist es standardmäßig auch <strong>ausgeschaltet</strong>. Schließt man dieses Fenster dann wird auch das Programm beendet. 
-			Hast du also zum Beispiel die Option "Check connection" eingeschaltet musst du das Fenster zumindest minimiert lassen, damit diese Funktion nicht abgebrochen wird. Solltest du jedoch genau 
-			wissen wollen was gerade passiert, wenn das Programm läuft kannst du diese Option gerne einschalten.</p>
+			Dieses Fenster dient nur zur Fehlererkennung/-behebung, deshalb ist es standardmäßig auch <strong>ausgeschaltet</strong>. Schließt man dieses Fenster dann wird auch das Programm beendet.
+			Hast du also zum Beispiel die Option "Check connection" eingeschaltet musst du das Fenster zumindest minimiert lassen, damit diese Funktion nicht abgebrochen wird. Solltest du jedoch genau
+			wissen wollen was gerade passiert, wenn das Programm läuft kannst du diese Option gerne einschalten.
+		</p>
 		<h2>Feedback</h2>
 		<p>Bitte sagt mir was ihr denkt! Einen <a href="help.html#bug">Fehler</a> gefunden? Kontaktiert mich unter sarzt.mmt-b2015@fh-salzburg.ac.at</p>
 		<h2>Entwicklungszeit:</h2>
 		<p>Ende 2015 - Anfang 2016</p>
 		<p><a href="changelog.html">Changelog</a></p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>Eine Website von Samuel Arzt<br>
-			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p>
+			Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:
+		</p>
 		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
 
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -130,24 +142,23 @@
 		</form>
 
 	</div>
-	
-	<!-- Image Slider Script -->
-    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
-	<script>var core = new Core(); core.run();</script>
-	
-	
-	<!-- Analyitics -->
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
+	<!-- Image Slider Script -->
+	<script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script>var core = new Core(); core.run();</script>
+
+
+	<!-- Analyitics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 	<script>
-		function trackDL(dlName){
+		function trackDL(dlName) {
 			ga('send', 'event', 'Downloads', 'clicked', dlName);
 		}
 	</script>

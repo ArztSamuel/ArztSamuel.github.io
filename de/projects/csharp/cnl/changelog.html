@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
 	
@@ -18,30 +18,31 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../de/projects/csharp/cnl/help.html">Zur deutschen Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a> > <a href="cnl.html">CNL</a></div>
-		
+
 		<h1>CNL - Changelog</h1>
 		<p id="introduction">Hier kannst du Details zu allen Updates von CNL finden</p>
 		<ul>
 			<li><a href="#1_2">1.2</a></li>
 			<li><a href="#1_1">1.1</a></li>
 		</ul>
-		
+
 		<div class="jumpAnchor" id="1_2"></div>
 		<div class="projectContent">
 			<h2>1.2</h2>
 			<ul class="dashed">
-				<li>Autmoatischen Updater hinzugefügt.
+				<li>
+					Autmoatischen Updater hinzugefügt.
 					<ul class="dashed">
 						<li>CNL informiert Nutzer nun automatisch über verfügbare Updates und ladet diese herunter sobald der Nutzer zustimmt.</li>
 						<li>Das intervall in dem nach Updates gesucht wird kann in CNLOptions festgelegt werden.</li>
@@ -52,7 +53,7 @@
 			</ul>
 			<p>Dieses Update wurde als "empfohlen" eingestuft.</p>
 		</div>
-		
+
 		<div class="jumpAnchor" id="1_1"></div>
 		<div class="projectContent">
 			<h2>1.1</h2>
@@ -61,15 +62,17 @@
 			</ul>
 			<p>Dieses Update wurde als "verpflichtend" eingestuft.</p>
 		</div>
-		
+
 		<div class="bottomDist"></div>
 		<div class="navHistory bottom">> <a href="cnl.html">Zurück zu CNL</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>Eine Website von Samuel Arzt<br>
-			Dir gefällt meine Arbeit? Du kannst gerne:</p>
+		<p>
+			Eine Website von Samuel Arzt<br>
+			Dir gefällt meine Arbeit? Du kannst gerne:
+		</p>
 		<p><strong>Kontakt:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Privat:</strong> arzt.samuel@live.de</p>
 
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -85,21 +88,19 @@
 		</form>
 
 	</div>
-	
-	
+
+
 	<!-- Analyitics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 	<script>
-		function trackDL(dlName){
+		function trackDL(dlName) {
 			ga('send', 'event', 'Downloads', 'clicked', dlName);
 		}
 	</script>

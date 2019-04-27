@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -23,65 +23,70 @@
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../de/projects/csharp/ilverify/ilverify.html">Zur deutschen Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
-	
+
 		<h1>ILVerify</h1>
-		<p>ILVerify is an open-source tool developed by Microsoft. I started contributing to ILVerify as part of my internship
+		<p>
+			ILVerify is an open-source tool developed by Microsoft. I started contributing to ILVerify as part of my internship
 			at <a href="https://www.dynatrace.com/" target="_blank">Dynatrace</a> and continued developing it in my free time.
 		</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify1.png" alt="ILVerify"></img>
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify2.png" alt="ILVerify"></img>
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify3.png" alt="ILVerify"></img>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Description</h2>
-			<p>The goal of the project is to create a standalone, cross platform, open-source tool capable of verifying IL code 
-				based on 
-				<a href="https://www.ecma-international.org/publications/standards/Ecma-335.htm" target="_blank">ECMA-335</a>. 
-				You can find the entire source located inside the .NET 
+			<p>
+				The goal of the project is to create a standalone, cross platform, open-source tool capable of verifying IL code
+				based on
+				<a href="https://www.ecma-international.org/publications/standards/Ecma-335.htm" target="_blank">ECMA-335</a>.
+				You can find the entire source located inside the .NET
 				<a href="https://github.com/dotnet/corert/tree/master/src/ILVerify" target="_blank">CoreRT repository</a>.<br>
-				The main users of this tool are people working on software which emits IL code, such as compiler, debugger or 
+				The main users of this tool are people working on software which emits IL code, such as compiler, debugger or
 				profiler writers.
 			</p>
-			<p>At the end of my internship at Dynatrace I also wrote a 
-				<a href="https://www.dynatrace.com/blog/verifying-your-own-dotnet-il-code/" target="_blank">Blogpost</a> about my 
-				work on ILVerify. 
+			<p>
+				At the end of my internship at Dynatrace I also wrote a
+				<a href="https://www.dynatrace.com/blog/verifying-your-own-dotnet-il-code/" target="_blank">Blogpost</a> about my
+				work on ILVerify.
 			</p>
 			<div class="divLine"></div>
 			<h2>Instructions</h2>
-			<p>Currently ILVerify can be executed as a console-app, even though a public API is 
-				<a href="https://github.com/dotnet/corert/issues/3734" target="_blank">planned</a>. In order to verify an assembly's 
-				IL code you have to specify its location and the location of all assemblies it references. For example, in order to 
+			<p>
+				Currently ILVerify can be executed as a console-app, even though a public API is
+				<a href="https://github.com/dotnet/corert/issues/3734" target="_blank">planned</a>. In order to verify an assembly's
+				IL code you have to specify its location and the location of all assemblies it references. For example, in order to
 				verify the assembly <i>asm.exe</i>, which references <i>mscorlib.dll</i> and <i>System.dll</i>, you would run:<br>
 				<i>ilverify.exe &ltpath-to-asm.exe&gt -reference &ltpath-to-mscorlib.dll&gt -reference &ltpath-to-system.dll&gt</i><br>
 				or simply:<br>
 				<i>ilverify.exe &ltpath-to-asm.exe&gt -r &ltpath-to-libfolder-*.dll&gt</i>
 			</p>
-			<p>Additionally you can specify a regular expression defining specific methods to be included or excluded with <i>-include</i> 
-				and <i>-exclude</i>, or just <i>-i</i> and <i>-e</i>. You can also define the base library to be used with 
+			<p>
+				Additionally you can specify a regular expression defining specific methods to be included or excluded with <i>-include</i>
+				and <i>-exclude</i>, or just <i>-i</i> and <i>-e</i>. You can also define the base library to be used with
 				<i>-system-module</i>, or just <i>-s</i>, for assemblies using a base library other than <i>mscorlib</i>.
 			</p>
 		</div>
 		<h2>Time of Development:</h2>
 		<p>Mid 2017 - ongoing</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>A website made by Samuel Arzt</p>
@@ -93,22 +98,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../../../../shared/external/jquery.min.js"></script>
 	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
 	
@@ -19,18 +19,18 @@
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../de/projects/csharp/cnl/cnl.html">Zur deutschen Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
-		
+
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 			<input type="hidden" name="cmd" value="_donations">
 			<input type="hidden" name="business" value="arzt.samuel@live.de">
@@ -44,11 +44,11 @@
 		</form>
 		<a id="download" href="../../../../shared/projects/csharp/cnl/versions/normal/CurCNL.zip" download="CNL.zip" onclick="trackDL('CNL_en_pageTop')">Download</a>
 		<h1>CNL - <strong>C</strong>ampus<strong>N</strong>et<strong>L</strong>ogin (V 1.2)</h1>
-		
+
 		<p>This small program will automatically log you into your account at the Campus internet at Puch Urstein.</p>
-		
+
 		<img id="projectImg" src="../../../../shared/projects/csharp/cnl/img/cnl1.png" alt="CNL in action <Image>"></img>
-		
+
 		<div class="projectContent">
 			<div class="jumpAnchor" id="setup"></div>
 			<h2 id="setupContainer">Three step setup:</h2>
@@ -73,42 +73,54 @@
 				<p>Need <a href="help.html">help</a>?<br>You can find setup info for <strong>OSX</strong> <a href="help.html#mac">here</a>.</p>
 			</div>
 		</div>
-		
+
 		<h2>Functionality</h2>
-		<p>After configuring your login-data in "CNL-Options" every time you run CNL, it will first check your connection and then send your login-data 
+		<p>
+			After configuring your login-data in "CNL-Options" every time you run CNL, it will first check your connection and then send your login-data
 			to the campus router for you if necessary.<br>
-			CNL will save all required data from "CNLOptions" encrypted on your local hard drive. CNL will then decrypt this data if needed. 
-			If you want to delete said save-data for whatever reason, you can just push the button "Delete savedata" at the top right corner of CNLOptions.</p>
+			CNL will save all required data from "CNLOptions" encrypted on your local hard drive. CNL will then decrypt this data if needed.
+			If you want to delete said save-data for whatever reason, you can just push the button "Delete savedata" at the top right corner of CNLOptions.
+		</p>
 		<h2>Recommended "Advanced" Settings</h2>
-		<p>The <strong>default settings</strong> are already the recommended settings. The next lines will explain options 
-			and different advantages of different settings.</p>
-		<p><strong>Retry:</strong><br>This option determines how often the program will retry to connect to the login page, 
-			if it fails the first time.<br>I would recommend setting this to either <strong>"5"</strong> or <strong>infinitely</strong>. However keep 
-			in mind that if you are not connected to the internet this will keep the program constantly running in 
-			the background, if set to "infinitely".</p>
-		<p><strong>Check connection:</strong><br>This option determines whether or not the program should check if you are still logged in every x-seconds.
-			<br>I recommend turning this <strong>completely off</strong>. This is a comlpicated one to explain but let me have a try...<br>I had to limit the cyclic repeat to 
-			minutes because checking your connection every second would sacrifice your bandwidth. Therefore setting this to "1" will check your connection every 
-			minute, which would mean in the worst case the program would automatically log you back in after 1 minute of being logged out. However you will most 
-			likely not be logged out if your connection is active every minute. So if you really want to turn this option on, I would recommend finding a happy 
-			medium between check time and worst case time... That is why the default value is <strong>"15"</strong>: Worst case... 15 minutes. Most probable case... 7.5 minutes.</p>
-		<p><strong>Open Debug Window:</strong><br>Once you turn this option on a command prompt will always open when you run CNL.<br>This window solely serves 
-			debug purposes, therefore it is turned <strong>off</strong> by default. If you close the debug window you will also terminate the program. So if you turned "Check connection" on 
-			you will have to keep it at least minimized for it to work. If you want to see what exactly is happening while the program is running feel free to turn 
-			the debug window on. Or turn it on for... well... debug-reasons...</p>
+		<p>
+			The <strong>default settings</strong> are already the recommended settings. The next lines will explain options
+			and different advantages of different settings.
+		</p>
+		<p>
+			<strong>Retry:</strong><br>This option determines how often the program will retry to connect to the login page,
+			if it fails the first time.<br>I would recommend setting this to either <strong>"5"</strong> or <strong>infinitely</strong>. However keep
+			in mind that if you are not connected to the internet this will keep the program constantly running in
+			the background, if set to "infinitely".
+		</p>
+		<p>
+			<strong>Check connection:</strong><br>This option determines whether or not the program should check if you are still logged in every x-seconds.
+			<br>I recommend turning this <strong>completely off</strong>. This is a comlpicated one to explain but let me have a try...<br>I had to limit the cyclic repeat to
+			minutes because checking your connection every second would sacrifice your bandwidth. Therefore setting this to "1" will check your connection every
+			minute, which would mean in the worst case the program would automatically log you back in after 1 minute of being logged out. However you will most
+			likely not be logged out if your connection is active every minute. So if you really want to turn this option on, I would recommend finding a happy
+			medium between check time and worst case time... That is why the default value is <strong>"15"</strong>: Worst case... 15 minutes. Most probable case... 7.5 minutes.
+		</p>
+		<p>
+			<strong>Open Debug Window:</strong><br>Once you turn this option on a command prompt will always open when you run CNL.<br>This window solely serves
+			debug purposes, therefore it is turned <strong>off</strong> by default. If you close the debug window you will also terminate the program. So if you turned "Check connection" on
+			you will have to keep it at least minimized for it to work. If you want to see what exactly is happening while the program is running feel free to turn
+			the debug window on. Or turn it on for... well... debug-reasons...
+		</p>
 		<h2>Feedback</h2>
 		<p>Please let me know what you think! Found a <a href="help.html#bug">bug</a>? Contact me at sarzt.mmt-b2015@fh-salzburg.ac.at</p>
 		<h2>Time of Development:</h2>
 		<p>Late 2015 - Early 2016</p>
 		<p><a href="changelog.html">Changelog</a></p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
-		<p>A website made by Samuel Arzt<br>
-			Like my work? Feel free to:</p>
+		<p>
+			A website made by Samuel Arzt<br>
+			Like my work? Feel free to:
+		</p>
 		<p><strong>Contact:</strong> sarzt.mmt-b2015@fh-salzburg.ac.at<br><strong>Private:</strong> arzt.samuel@live.de</p>
 
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -124,24 +136,22 @@
 		</form>
 
 	</div>
-	
+
 	<!-- Image Slider Script -->
-    <script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/imageSlider.js"></script>
 	<script>var core = new Core(); core.run();</script>
-	
+
 	<!-- Analyitics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 	<script>
-		function trackDL(dlName){
+		function trackDL(dlName) {
 			ga('send', 'event', 'Downloads', 'clicked', dlName);
 		}
 	</script>

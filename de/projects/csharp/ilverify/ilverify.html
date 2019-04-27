@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -23,48 +23,52 @@
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../en/projects/csharp/ilverify/ilverify.html">Switch to English version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#csharp">C#</a></div>
-	
+
 		<h1>ILVerify</h1>
-		<p>ILVerify ist ein Open-Source Tool von Microsoft. Ich begann im Zuge meines Praktikums bei 
+		<p>
+			ILVerify ist ein Open-Source Tool von Microsoft. Ich begann im Zuge meines Praktikums bei
 			<a href="https://www.dynatrace.de/" target="_blank">Dynatrace</a> bei ILVerify mitzuwirken und arbeite seitdem
 			auch in meiner Freizeit daran weiter.
 		</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify1.png" alt="ILVerify"></img>
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify2.png" alt="ILVerify"></img>
 			<img src="../../../../shared/projects/csharp/ilverify/img/medium/ilverify3.png" alt="ILVerify"></img>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Das Ziel des Projekts ist ein Standalone, Cross-Platform, Open-Source Tool, welches in der Lage ist IL-Code 
+			<p>
+				Das Ziel des Projekts ist ein Standalone, Cross-Platform, Open-Source Tool, welches in der Lage ist IL-Code
 				auf der Basis des <a href="https://www.ecma-international.org/publications/standards/Ecma-335.htm" target="_blank">ECMA-335</a>
-				Standards zu verifizieren. Der gesamte Source-Code ist im .NET 
+				Standards zu verifizieren. Der gesamte Source-Code ist im .NET
 				<a href="https://github.com/dotnet/corert/tree/master/src/ILVerify" target="_blank">CoreRT Repository</a> zu finden.<br>
 				Die Hauptnutzer dieses Tools sind Entwickler von Software, die IL-Code emittet, also zum Beispiel Compiler-, Debugger- oder
 				Profiler-Schreiber.
 			</p>
-			<p>Am Ende meines Praktikums bei Dynatrace habe ich auch einen 
-				<a href="https://www.dynatrace.com/blog/verifying-your-own-dotnet-il-code/" target="_blank">Blogpost</a> über meine 
+			<p>
+				Am Ende meines Praktikums bei Dynatrace habe ich auch einen
+				<a href="https://www.dynatrace.com/blog/verifying-your-own-dotnet-il-code/" target="_blank">Blogpost</a> über meine
 				Arbeit an ILVerify geschrieben.
 			</p>
 			<div class="divLine"></div>
 			<h2>Anleitung</h2>
-			<p>Zurzeit kann ILVerify als Console-Applikation verwendet werden, wobei eine Public-API 
-				<a href="https://github.com/dotnet/corert/issues/3734" target="_blank">geplant</a> ist. Um den IL-Code einer Assembly 
+			<p>
+				Zurzeit kann ILVerify als Console-Applikation verwendet werden, wobei eine Public-API
+				<a href="https://github.com/dotnet/corert/issues/3734" target="_blank">geplant</a> ist. Um den IL-Code einer Assembly
 				zu verifizieren, muss ihr Ort und der Ort aller Assemblies die sie referenziert angegeben werden. Zum Beispiel, um
 				die Assembly <i>asm.exe</i> zu verifizieren, welche <i>mscorlib.dll</i> und <i>System.dll</i> referenziert, würde
 				folgender Befehl ausgeführt werden:<br>
@@ -72,18 +76,19 @@
 				oder verkürzt:<br>
 				<i>ilverify.exe &ltpath-to-asm.exe&gt -r &ltpath-to-libfolder-*.dll&gt</i>
 			</p>
-			<p>Zusätzlich können reguläre Ausdrücke definiert werden, die angeben welche Methoden inkludiert oder exkludiert werden sollen, 
-				mittels <i>-include</i> und <i>-exclude</i>, oder einfach <i>-i</i> und <i>-e</i>. Ebenso kann die Basis Library, die 
-				verwendet werden soll mittels <i>-system-module</i>, oder einfach <i>-s</i>, angegeben werden, um Assemblies zu verifizieren, 
+			<p>
+				Zusätzlich können reguläre Ausdrücke definiert werden, die angeben welche Methoden inkludiert oder exkludiert werden sollen,
+				mittels <i>-include</i> und <i>-exclude</i>, oder einfach <i>-i</i> und <i>-e</i>. Ebenso kann die Basis Library, die
+				verwendet werden soll mittels <i>-system-module</i>, oder einfach <i>-s</i>, angegeben werden, um Assemblies zu verifizieren,
 				die eine andere Basis Library als <i>mscorlib</i> verwenden.
 			</p>
 		</div>
 		<h2>Entwicklungszeit</h2>
 		<p>Mitte 2017 - laufend</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>Eine Webseite von Samuel Arzt</p>
@@ -95,22 +100,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../../../../shared/external/jquery.min.js"></script>
 	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

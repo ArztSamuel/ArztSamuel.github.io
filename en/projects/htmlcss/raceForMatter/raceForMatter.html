@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
-    <meta charset="UTF-8">
-	
+	<meta charset="UTF-8">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="A small javascript simulation of matter and how they influence each other through gravity">
 	<meta name="keywords" content="Matter,Samuel Arzt,Matter of Matter,Javascript,game,gravity,physics,simulation">
 	<meta name="author" content="Samuel Arzt">
 	<title>Matter of Matter - Samuel Arzt</title>
-	
-    <!-- CSS -->
-    <link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
+
+	<!-- CSS -->
+	<link href="../../../../shared/main.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/project.css" rel="stylesheet" type="text/css">
 	<link href="../../../../shared/projects/htmlcss/raceForMatter/raceForMatter.css" rel="stylesheet" type="text/css">
 </head>
@@ -20,56 +20,59 @@
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projects</a><a href="../../../blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../de/projects/htmlcss/raceForMatter/raceForMatter.html">Zur deutschen Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projects</a> > <a href="../../../projects.html#htmlcss">html/css/js</a></div>
-		
+
 		<h1>A Matter of Matter</h1>
-		<p id="introduction">This was my first real JavaScript project. A small simulation of matter and gravity.<br>
+		<p id="introduction">
+			This was my first real JavaScript project. A small simulation of matter and gravity.<br>
 			(Press "Solar System" to start)
 		</p>
-		
+
 		<div id="canvCont">
 			<div id="ratio"></div>
 			<canvas id="drawCanvas"></canvas>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Description</h2>
-			<p>This program simulates how bodies of specific mass influence each other through gravity. It uses real physics formula and I've tried 
+			<p>
+				This program simulates how bodies of specific mass influence each other through gravity. It uses real physics formula and I've tried
 				to keep it as close to reality as possible.<br>
 				At the moment you can choose between two "modes": Solar System or Random.<br>
-				If you press "Solar System" the program will simulate our solar system, including all 8 planets and our sun. The camera will start with 
+				If you press "Solar System" the program will simulate our solar system, including all 8 planets and our sun. The camera will start with
 				the earth in the middle of the view.<br>
 				If you press "Random" 20 random bodies are generated (with random mass, velocity and position).<br>
 				You can exit a mode by pressing the red "X" in the upper left corner.<br>
-				Beneath each body you can see a yellow number indicating the mass of the object. "e" stands for 10 to the power of the number next to 
+				Beneath each body you can see a yellow number indicating the mass of the object. "e" stands for 10 to the power of the number next to
 				"e". So 5e10 would be 5*10^6 which would be 5 million kilograms.<br>
-				At a zoom-level of x1 one pixel on your screen is equivilant to 1000 km. If the mode is set to random all object sizes are calculated as if 
+				At a zoom-level of x1 one pixel on your screen is equivilant to 1000 km. If the mode is set to random all object sizes are calculated as if
 				they had the same density as earth.
 			</p>
 			<div class="divLine"></div>
 			<h2>Instructions</h2>
-			<p>You can move the camera view with AWSD.<br>
+			<p>
+				You can move the camera view with AWSD.<br>
 				The Buttons "&lt;&lt;" and "&gt;&gt;" in the top right corner control the speed of time (you can see the elapsed time in the upper left corner).<br>
 				The Buttons "+" and "-" in the bottom right corner control your zoom level.
 			</p>
 		</div>
-		
+
 		<h2>Time of Development:</h2>
 		<p>Early 2016</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Back to Projects</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>A website made by Samuel Arzt</p>
@@ -81,9 +84,9 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- RFM Scripts -->
-    <script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Core.js"></script>
+	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Core.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Vector.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Math_PH.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Node.js"></script>
@@ -93,19 +96,17 @@
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Keyboard.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Map.js"></script>
 	<script type="text/javascript" src="../../../../shared/projects/htmlcss/raceForMatter/js/Mouse.js"></script>
-	
+
 	<script>var core = new Core(); core.run();</script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

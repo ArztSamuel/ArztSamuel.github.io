@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -23,28 +23,28 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../../projects.html" class="button pressed">Projekte</a><a href="../../../../en/blog.html" class="button">Blog</a><a href="../../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="../../../../en/projects/unity/deepCars/deepCars.html">Switch to English Version</a>
 		<div class="navHistory top"><a href="../../../projects.html">Projekte</a> > <a href="../../../projects.html#csharp">C#</a></div>
-	
+
 		<h1>Deep Learning Cars</h1>
 		<p>
-			Eine 2D Simulation, in der Autos, unter der Verwendung von Neuronalen Netzwerken und einem Evolutionären Algorithmus, von selbst lernen sich durch einen Parkour 
+			Eine 2D Simulation, in der Autos, unter der Verwendung von Neuronalen Netzwerken und einem Evolutionären Algorithmus, von selbst lernen sich durch einen Parkour
 			zu manövrieren. Der gesamte Quellcode dieses Projekts ist Open-Source und auf meinem <a href="https://github.com/ArztSamuel/Applying_EANNs" onclick="trackReferral('DE_Applying_EANNs')" target="_blank">Github Repository</a> zu finden.
 		</p>
-		
+
 		<div id="videoWrapper">
 			<iframe src="https://www.youtube.com/embed/Aut32pR5PQA" frameborder="0" allowfullscreen></iframe>
 		</div>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<img src="../../../../shared/projects/unity/deepCars/img/medium/deepCars1.png" alt="DeepCars"></img>
@@ -52,42 +52,48 @@
 			<img src="../../../../shared/projects/unity/deepCars/img/medium/deepCars3.png" alt="DeepCars"></img>
 			<img src="../../../../shared/projects/unity/deepCars/img/medium/deepCars4.png" alt="DeepCars"></img>
 		</div>
-		
+
 		<div class="projectContent">
 			<h2>Beschreibung</h2>
-			<p>Zu Anfang einer jeden Generation werden 20 Autos erzeugt. Jedes dieser Autos hat sein eigenes Neuronales Netzwerk, 
-				welches die "Intelligenz" des Autos ausmacht. Ebenso haben die Autos 5 nach vorne gerichtete Sensoren, welche die 
-				Distanz zu Hindernissen abtasten und als Input für das Neuronale Netz dienen. Wenn ein Auto eine Wand berührt stirbt 
+			<p>
+				Zu Anfang einer jeden Generation werden 20 Autos erzeugt. Jedes dieser Autos hat sein eigenes Neuronales Netzwerk,
+				welches die "Intelligenz" des Autos ausmacht. Ebenso haben die Autos 5 nach vorne gerichtete Sensoren, welche die
+				Distanz zu Hindernissen abtasten und als Input für das Neuronale Netz dienen. Wenn ein Auto eine Wand berührt stirbt
 				es.
 			</p>
-			<p>Sobald alle Autos gestorben sind, wird eine neue Generation mit Hilfe eines Evolutionären Algorithmus' geschaffen. Die 
-				"Gene" der zwei Autos mit der besten Fitness werden gekreuzt und 20 neue "Kinder" werden geboren. Zusätzlich werden 
+			<p>
+				Sobald alle Autos gestorben sind, wird eine neue Generation mit Hilfe eines Evolutionären Algorithmus' geschaffen. Die
+				"Gene" der zwei Autos mit der besten Fitness werden gekreuzt und 20 neue "Kinder" werden geboren. Zusätzlich werden
 				diese Kinder noch leicht mutiert. Schlussendlich versuchen diese Kinder wieder den Parkour zu durchqueren.
 			</p>
-			<p>Die Fitness eines Autos wird durch dessen Fortschritt im Parkour berechnet. Die "Gene" eines Autos sind die Gewichtungen 
-				des Neuronalen Netzwerks. Die Neuronalen Netzwerke sind einfache Feed-Forward Netzwerke und bestehen aus 5 Input-Nodes, 
+			<p>
+				Die Fitness eines Autos wird durch dessen Fortschritt im Parkour berechnet. Die "Gene" eines Autos sind die Gewichtungen
+				des Neuronalen Netzwerks. Die Neuronalen Netzwerke sind einfache Feed-Forward Netzwerke und bestehen aus 5 Input-Nodes,
 				2 Output-Nodes und 2 versteckten Schichten mit 4 and 3 Nodes.
 			</p>
 			<h2>Display</h2>
-			<p>Die Kreuze vor den einzelnen Autos symbolisieren die derzeitigen Lesungen der Sensoren. Die Kamera folgt immer dem Auto 
+			<p>
+				Die Kreuze vor den einzelnen Autos symbolisieren die derzeitigen Lesungen der Sensoren. Die Kamera folgt immer dem Auto
 				mit der derzeit besten Fitness. Das beste Auto wird in Grün dargestellt, das zweitbeste in Beige.
 			</p>
-			<p>Im linken oberen Eck werden die derzeitigen Outputs und die derzeitige Fitness des fokussierten Autos dargestellt. Im 
-				oberen rechten Eck wird das Neuronale Netzwerk des Ziel-Autos visualisiert. Die breite der Verbindungen zwischen den 
+			<p>
+				Im linken oberen Eck werden die derzeitigen Outputs und die derzeitige Fitness des fokussierten Autos dargestellt. Im
+				oberen rechten Eck wird das Neuronale Netzwerk des Ziel-Autos visualisiert. Die breite der Verbindungen zwischen den
 				Nodes symbolisiert die stärke des Gewichts, die Farbe sein Vorzeichen (Grün: positiv, Rot: negativ).
 			</p>
 			<p>Im linken unteren Eck wird die Zahl der derzeitigen Generation angezeigt.</p>
 		</div>
 		<h2>Entwicklungszeit:</h2>
 		<p>Ende 2016</p>
-		
+
 		<div class="navHistory bottom">> <a href="../../../projects.html">Zurück zu Projekte</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>Eine Webseite von Samuel Arzt</p>
-		<div>Like my work? Feel free to:
+		<div>
+			Like my work? Feel free to:
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 				<input type="hidden" name="cmd" value="_donations">
 				<input type="hidden" name="business" value="arzt.samuel@live.de">
@@ -109,25 +115,23 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="../../../../shared/external/jquery.min.js"></script>
 	<script src="../../../../shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="../../../../shared/projects/owlProjectSlider.js"></script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 	<script>
-		function trackReferral(refName){
+		function trackReferral(refName) {
 			ga('send', 'event', 'Referral', 'clicked', refName);
 		}
 	</script>

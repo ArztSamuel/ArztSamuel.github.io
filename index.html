@@ -32,28 +32,31 @@
 		<div class="navbar">
 			<a href="index.html" class="button pressed inactive">Home</a><a href="en/projects.html" class="button">Projects</a><a href="en/blog.html" class="button">Blog</a><a href="en/about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="index.html" class="button pressed inactive">Home</a><a href="en/projects.html" class="button">Projects</a><a href="en/blog.html" class="button">Blog</a><a href="en/about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
 		<a class="lang" href="de/index.html">Zur deutschen Version</a>
 		<h1>Samuel Arzt</h1>
-		<p class="bottomSmallDist">Coding, AI, Space, Gamedev. I kind of like those things.<br>
+		<p class="bottomSmallDist">
+			Coding, AI, Space, Gamedev. I kind of like those things.<br>
 			Welcome to my website, I am a software-dev with a strong background in C#, Java and C++.
-			Currently I am studying 
-			<a href="http://www.fh-salzburg.ac.at/disziplinen/medien-design-kunst/bachelor-multimediatechnology/beschreibung/beschreibung/" target="_blank">MMT [MultiMediaTechnology]</a> 
+			Currently I am studying
+			<a href="http://www.fh-salzburg.ac.at/disziplinen/medien-design-kunst/bachelor-multimediatechnology/beschreibung/beschreibung/" target="_blank">MMT [MultiMediaTechnology]</a>
 			at the <a href="http://www.fh-salzburg.ac.at/" target="_blank">University of Applied Sciences Salzburg</a>.
-		<h2>Check out my projects!</h2>
-		<p>Beside the professional projects I worked on, I was also able to live out my coding passion in a lot of personal projects in my 
-			free time. You can find most of these right <a href="en/projects.html">here</a>. 
-			If you like my projects, or simply want to say hi, feel free to contact me!</p>
+			<h2>Check out my projects!</h2>
+		<p>
+			Beside the professional projects I worked on, I was also able to live out my coding passion in a lot of personal projects in my
+			free time. You can find most of these right <a href="en/projects.html">here</a>.
+			If you like my projects, or simply want to say hi, feel free to contact me!
+		</p>
 		<p class="bottomDist">Here's a quick taste:</p>
-		
+
 		<!-- IMAGE SLIDER -->
 		<div class="owl-carousel owl-theme">
 			<a href="en/projects/unity/deepCars/deepCars.html"><img src="shared/projects/unity/deepCars/img/medium/deepCars1.png" alt="Deep Learning Cars"></img></a>
@@ -64,7 +67,7 @@
 			<a href="en/projects/java/math/math.html"><img src="shared/projects/java/math/img/medium/math1.png" alt="Drawing Math Functions"></img></a>
 		</div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>A website made by Samuel Arzt</p>
@@ -76,21 +79,20 @@
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<!-- IMAGE SLIDER -->
 	<script src="shared/external/jquery.min.js"></script>
 	<script src="shared/external/owlcarousel/owl.carousel.js"></script>
 	<script src="shared/projects/owlImageSlider.js"></script>
-	
-	<!-- ANALYTICS -->
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
+	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>

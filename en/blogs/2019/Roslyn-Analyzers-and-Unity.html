@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<!-- META -->
     <meta charset="UTF-8">
@@ -25,46 +25,48 @@
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
 		</div>
-    </nav>
+	</nav>
 	<div id="fixedNav">
 		<div class="navbar">
 			<a href="../../../index.html" class="button">Home</a><a href="../../projects.html" class="button">Projects</a><a href="../../blog.html" class="button pressed">Blog</a><a href="../../about.html" class="button">About</a>
 		</div>
 	</div>
-	
+
 	<!-- CONTENT -->
 	<div id="content">
-	
-		<h1>Code your Coding Guidelines<br>-<br>
-		Roslyn Analyzers and how to use them with Unity</h1>
+
+		<h1>
+			Code your Coding Guidelines<br>-<br>
+			Roslyn Analyzers and how to use them with Unity
+		</h1>
 		<p class="date">26.02.2019 - Samuel Arzt</p>
 		<p>
 			This post serves as a basic introduction to Roslyn Analyzers for analyzing C# code and how to integrate them with the <a href="https://unity.com" target="_blank">Unity</a> game engine. In particular, one Analyzer for enforcing coding guidelines, as well as another Analyzer for spotting a common Unity pitfall, are explained.
 		</p>
-		
-		<div class="blogContent">	
+
+		<div class="blogContent">
 			<h2>Roslyn Analyzers</h2>
 			<p>
-				Analyzers are a great way to enforce certain standards in your codebase, or to easily and reliably spot common mistakes and pitfalls. They allow you to write extensions for Visual Studio, which analyze code at the moment you are writing it and report 
+				Analyzers are a great way to enforce certain standards in your codebase, or to easily and reliably spot common mistakes and pitfalls. They allow you to write extensions for Visual Studio, which analyze code at the moment you are writing it and report
 				<img align="right" src="../../../shared/blog/2019/img/PascalCasing_Suggestion.png" alt="Demonstration of an Analyzer + Code Fix for PascalCasing type names."></img>
 				Visual Studio errors, warnings or messages based on the rules you define. Furthermore you can create custom Code-Fixes, which provide an easy way to automatically resolve spotted errors in an instant.
 			<p>
 			<p>
 				The best part of it all is that the entire code for analyzing can be written in C#, since Analyzers build on the .NET Compiler Platform <a href="https://github.com/dotnet/roslyn" target="_blank">Roslyn</a>.
 			</p>
-			
+
 			<h2>Setup for Analyzer Development</h2>
 			<p>
 				Visual Studio already provides a very helpful template-project in order to get started with Analyzer development, as well as some other helpful tools for visualizing how the Roslyn Compiler-API works. However, these tools have to be explicitly installed. To do so, open the Visual Studio Installer (assuming <a href="https://visualstudio.microsoft.com/vs/" target="_blank">Visual Studio 2017</a> is already installed) and modify your installation to add the <i>.NET Compiler Platform SDK</i> under <i>Visual Studio Extension Development</i>:
 			</p>
 			<img src="../../../shared/blog/2019/img/Compiler_SDK.gif" style="width: 75%;" alt="Animation of how to install the Compiler SDK package in Visual Studio 2017."></img>
-			
+
 			<h2>Template Project</h2>
 			<p>
 				The Analyzer template provided by Visual Studio is a great starting point for getting to know Roslyn Analyzers. In order to create a new project from the template, click <i>File</i> -> <i>New</i> -> <i>Project...</i> and choose the <i>Analyzer with Code Fix</i> template from the <i>Visual C#</i> drop down:
 			</p>
 			<img src="../../../shared/blog/2019/img/Template_Analyzer.gif" style="width: 70%;" alt="Animation of how to create a new Project from the Analyzer template."></img>
-			
+
 			<p>
 				This will create a solution with three sub-projects: The Analyzer itself, a project for unit-tests and a Vsix project, which is used to run / debug the Anaylzer.<br>
 				The Analyzer template is an implementation of an Analyzer and Code Fix which enforce all typenames to solely consist of all upper-case letters. While the practical value of such an Analyzer may be debatable, its code is a simple demonstration and can be used as a good starting point for your own Analyzer.
@@ -82,12 +84,12 @@
 			<p>
 				The Analyzer file first defines a lot of constants, such as the title, message and description of the Analyzer which will be displayed in Visual Studio. Here you can also define the severity, i.e. Error, Warning, Info or Hidden, of the Analyzer. However, the most interesting code-parts are the <i>Initialize</i> and <i>AnalyzeSymbol</i> methods below.
 			</p>
-			
+
 			<pre class="prettyprint lang-cs linenums:23">[DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class TemplateAnalyzer : DiagnosticAnalyzer
 {
 
-  <span class="nocode">...</span>
+			<span class="nocode">...</span>
   
   public override void <span class="nocode">Initialize</span>(AnalysisContext context)
   {
@@ -108,7 +110,7 @@ public class TemplateAnalyzer : DiagnosticAnalyzer
     }
   }
 }</pre>
-			
+
 			<p>
 				The <i>Initialize</i> method is overridden from the <i>DiagnosticAnalyzer</i> base class and can be used to register a callback method to be called whenever the compiler encounters specific symbols or syntax nodes (more on that later). In this case, on line 31, the method <i>AnalyzeSymbol</i> is registered to be called whenever the compiler encounters a symbol of the <i>NamedType</i> kind, e.g. a class or struct identifier.
 			</p>
@@ -122,9 +124,9 @@ public class TemplateAnalyzer : DiagnosticAnalyzer
 			</p>
 			<p>
 				In simplified terms, the syntactical level purely deals with the syntax tree of the code you are analyzing. Callbacks registered to the syntactical level are executed when parsing of the code document was completed. At this point we can identify declarations, invocations and so on, but we are not able to track down references to these Syntax Nodes or other semantic information about them, like the base class of a type .<br>
-				The semantic model on the other hand is able to answer these questions. However, as you might have guessed, it is typically more expensive to query the semantic model, than a syntax tree. 
+				The semantic model on the other hand is able to answer these questions. However, as you might have guessed, it is typically more expensive to query the semantic model, than a syntax tree.
 			</p>
-			<p>	
+			<p>
 				In order to be able to better understand the syntactical level, the .NET Compiler Platform SDK provides a very helpful tool,
 				<img align="right" src="../../../shared/blog/2019/img/SyntaxVisualizer_WindowLocation.png" alt="Screenshot of how to open the Syntax Visualizer Window in Visual Studio."></img>
 				called the <i>Syntax Visualizer</i>. The Syntax Visualizer window can be used to visualize the syntax tree of the code document you are currently writing.
@@ -139,7 +141,7 @@ public class TemplateAnalyzer : DiagnosticAnalyzer
 			<p>
 				First of all, the Code Fix Provider of our template defines which Analyzers it provides a fix for, by overriding the <i>FixableDiagnosticIds</i> property of the <i>CodeFixProvider</i> base class and simply returning the DiagnosticId of the corresponding Analyzer:
 			</p>
-			
+
 			<pre class="prettyprint lang-cs linenums:18">[ExportCodeFixProvider(LanguageNames.<span class="nocode">CSharp</span>), Shared]
 public class TemplateCodeFixProvider : CodeFixProvider
 {
@@ -152,7 +154,7 @@ public class TemplateCodeFixProvider : CodeFixProvider
   
   ...
 }</pre>
-			
+
 			<p>
 				Again, the more interesting code-parts are situated in the methods further down below. The method <i>RegisterCodeFixesAsync</i> will be called whenever a code fix for a DiagnosticId of this Code Fix Provider is requested and must be overriden to provide our custom Code Fix:
 			</p>
@@ -178,8 +180,8 @@ public class TemplateCodeFixProvider : CodeFixProvider
       diagnostic);
   }
 
-...</pre>			
-	
+...</pre>
+
 			<p>
 				Since we are at the syntactical level here and only have the location of where the diagnostic was reported, a bit more work has to be done than in the Analyzer, in order to find the correct node / symbol. To do so, we navigate from the syntax tree root to the <i>TypeDeclarationSyntax</i> node located at the start of the diagnostic location (lines 35 to 42). Next, the method <i>MakeUppercaseAsync</i> is registered as a code fix action:
 			</p>
@@ -205,7 +207,7 @@ public class TemplateCodeFixProvider : CodeFixProvider
   }
 
 ...</pre>
-			
+
 			<p>
 				This method first creates the all upper-case name string and then gets the type symbol from the semantic model, in order to be able to rename all its references in the entire solution (lines 55 to 61). Renaming a symbol can easily be done using the <i>Renamer</i> class provided by the <i>CodeAnalysis</i> namespace (lines 63 to 66). Finally the new solution with the renamed type is returned.
 			</p>
@@ -216,7 +218,7 @@ public class TemplateCodeFixProvider : CodeFixProvider
 			<p>
 				Now that we understand how simple Analyzers and Code Fix Providers work, let's have a look at some examples that might actually be useful in practical applications.
 			</p>
-			
+
 			<h3>Enforcing Coding Guidelines</h3>
 			<p>
 				A very good way of practicing to write Analyzers is to automatically enforce your coding guidelines. Nonetheless you should keep in mind that writing Analyzers just to enforce simple coding guidelines might be a bit of an overkill. You could for example also use Visual Studio's built-in coding guidelines options. However, these can't easily be shared with your team. An <a href="https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2017" target="_blank">editorconfig</a> file can be shared and version controlled, in order to ensure your whole team follows the same guidelines, but can be a real pain to configure or sometimes fail to break the build when you want them to. If you simply want to practice, or for more complex guidelines, Analyzers are the way to go though.
@@ -243,7 +245,7 @@ public class CommentAnalyzer : DiagnosticAnalyzer
     {
       foreach (SyntaxTrivia node in commentNodes)
       {
-        <span class="nocode">CheckWhiteSpaceRuleViolation</span>(context, node);
+			<span class="nocode">CheckWhiteSpaceRuleViolation</span>(context, node);
       }
     }
   }
@@ -280,16 +282,16 @@ public class CommentAnalyzer : DiagnosticAnalyzer
 ...</pre>
 
 			<p>
-				
-				The rest of the analysis consists of basic string manipulation. Inside the method <i>CheckWhiteSpaceRuleViolation</i> 
+
+				The rest of the analysis consists of basic string manipulation. Inside the method <i>CheckWhiteSpaceRuleViolation</i>
 				<img align="right" src="../../../shared/blog/2019/img/CommentAnalyzer_Whitespace.png" alt="Demonstration of the CommentAnalyzer in action on multiple single line comments." style="width: 30%;"></img>
 				we check the string of the comment to start with a whitespace, with some special cases in mind, such as allowing for more than two slashes (see method <i>GetDesiredWhiteSpacePosition</i> starting at line 67) and also allowing for tabs instead of a whitespace (line 63).
 			</p>
-			
+
 			<p>
 				Now let's also have a quick look at how a Code Fix Provider for this Analyzer could be implemented. First we register our Code Fix Action by finding the correct <i>SyntaxTrivia</i> corresponding to our diagnostic again:
 			</p>
-			
+
 <pre class="prettyprint lang-cs linenums:29">[ExportCodeFixProvider(LanguageNames.<span class="nocode">CSharp</span>), Shared]
 public class CommentCodeFix : CodeFixProvider
 {
@@ -313,7 +315,7 @@ public class CommentCodeFix : CodeFixProvider
   
   ...
 }</pre>
-			
+
 			<p>
 				After that, fixing the actual comment is quite simple:
 			</p>
@@ -330,16 +332,16 @@ public class CommentCodeFix : CodeFixProvider
     SyntaxNode newRoot = root.<span class="nocode">ReplaceTrivia</span>(comment, newComment);
     return document.<span class="nocode">WithSyntaxRoot</span>(newRoot);
   }
-...</pre>	
+...</pre>
 			<p>
 				We simply insert a whitespace character into the comment at the position defined by the method we already used in the Analyzer and create a new <i>SyntaxTrivia</i> node with the new comment string using the <i>SyntaxFactory</i> (lines 51-55). Finally we return a new code document with a tree where we replaced the comment trivia (lines 57-59).
 			</p>
-			
+
 			<h3>Analyzer for Unity Coroutines</h3>
 			<p>
 				Let's have a look at another example of a more complex Analyzer. A common Unity pitfall, especially for developers who just started looking into Coroutines, is yield returning new Wait Instructions inside a loop instead of caching the object instance outside the loop to avoid GC allocations every loop. This might not impact your FPS immediately but can cause nasty GC spikes. Anyhow, it is very simple to fix. So let's try to implement an Analyzer for automatically detecting this scenario:
 			</p>
-			
+
 			<pre class="prettyprint lang-cs linenums:13">[DiagnosticAnalyzer(LanguageNames.<span class="nocode">CSharp</span>)]
 public class CoroutineAnalyzer : DiagnosticAnalyzer
 {
@@ -388,11 +390,11 @@ public class CoroutineAnalyzer : DiagnosticAnalyzer
 				This time we register an Action for whenever a Node of kind <i>YieldReturnStatement</i> is parsed (line 20). Inside the action, we check three conditions which have to apply in order for our diagnostic to be reported: the yield statement has to be an <i>ObjectCreationExpression</i>, i.e. a 'yield return new' (lines 25-30), the statement has to be inside any kind of loop (lines 32-35), and the type created by the expression has to be some sort of Wait instruction.<br>
 				Detecting the <i>ObjectCreationExpression</i> is rather straight-forward. We can detect whether a node is inside a loop by checking the kind of its ancestor nodes in the Syntax Tree, since nodes inside a loop will become descendant nodes of the loop node (the Syntax Visualizer is very helpful here).
 			</p>
-			
+
 			<p>
 				Finally, let's look at how we can detect whether the type created by the yield expression is actually a Wait instruction:
 			</p>
-			
+
 			<pre class="prettyprint lang-cs linenums:60">...
 
   private static bool <span class="nocode">IsWaitInstruction</span>(INamedTypeSymbol symbol)
@@ -449,12 +451,12 @@ public class CoroutineAnalyzer : DiagnosticAnalyzer
 			<p>
 				In order to install a NuGet package or set up a local NuGet source folder, right click your solution -> <i>Manage NuGet Packages for Solution...</i> to open the NuGet Package Manager UI.
 			</p>
-			
+
 			<img src="../../../shared/blog/2019/img/NuGetPackage_LocalSource_Installation.gif" style="width: 70%;" alt="Animation of how to create a new Project from the Analyzer template."></img>
-			
+
 			<h2>Using Analyzers with Unity</h2>
 			<p>
-				Since Unity uses a custom way to create Visual Studio solution- and project-files at runtime, using Analyzers in Unity projects requires a bit of extra work. If you install the Analyzer via NuGet Unity will delete the reference to the installed Analyzer from the project files every time it regenerates them, which happens quite often. 
+				Since Unity uses a custom way to create Visual Studio solution- and project-files at runtime, using Analyzers in Unity projects requires a bit of extra work. If you install the Analyzer via NuGet Unity will delete the reference to the installed Analyzer from the project files every time it regenerates them, which happens quite often.
 			</p>
 			<p>
 				The most simple way to circumvent this is to either install the Analyzer via Vsix or to develop your C# scripts in a separate Visual Studio project as a Class Library and to only add the compiled library to the Unity Project. However, both of these methods have major drawbacks.
@@ -496,14 +498,15 @@ public class CoroutineAnalyzer : DiagnosticAnalyzer
 				...and while you are there, you can follow me too: <a href="https://twitter.com/SamuelArzt" target="_blank">@SamuelArzt</a> ...if you want to...
 			</p>
 		</div>
-		
+
 		<div class="navHistory bottom">&gt; <a href="../../blog.html">Back to Blog</a></div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<div id="footer">
 		<p>A website made by Samuel Arzt</p>
-		<div>Like my work? Feel free to:
+		<div>
+			Like my work? Feel free to:
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 				<input type="hidden" name="cmd" value="_donations">
 				<input type="hidden" name="business" value="arzt.samuel@live.de">
@@ -525,19 +528,17 @@ public class CoroutineAnalyzer : DiagnosticAnalyzer
 			<a href="https://github.com/ArztSamuel" target="_blank"><img src="../../../shared/img/github-icon.png" class="github-icon"></img>ArztSamuel</a>
 		</p>
 	</div>
-	
+
 	<script>PR.prettyPrint();</script>
-	
+
 	<!-- ANALYTICS -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74405626-1"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  ga('create', 'UA-74405626-1', 'auto');
-	  ga('send', 'pageview');
-
+		gtag('config', 'UA-74405626-1', { 'anonymize_ip': true });
 	</script>
 </body>
 </html>
